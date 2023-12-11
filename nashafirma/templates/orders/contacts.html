@@ -1,11 +1,8 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
-<section>
-  <div>
-    <h1>{{ title }}</h1>
-    <a href="tel:0999999999">тел: 099-999-99-99</a>
-    <a href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
-  </div>
-</section>
+<h1 class="title-page">{{ title }}</h1>
+<a class="phone" href="tel:0999999999">тел: 099-999-99-99</a>
+<a class="email" href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
 
 {% endblock %}

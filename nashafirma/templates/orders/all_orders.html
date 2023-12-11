@@ -1,15 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<br>
-<div class="content">
-    <div>
-        <h1>{{ title }}</h1>
-    </div>
-
+<h1 class="title-page">{{ title }}</h1>
     {% if not request.user.username == 'admin' %}
-    <button role="button">
+    <button type="submit" role="button">
         <a style="color: #ffffff;" href="{% url 'add_order' %}">+ Add new order</a>
     </button>
     {% endif %}
@@ -91,5 +85,4 @@
         </ul>
     </nav>
     {% endif %}
-</div>
 {% endblock %}

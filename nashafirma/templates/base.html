@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% load static %}
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
-  <link href="{% static 'order/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
   <title>{{ title }}</title>
 </head>
@@ -15,56 +15,65 @@
 <body>
   <main class="container">
     <header>
-      <h1><a href="{% url 'home' %}">Nasha-Firma</a></h1>
-      <div>
+      <section class="title">
+        <h1><a class="title-logo" href="{% url 'home' %}">Nasha-Firma</a></h1>
         {% if request.user.is_authenticated %}
         {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
-        <div>
-          <form onsubmit="this.sfSbm.disabled=true" method="get" action="{% url 'search_results_product' %}">
+        <div class="title-search">
+          <form id="search" method="get" action="{% url 'search_results_product' %}">
             <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
           </form>
         </div>
         {% else %}
-        <div>
-          <form onsubmit="this.sfSbm.disabled=true" method="get" action="{% url 'search_results_order' %}">
+        <div class="title-search">
+          <form id="search" method="get" action="{% url 'search_results_order' %}">
             <input type="text" name="search_order" placeholder="Search order..." autocomplete="off">
           </form>
         </div>
         {% endif %}
-        <dir>
-          <a href="{% url 'logout' %}">Logout</a>
+      </section>
+      <div class="auth">
+        <a class="auth-back" href="javascript:history.back()">&lt;back</a>
+        <div class="auth-right">
           <span>user: {{ user.username }} </span>
-        </dir>
-        <div>
-          <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'all_products' %}">Products</a></li>
-            <li><a href="{% url 'all_orders' %}">Orders</a></li>
-            <li><a href="{% url 'profile details' request.user.pk %}"><span>Profile</span></a>
-            <li><a href="{% url 'contacts' %}">Contacts</a></li>
-          </ul>
+          <a href="{% url 'logout' %}">Logout</a>
         </div>
+
+      </div>
+      <section>
+        <ul class="nav-menu">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'all_products' %}">Products</a></li>
+          <li><a href="{% url 'all_orders' %}">Orders</a></li>
+          <li><a href="{% url 'profile details' request.user.pk %}"><span>Profile</span></a>
+          <li><a href="{% url 'contacts' %}">Contacts</a></li>
+        </ul>
+      </section>
+      <section class="title">
         {% else %}
-        <div id="nav-search">
-          <form onsubmit="this.sfSbm.disabled=true" method="get" action="">
-            <input type="text" name="" placeholder="Search ..." autocomplete="off">
+        <div class="title-search">
+          <form id="search" method="get" action="{% url 'search_results_order' %}">
+            <input type="text" name="search_order" placeholder="Search order..." autocomplete="off">
           </form>
         </div>
-        <div>
-          <a href="{% url 'register' %}"> Registrations </a>
-          <a href="{% url 'login' %}"> Login </a>
+      </section>
+      <div class="auth">
+        <a class="auth-back" href="javascript:history.back()">&lt;back</a>
+        <div class="auth-right">
+          <a class="auth-right" href="{% url 'login' %}"> Login </a>
+          <a class="auth-right" href="{% url 'register' %}"> Registrations </a>
         </div>
-        <div>
-          <ul>
+      </div>
+      <section>
+        <ul  class="nav-menu">
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'all_products' %}">Products</a></li>
           <li><a href="{% url 'contacts' %}">Contacts</a></li>
         </ul>
-        </div>
+      </section>
       {% endif %}
-    <a href="javascript:history.back()">&lt;-- back</a>
     </header>
 
     {% block content %}
@@ -72,14 +81,14 @@
 
     <footer>
       <section>
-        <ul>
+        <ul class="footer">
           <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
           <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
           <li><a href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
           <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
         </ul>
-      </section>
-      <p>©2023 Nasha-firma | All Rights Reserved</p>
+        <p class="end">©2023 Nasha-firma | All Rights Reserved</p>
+       </section>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
