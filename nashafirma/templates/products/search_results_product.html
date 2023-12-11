@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<div class="content">
+    <h1>{{ title }}</h1>
+    {% if request.user.username == 'admin' %}
+    <button class="button-add-new-product">
+        <a style="color: #ffffff;" href="{% url 'add_product' %}">+ Add new product</a>
+    </button>
+    {% endif %}
+    {% if products %}
+    <table>
+        <thead>
+            <tr class="title-table">
+                <th>№</th>
+                <th>product</th>
+                <th>price</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <td><a href="{% url 'edit_product' product.pk %}">{{ product.product }}</a>
+                </td>
+                <td><a href="{% url 'edit_product' product.pk %}">{{ product.price }}</a>
+                </td>
+                <td>
+                    <a href="{% url 'edit_product' product.pk %}">
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_product' product.pk %}">
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    {% if products %}
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>product</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ product.product }}</td>
+                <td>{{ product.price }}</td>
+            </tr>z
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="content">
+    <div class="form-container">
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for f in form %}
+            <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <div class="button-container">
+                <button type="submit" class="button">Login</button>
+            </div>
+            <br>
+            <div class="text-center">
+                <a href="{% url 'password_reset' %}">
+                    <i>Forgot Password?</i>
+                </a>
+            </div>
+            <br>
+            <div class="text-center">
+                <a href="{% url 'register' %}" class="text-center">
+                    <i>Don't have account yet?</i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

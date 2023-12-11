@@ -1,0 +1,351 @@
+/* Green Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="dark"],
+:root:not([data-theme="dark"]) {
+    --primary: #43a047;
+    --primary-hover: #388e3c;
+    --primary-focus: rgba(67, 160, 71, 0.125);
+    --primary-inverse: #FFF;
+}
+
+a {
+    color: #ffffff;
+}
+
+/* header styles */
+.authorization {
+    float: right;
+    color: #15d355;
+    font-size: 23px;
+}
+
+.Back {
+    color: #8eef7b;
+    font-size: 1.3em;
+}
+.container {
+    display: inline-block;
+    margin: auto;
+}
+
+.lable-firma {
+    font-family: 'Courier New', Courier, monospace;
+    color: #50c139;
+    font-size: 44px;
+}
+
+/* Center-align the menu items in a single row */
+.main-menu ul.menu {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-menu ul.menu li {
+    margin: 0 15px;
+}
+
+.main-menu ul.menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    opacity: 0.75;
+}
+
+.main-menu ul.menu li a:hover {
+    opacity: 1;
+}
+
+.menu li,
+.menu li a {
+    list-style: none;
+}
+
+.nav-search {
+    border-radius: 25px;
+    right: 22px;
+    line-height: 24px;
+}
+
+.nav-search .form-search {
+    margin-bottom: 0;
+}
+
+span.input-icon {
+    display: flex;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.icon-edit {
+    color: #ff00ff
+}
+
+.icon-delete {
+    color: #ff4343f
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nav-search .nav-search-input {
+    border: 1px solid #25d465;
+    width: 220px;
+    height: 45px !important;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 12px !important;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #666 !important;
+    z-index: 11;
+    -webkit-transition: width ease .15s;
+    -o-transition: width ease .15s;
+    transition: width ease .15s;
+    margin-left: auto;
+}
+/* header styles */
+
+
+/* body styles */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    /*обнуление отступов*/
+    padding: 0;
+    /*обнуление полей*/
+    box-sizing: border-box;
+    /*метод расчета размеров бокса*/
+    font-family: 'Poppins', sans-serif;
+    /*название шрифта*/
+}
+
+body {
+    display: flex;
+    /*флексбокс сетка*/
+    flex-direction: column;
+    /*направление главной оси*/
+    justify-content: flex-end;
+    /*элементы в конце контейнера*/
+    min-height: 100vh;
+}
+
+
+.container {
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
+
+.content {
+    padding: 30px;
+    height: auto;
+    min-height: 550px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+.button-menu {
+    color: #ffffff;
+    font-size: 34px;
+}
+
+
+.list-pages {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.list-pages ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-pages ul li {
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+
+.list-pages a {
+    color: #efe5e5;
+    font-size: 24px;
+}
+
+.list-pages .page-num,
+.page-num-selected {
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    padding: 16px;
+    border: 1px solid #d0d0d0;
+    border-radius: 30px;
+    text-align: center;
+    /* Center horizontally */
+    display: flex;
+    /* Center vertically */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+}
+
+.list-pages .page-num:hover {
+    box-shadow: 3px 3px 1px #d0d0d0;
+}
+
+.list-pages .page-num-selected {
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list-pages .page-num-selected:hover {
+    box-shadow: none;
+}
+
+.status-done{
+    color: #00ff00;
+}
+
+.status-not-done {
+    color: #ff0000;
+}
+
+.center {
+    text-align: center;
+}
+
+
+.contact-page h5 {
+    color: #388e3c;
+}
+
+.msg {
+    text-align: center;
+    color: #bc7059;
+    font-style: italic;
+}
+
+.form-container {
+    border: solid 0.5px;
+    border-color: #ffffff;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.form-container > lable {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #458220;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+th,
+td {
+    text-align: center;
+    color: #ffffff;
+}
+
+.title-table th {
+    color: #82a3b5;
+    font-size: 25px;
+}
+
+table {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.user-name {
+    float: right;
+    color: #c8d6dc;
+    font-size: 23px;
+}
+
+.profile-left {
+    display: inline;
+
+.profile-right {
+    float: right;
+
+.title {
+    text-align: center;
+    color: #a1c5d4;
+}
+
+.input-icon>input {
+    padding-left: 24px;
+    padding-right: 6px;
+}
+
+/* body styles */
+
+/* footer styles */
+footer {
+    position: relative;
+    /*относительное позиционирование*/
+    width: 100%;
+    /*на всю ширину*/
+    padding: 20px 50px;
+    /*поля для контента*/
+    background: #000000;
+    /*цвет футера*/
+    display: flex;
+    justify-content: center;
+    /*в центре по горизонтали*/
+    align-items: center;
+    /*в центре по вертикали*/
+    flex-direction: column;
+    margin-top: 100px;
+    /*отступ сверху*/
+}
+
+footer .wave {
+    position: absolute;
+    /*абсолютное позиционирование*/
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    /*background: url(wave.png);*/
+    /*картинка волны*/
+    background-size: 1000px 100px;
+    /*ширина и высота волны*/
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+/* footer styles */

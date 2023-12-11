@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content">
+    <div class="container">
+        <div class="profile-left">
+            <h1>{{ title }}</h1>
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture.url }}" alt="profile_picture">
+            {% else %}
+                <img src="{% static 'profile_pictures/profile_picture_default.jpg' %}" alt="profile_picture">
+            {% endif %}
+            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+            <p><strong>Username</strong>: {{ user.username }}</p>
+            <p><strong>Email</strong>: {{ user.email }}</p>
+            <p><strong>Phone number</strong>: {{ user.telephone_number }}</p>
+        </div>
+        <div class="profile-right">
+            <ul>
+                {% if is_owner %}
+                <li><a href="{% url 'edit profile' pk=object.pk %}">Edit profile</a></li>
+                <li><a href="{% url 'delete profile' pk=object.pk %}">Delete profile</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
