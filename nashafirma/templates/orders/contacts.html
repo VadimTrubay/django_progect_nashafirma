@@ -1,15 +1,11 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-<div class="content">
-    <br>
-    <div>
-        <h1>{{ title }}</h1>
-        <br>
-        <h5 class="center"><a href="tel:0999999999">тел: 099-999-99-99</a></h5>
-        <h5 class="center"><a href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a></h5>
-    </div>
-</div>
+<section>
+  <div>
+    <h1>{{ title }}</h1>
+    <a href="tel:0999999999">тел: 099-999-99-99</a>
+    <a href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
+  </div>
+</section>
 
 {% endblock %}
