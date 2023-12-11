@@ -1,21 +1,24 @@
-
+body a:hover {
+    color: #000;
+    text-decoration: none;
+}
 
 /* footer styles */
 footer {
-    position: relative;
+    /* position: relative; */
     /*относительное позиционирование*/
-    width: 100%;
+    /* width: 100%; */
     /*на всю ширину*/
-    padding: 20px 50px;
+    /* padding: 20px 50px; */
     /*поля для контента*/
     /*background: #000000;*/
     /*цвет футера*/
-    display: flex;
+    /* display: flex; */
     /*justify-content: center;*/
     /*в центре по горизонтали*/
-    align-items: center;
+    /* align-items: center; */
     /*в центре по вертикали*/
-    flex-direction: column;
-    margin-top: 100px;
+    /* flex-direction: column;
+    margin-top: 100px; */
     /*отступ сверху*/
 }
