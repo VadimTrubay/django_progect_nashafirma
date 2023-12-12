@@ -15,118 +15,102 @@
 
 }
 
-.button-center {
-    align-items: center;
-    margin-left: 400px;
-    margin-right: 400px;
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0d1784;
+}
+
+a:focus {
+    color: #0d1784;
 }
 
 .container {
     background-color: #e7e7e7;
-    padding-top: 30px;
+    padding: 30px;
 }
 
 .header {
     background-color: #e7e7e7;
 }
 
-a {
-    text-decoration: none;
+.title-page {
+    text-align: center;
 }
 
-.title,
-.auth {
+.page-content {
+    text-align: center;
+}
+
+
+.header-logo-search {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 5px;
-}
-
-.section-nav-menu {
     margin: 0;
 }
 
-.nav-menu {
+.header-auth {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 30px 160px 0 160px;
-    font-weight: 700;
+    margin: 0;
 }
 
-.footer {
+.header-auth-login a {
+    font-size: 14px;
+    color: #000000;
+}
+
+.header-auth-back a {
+    font-size: 14px;
+    color: #000000;
+}
+
+.header-auth-user {
+    font-size: 14px;
+    color: #000000;
+}
+
+.header-nav-menu-ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 450px 0 450px;
-    font-weight: 700;
-}
-
-.nav-menu li,
-.footer li {
-    list-style-type: none;
-}
-
-.nav-menu li a {
-    font-weight: 900;
-    color: #479b4f;
-}
-
-.nav-menu li a:hover {
-    color: #83430e;
-}
-
-.title-logo {
-    font-family: var(--brand-font);
+    justify-content: center;
     margin: 30px;
+}
+
+.header-nav-menu-ul-li {
+    margin: 5px;
+    font-weight: 800;
 }
 
 .content {
-    height: 700px;
-    overflow-y: auto;
-    margin: 30px;
+    margin: 10px;
 }
 
-.title-search {
-    margin-right: 30px;
-}
-
-.auth-right {
-    margin-right: 30px;
-}
-
-.auth-back {
-    font-family: var(--brand-font);
-    margin-left: 30px;
-    color: #7e1212;
-    font-weight: 600;
-}
-
-.phone,
-.email {
-    margin: 30px;
-    display: block;
-    text-align: center;
-}
-
-.title-page {
+.footer-ul {
+    display: flex;
+    justify-content: center;
     margin: 0;
-    font-size: 20px;
-    text-align: center;
-    font-family: var(--brand-font);
 }
 
-.end {
-    text-align: center;
-    font-size: 12px;
-    margin: 20 0 0 0;
+.footer-ul-li {
+    margin: 10px;
 }
 
+ul li {
+    list-style-type: none;
+}
+
+.copyright {
+    text-align: center;
+    margin: 0;
+    font-size: 10px;
+}
 #search input[type="text"] {
     font-family: var(--brand-font);
     background: #f7f4f4;
     border: 0 none;
-    font: bold 15px ;
+    font: bold 15px;
     color: #777;
     width: 250px;
     height: 40px;
