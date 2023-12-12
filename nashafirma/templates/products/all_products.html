@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="title-page">{{ title }}</h1>
-
+<h2 class="title-page">{{ title }}</h2>
     {% if request.user.username == 'admin' %}
     <a role="button" href="{% url 'add_product' %}">+ Add new product</a>
     <table>
@@ -95,6 +94,5 @@
         </ul>
     </nav>
     {% endif %}
-</div>
-</div>
+
 {% endblock %}
