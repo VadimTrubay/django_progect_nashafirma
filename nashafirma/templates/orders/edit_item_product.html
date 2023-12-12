@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1  class="title-page">{{title}} "{{ object.product }}" for order "{{ object }}"</h1>
+<h2 class="title-page">{{title}} "{{ object.product }}" for order "{{ object }}"</h1>
 <form method="post" action="">
     {% csrf_token %}
     <label>{{form.as_p}}</label>
