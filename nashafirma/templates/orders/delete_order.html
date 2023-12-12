@@ -3,7 +3,7 @@
 
 <form method="post" action="">
     {% csrf_token %}
-    <p>are you sure you want to delete the "{{ object }}" for user "{{ order.user }}?</p>
+    <p class="title-page">are you sure you want to delete the "{{ object }}" for user "{{ order.user }}?</p>
     <div>
         <button type="reset" class="button" onclick="history.back()">No</button>
         <button type="submit" class="button">Yes</button>
