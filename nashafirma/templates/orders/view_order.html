@@ -3,9 +3,7 @@
 
 <h2 class="title-page">{{title}} "{{order}}" for user "{{ order.user }}"</h2>
 {% if not request.user.username == 'admin' %}
-<button>
-    <a style="color: #ffffff;" href="{% url 'add_item' order.pk %}">+ Add product to order</a>
-</button>
+<a role="button" href="{% url 'add_order' %}">+ Add new order</a>
 {% endif %}
 {% if order %}
 <table>
