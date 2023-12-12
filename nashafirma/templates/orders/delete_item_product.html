@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2 class="title-page">{{ title }}</h2>
 <form method="post" action="">
     {% csrf_token %}
-    <p>are you sure you want to delete the "{{ object.product }}" for order "{{ object }}?</p>
-    <div>
+    <p class="title-page">are you sure you want to delete the "{{ object.product }}" for order "{{ object }}?</p>
         <button type="reset" class="button" onclick="history.back()">No</button>
         <button type="submit" class="button">Yes</button>
-    </div>
 </form>
 
 {% endblock content %}
