@@ -2,18 +2,20 @@
 {% load static %}
 {% block content %}
 
-    <h2 class="title-page">{{ title }}</h2>
-<div class="profile-photo">
-    <div>
+<h2 class="title-page">{{ title }}</h2>
     {% if user.profile_picture %}
-    <img src="{{ user.profile_picture.url }}" alt="profile_picture">
+    <div class="profile-fields">
+    <img class="profile-fields-img" src="{{ user.profile_picture.url }}" alt="profile_picture">
     {% else %}
-    <img src="{% static 'profile_pictures/profile_picture_default.jpg' %}" alt="profile_picture">
+    <img class="profile-fields-img" src="{% static 'profile_pictures/profile_picture_default.jpg' %}" alt="profile_picture">
     {% endif %}
-    <div>
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
     </div>
-    </div>
+    <br>
+    <div class="profile-fields-p">
+    <p class="profile-fields-name">{{ user.first_name }} {{ user.last_name }}</p>
+    <p class="profile-fields-p"><strong>Username</strong>: {{ user.username }}</p>
+    <p class="profile-fields-p"><strong>Email</strong>: {{ user.email }}</p>
+    <p class="profile-fields-p"><strong>Phone number</strong>: {{ user.telephone_number }}</p>
     <ul>
         {% if is_owner %}
         <li><a class="text-edit" href="{% url 'edit profile' pk=object.pk %}">Edit profile</a></li>
@@ -21,12 +23,5 @@
         {% endif %}
     </ul>
 </div>
-<div class="profile-fields">
-
-    <p><strong>Username</strong>: {{ user.username }}</p>
-    <p><strong>Email</strong>: {{ user.email }}</p>
-    <p><strong>Phone number</strong>: {{ user.telephone_number }}</p>
-</div>
-
 
 {% endblock %}
