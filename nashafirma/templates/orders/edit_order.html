@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center">{{title}} "{{ object }}" for user "{{ order.user }}"</h4>
+<h2 class="title-page">{{title}} "{{ object }}" for user "{{ order.user }}"</h2>
 <form method="post" action="">
     {% csrf_token %}
     <label>{{form.as_p}}</label>
