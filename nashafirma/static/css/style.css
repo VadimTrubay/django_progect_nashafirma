@@ -101,21 +101,28 @@ a:focus {
     overflow-y: auto;
 }
 
-.profile-photo {
+.profile-fields{
     display: flex;
-    justify-content: space-between;
-    margin: 50px;
-}
-.profile-photo ul>li {
-    margin: 5px;
-    font-weight: 800;
+    justify-content: center;
+    margin: 0;
 }
 
-.profile-fields {
-    display: inline;
+.profile-fields-name {
+    text-align: center;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.profile-fields-p {
+    margin: 0 0 0 0;
     text-align: center;
 }
 
+.profile-fields-img {
+    text-align: center;
+    width: 100px;
+    margin: 0;
+}
 
 .footer-ul {
     display: flex;
