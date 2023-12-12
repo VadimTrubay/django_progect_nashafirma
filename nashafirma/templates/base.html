@@ -15,81 +15,81 @@
 <body>
   <main class="container">
     <header class="header">
-      <section class="title">
-        <h1><a class="title-logo" href="{% url 'home' %}">Nasha-Firma</a></h1>
+      <section class="header-logo-search">
+        <h1 class="header-logo"><a href="{% url 'home' %}">Nasha-Firma</a></h1>
         {% if request.user.is_authenticated %}
-        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
-        <div class="title-search">
-          <form id="search" method="get" action="{% url 'search_results_product' %}">
-            <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
-          </form>
-        </div>
-        {% else %}
-        <div class="title-search">
+        {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' %}
+        <div class="header-search">
           <form id="search" method="get" action="{% url 'search_results_order' %}">
             <input type="text" name="search_order" placeholder="Search order..." autocomplete="off">
           </form>
         </div>
         {% endif %}
-      </section>
-      <div class="auth">
-        <a class="auth-back" href="javascript:history.back()">&lt;back</a>
-        <div class="auth-right">
-          <span>user: {{ user.username }} </span>
-          <a href="{% url 'logout' %}">Logout</a>
-        </div>
-
-      </div>
-      <section class="section-nav-menu">
-        <ul class="nav-menu">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'all_products' %}">Products</a></li>
-          <li><a href="{% url 'all_orders' %}">Orders</a></li>
-          <li><a href="{% url 'profile details' request.user.pk %}"><span>Profile</span></a>
-          <li><a href="{% url 'contacts' %}">Contacts</a></li>
-        </ul>
-      </section>
-      <section class="title">
-        {% else %}
-        <div class="title-search">
-          <form id="search" method="get" action="{% url 'search_results_order' %}">
-            <input type="text" name="search_order" placeholder="Search order..." autocomplete="off">
+        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
+        <div class="header-search">
+          <form id="search" method="get" action="{% url 'search_results_product' %}">
+            <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
           </form>
         </div>
-      </section>
-      <div class="auth">
-        <a class="auth-back" href="javascript:history.back()">&lt;back</a>
-        <div class="auth-right">
-          <a class="auth-right" href="{% url 'login' %}"> Login </a>
-          <a class="auth-right" href="{% url 'register' %}"> Registrations </a>
+        {% endif %}
+        {% else %}
+        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
+        <div class="header-search">
+          <form id="search" method="get" action="{% url 'search_results_product' %}">
+            <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
+          </form>
         </div>
-      </div>
-      <section class="section-nav-menu">
-        <ul class="nav-menu">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'all_products' %}">Products</a></li>
-          <li><a href="{% url 'contacts' %}">Contacts</a></li>
+        {% endif %}
+        {% endif %}
+      </section>
+      <section class="header-auth">
+        <div class="header-auth-back">
+          <a href="javascript:history.back()">&lt;back</a>
+        </div>
+        <div class="header-auth-login">
+          <a href="{% url 'login' %}">Login |</a>
+          <a href="{% url 'register' %}"> Registrations </a>
+          <a href="{% url 'logout' %}">| Logout</a>
+        </div>
+        <div class="header-auth-user">
+          <span>user: {{ user.username }} </span>
+        </div>
+      </section>
+      <section class="header-nav-menu">
+        <ul class="header-nav-menu-ul">
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">Home</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'about' %}">About</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'all_products' %}">Products</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+          {% if request.user.is_authenticated %}
+          <li class="header-nav-menu-ul-li"><a href="{% url 'all_orders' %}">Orders</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'profile details' user.pk %}"><span>Profile</span></a>
+          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+          {% endif %}
+          <li class="header-nav-menu-ul-li"><a href="{% url 'contacts' %}">Contacts</a></li>
         </ul>
       </section>
-      {% endif %}
     </header>
+
     <section class="content">
       {% block content %}
       {% endblock content%}
     </section>
 
-
     <footer>
-      <section>
-        <ul class="footer">
-          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-          <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-          <li><a href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
-          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      <section class="footer">
+        <ul class="footer-ul">
+          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          </li>
+          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
+          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+          </li>
         </ul>
-        <p class="end">©2023 Nasha-firma | All Rights Reserved</p>
+        <p class="copyright">©2023 Nasha-firma | All Rights Reserved</p>
       </section>
     </footer>
 
