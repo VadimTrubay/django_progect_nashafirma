@@ -6,7 +6,7 @@
     <form method="post" action="">
         {% csrf_token %}
         <div>{{ f.errors }}</div>
-        <div>
+        <div class="button-center">
             <button type="submit" class="button">Add</button>
             <button type="reset" class="button" onclick="history.back()">No</button>
         </div>

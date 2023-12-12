@@ -3,9 +3,7 @@
 
 <h1 class="title-page">{{ title }}</h1>
     {% if not request.user.username == 'admin' %}
-    <button type="submit" role="button">
-        <a style="color: #ffffff;" href="{% url 'add_order' %}">+ Add new order</a>
-    </button>
+    <a role="button" href="{% url 'add_order' %}">+ Add new order</a>
     {% endif %}
 
     <table>

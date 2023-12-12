@@ -74,7 +74,7 @@ class ViewOrderView(DetailView):
 
 class AllOrdersView(ListView):
     title = "All orders"
-    paginate_by = 5
+    paginate_by = 30
     model = Order
     template_name = "orders/all_orders.html"
     context_object_name = "orders"

@@ -14,7 +14,7 @@
 
 <body>
   <main class="container">
-    <header>
+    <header class="header">
       <section class="title">
         <h1><a class="title-logo" href="{% url 'home' %}">Nasha-Firma</a></h1>
         {% if request.user.is_authenticated %}
@@ -40,7 +40,7 @@
         </div>
 
       </div>
-      <section>
+      <section class="section-nav-menu">
         <ul class="nav-menu">
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
@@ -65,8 +65,8 @@
           <a class="auth-right" href="{% url 'register' %}"> Registrations </a>
         </div>
       </div>
-      <section>
-        <ul  class="nav-menu">
+      <section class="section-nav-menu">
+        <ul class="nav-menu">
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'all_products' %}">Products</a></li>
@@ -75,9 +75,11 @@
       </section>
       {% endif %}
     </header>
+    <section class="content">
+      {% block content %}
+      {% endblock content%}
+    </section>
 
-    {% block content %}
-    {% endblock content%}
 
     <footer>
       <section>
@@ -88,7 +90,7 @@
           <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
         </ul>
         <p class="end">©2023 Nasha-firma | All Rights Reserved</p>
-       </section>
+      </section>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

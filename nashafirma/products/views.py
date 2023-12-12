@@ -20,10 +20,14 @@ class AddProductView(CreateView):
 
 class AllProductsView(ListView):
     title = "All products"
-    paginate_by = 5
+    paginate_by = 30
     model = Product
     template_name = "products/all_products.html"
     context_object_name = "products"
+    # ordering = 'product'
+
+    # def get_queryset(self):
+    #     return self.model.objects.order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
