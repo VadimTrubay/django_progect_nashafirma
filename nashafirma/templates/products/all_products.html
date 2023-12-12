@@ -4,7 +4,7 @@
 <h2 class="title-page">{{ title }}</h2>
     {% if request.user.username == 'admin' %}
     <a role="button" href="{% url 'add_product' %}">+ Add new product</a>
-    <table>
+    <table role="grid">
         <thead>
             <tr class="title-table">
                 <th>№</th>
@@ -50,7 +50,7 @@
         </tbody>
     </table>
     {% else %}
-    <table>
+    <table role="grid">
         <thead class="title-table">
             <tr>
                 <th>№</th>

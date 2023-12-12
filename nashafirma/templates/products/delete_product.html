@@ -2,11 +2,16 @@
 {% block content %}
 
 <h2 class="title-page">{{ title }}</h2>
-<form method="post" action="">
-    {% csrf_token %}
-    <p class="title-page">are you sure you want to delete the "{{ object.product }}"?</p>
-    <button type="reset" class="button" onclick="history.back()">No</button>
-    <button type="submit" class="button">Yes</button>
-</form>
+<div class="form">
+    <form method="post" action="">
+        {% csrf_token %}
+        <p>are you sure you want to delete the <b>"{{ object.product }}"</b>?</p>
+        <div class="btn-container">
+            <button type="reset"  class="button-save" onclick="history.back()">No</button>
+            <button type="submit" class="button-back">Yes</button>
+        </div>
+    </form>
+</div>
+
 
 {% endblock content %}

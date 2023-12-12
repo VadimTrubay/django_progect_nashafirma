@@ -6,7 +6,7 @@
     <a role="button" href="{% url 'add_product' %}">+ Add new product</a>
 {% endif %}
 {% if products %}
-<table>
+<table role="grid">
     <thead>
         <tr class="title-table">
             <th>№</th>
@@ -54,7 +54,7 @@
 
 {% else %}
 {% if products %}
-<table>
+<table role="grid">
     <thead>
         <tr>
             <th>№</th>

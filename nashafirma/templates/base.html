@@ -43,42 +43,53 @@
         {% endif %}
       </section>
       <section class="header-auth">
-        <div class="header-auth-back">
-          <a href="javascript:history.back()">&lt;back</a>
-        </div>
         <div class="header-auth-login">
-          <a href="{% url 'login' %}">Login |</a>
-          <a href="{% url 'register' %}"> Registrations </a>
-          <a href="{% url 'logout' %}">| Logout</a>
+          {% if request.user.is_authenticated %}
+          <nav aria-label="breadcrumb">
+            <ul>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </nav>
+          {% else %}
+          <nav aria-label="breadcrumb">
+            <ul>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Registrations</a></li>
+            </ul>
+          </nav>
+          {% endif %}
         </div>
         <div class="header-auth-user">
-          <span>user: {{ user.username }} </span>
+          <span>user: {{ user.username|default:"guest" }} </span>
         </div>
       </section>
-      <section class="header-nav-menu">
-        <ul class="header-nav-menu-ul">
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">Home</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'about' %}">About</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'all_products' %}">Products</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
+      <nav aria-label="breadcrumb">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'all_products' %}">Products</a></li>
           {% if request.user.is_authenticated %}
-          <li class="header-nav-menu-ul-li"><a href="{% url 'all_orders' %}">Orders</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'profile details' user.pk %}"><span>Profile</span></a>
-          <li class="header-nav-menu-ul-li"><a href="{% url 'home' %}">|</a></li>
-          {% endif %}
-          <li class="header-nav-menu-ul-li"><a href="{% url 'contacts' %}">Contacts</a></li>
+          <li><a href="{% url 'all_orders' %}">Orders</a></li>
+          <li><a href="{% url 'profile details' user.pk %}"><span>Profile</span></a>
+            {% endif %}
+          <li><a href="{% url 'contacts' %}">Contacts</a></li>
         </ul>
-      </section>
+      </nav>
+      <nav aria-label="breadcrumb">
+        <ul>
+          <li>
+            <a class="header-auth-back" href="javascript:history.back()">&lt;back</a>
+          </li>
+        </ul>
+      </nav>
+
     </header>
 
-   <section class="content">
-    {% block content %}
+    <section class="content">
+      {% block content %}
 
-    {% endblock content%}
-   </section>
+      {% endblock content%}
+    </section>
 
     <footer>
       <section class="footer">

@@ -2,14 +2,18 @@
 {% block content %}
 
 <h2 class="title-page">{{ title }}</h2>
-<form method="post" action="">
-    {% csrf_token %}
-    {% for f in form %}
-    <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-    <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
-        <button type="submit" class="button">Add</button>
-        <button type="reset" class="button" onclick="history.back()">No</button>
-</form>
+<div class="form">
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for f in form %}
+        <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <div class="btn-container">
+            <button type="submit" class="button-save">Save</button>
+            <button type="reset" class="button-back" onclick="history.back()">Back</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

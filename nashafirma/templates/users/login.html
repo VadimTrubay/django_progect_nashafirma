@@ -2,14 +2,17 @@
 {% block content %}
 
 <h2 class="title-page">{{ title }}</h2>
-<form method="post" action="">
-    {% csrf_token %}
-    {% for f in form %}
-    <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-    <div>{{ f.errors }}</div>
-    {% endfor %}
-    <button type="submit" class="button">Login</button>
-    <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
-    <a href="{% url 'register' %}" class="text-center"><i>Don't have account yet?</i></a>
-</form>
+<div class="form">
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for f in form %}
+        <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div>{{ f.errors }}</div>
+        {% endfor %}
+        <button type="submit">Login</button>
+        <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
+        <a href="{% url 'register' %}"><i>Don't have account yet?</i></a>
+    </form>
+</div>
+
 {% endblock %}
