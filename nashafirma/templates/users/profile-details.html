@@ -2,32 +2,31 @@
 {% load static %}
 {% block content %}
 
-
-<div class="content">
-    <div class="container">
-        <div class="profile-left">
-            <h1 class="title-page">{{ title }}</h1>
-            {% if user.profile_picture %}
-                <img src="{{ user.profile_picture.url }}" alt="profile_picture">
-            {% else %}
-                <img src="{% static 'profile_pictures/profile_picture_default.jpg' %}" alt="profile_picture">
-            {% endif %}
-            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-            <p><strong>Username</strong>: {{ user.username }}</p>
-            <p><strong>Email</strong>: {{ user.email }}</p>
-            <p><strong>Phone number</strong>: {{ user.telephone_number }}</p>
-        </div>
-        <div class="profile-right">
-            <ul>
-                {% if is_owner %}
-                <li><a href="{% url 'edit profile' pk=object.pk %}">Edit profile</a></li>
-                <li><a href="{% url 'delete profile' pk=object.pk %}">Delete profile</a></li>
-                {% endif %}
-            </ul>
-        </div>
+    <h2 class="title-page">{{ title }}</h2>
+<div class="profile-photo">
+    <div>
+    {% if user.profile_picture %}
+    <img src="{{ user.profile_picture.url }}" alt="profile_picture">
+    {% else %}
+    <img src="{% static 'profile_pictures/profile_picture_default.jpg' %}" alt="profile_picture">
+    {% endif %}
+    <div>
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
     </div>
+    </div>
+    <ul>
+        {% if is_owner %}
+        <li><a class="text-edit" href="{% url 'edit profile' pk=object.pk %}">Edit profile</a></li>
+        <li><a class="text-delete" href="{% url 'delete profile' pk=object.pk %}">Delete profile</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div class="profile-fields">
+
+    <p><strong>Username</strong>: {{ user.username }}</p>
+    <p><strong>Email</strong>: {{ user.email }}</p>
+    <p><strong>Phone number</strong>: {{ user.telephone_number }}</p>
 </div>
 
+
 {% endblock %}
-
-
