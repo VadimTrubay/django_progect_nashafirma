@@ -21,6 +21,8 @@ class SiteUser(AbstractUser):
     MIN_LEN_TELEPHONE_NUMBER = 7
 
     username = models.CharField(
+        null=False,
+        blank=False,
         unique=True,
         max_length=MAX_LEN_USERNAME,
         validators=(validators.MinLengthValidator(MIN_LEN_USERNAME),),
