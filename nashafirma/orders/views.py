@@ -36,7 +36,7 @@ class AboutView(DataMixin, TemplateView):
 
 
 class AddOrderView(DataMixin, CreateView):
-    title = "+ Add new order"
+    title = "Add new order"
     form_class = OrderForm
     template_name = "orders/add_order.html"
     success_url = reverse_lazy("all_orders")
@@ -170,7 +170,7 @@ class DeleteItemProductView(DeleteView):
 
 
 class AddItemView(CreateView):
-    title = "+ Add new product to order"
+    title = "Add new product to order"
     form_class = OrderItemForm
     template_name = "orders/add_item.html"
     success_url = reverse_lazy("all_orders")
