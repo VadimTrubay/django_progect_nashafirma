@@ -49,6 +49,10 @@ a:hover {
     color: var(--brand-second-color);
 }
 
+.active-link {
+    color: var(--brand-color);
+}
+
 .active-page {
     color: var(--brand-second-color);
 }
@@ -64,7 +68,7 @@ a:focus {
 
 .button-save {
     background-color: var(--brand-color);
-        margin: 10px;
+    margin: 10px;
 }
 
 .btn-container {
