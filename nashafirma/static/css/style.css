@@ -82,6 +82,14 @@ a:focus {
     font-family: var(--brand-font);
 }
 
+.done {
+    color: #43753f;
+}
+
+.notdone {
+    color: #8e0000;
+}
+
 .center {
     text-align: center;
 }
@@ -209,11 +217,16 @@ table a {
     color: var(--table-text-color);
 }
 
+.text {
+    color: var(--table-text-color);
+}
+
 .text-edit {
     color: #4677c1;
 }
 
 .text-delete {
+    margin-top: 0;
     color: #8e0000;
 }
 
