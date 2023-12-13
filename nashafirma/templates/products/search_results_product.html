@@ -25,7 +25,7 @@
             <td><a href="{% url 'edit_product' product.pk %}">{{ product.price }}</a>
             </td>
             <td>
-                <a href="{% url 'edit_product' product.pk %}">
+                <a class="text-edit" href="{% url 'edit_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                         stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                 </a>
             </td>
             <td>
-                <a href="{% url 'delete_product' product.pk %}">
+                <a class="text-delete" href="{% url 'delete_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                         stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
