@@ -23,7 +23,11 @@
 <h2 class="title-page">{{title}} </h2>
 <p class="center"><b>"{{order}}"</b> for user <b>"{{ order.user }}"</b></p>
 {% if not request.user.username == 'admin' %}
-<p class="center"><a role="button" href="{% url 'add_item' order.pk %}">+ Add product to order</a></p>
+{% if order.done == False %}
+    <p class="center"><a role="button" href="{% url 'add_item' order.pk %}">Add product to order</a></p>
+{% else %}
+    <p class="center"><a role="button" href="{% url 'all_orders' %}">Order done</a></p>
+{% endif %}
 {% endif %}
 {% if order %}
 <table role="grid">
@@ -47,16 +51,18 @@
             <th>{{product.weight}}</th>
             <th>{{product.product.price}}</th>
             <th>{{ product.calculate_total}}</th>
-<th>
-<a href="{% url 'edit_item_product' product.pk %}" class="product-note">
-    <span class="truncated-text">{{ product.note | truncatewords:3 }}</span>
-    <span class="full-text" style="display: none;">{{ product.note }}</span>
-</a>
-</th>
+            <th>
+                <a href="{% url 'edit_item_product' product.pk %}" class="product-note">
+                    <span class="truncated-text">{{ product.note | truncatewords:3 }}</span>
+                    <span class="full-text" style="display: none;">{{ product.note }}</span>
+                </a>
+                {% if order.done == False %}
+            </th>
+
             <td>
                 <a class="text-edit" href="{% url 'edit_item_product' product.pk %}">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
-                        stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 20h9"></path>
                         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
@@ -65,8 +71,8 @@
             </td>
             <td scope="row">
                 <a class="text-delete" href="{% url 'delete_item_product' product.pk %}">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
-                        stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
                         <polyline points="3 6 5 6 21 6"></polyline>
                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
@@ -76,8 +82,16 @@
                     </svg>
                 </a>
             </td>
-        </tr>
-        {% endfor %}
+            </th>
+            {% else %}
+            <th>
+            <td>
+            </td>
+            <td scope="row">
+            </td>
+            </th>
+            {% endif %}
+            {% endfor %}
     </tbody>
     <tfoot>
         <tr>
@@ -92,4 +106,3 @@
 </table>
 {% endif %}
 {% endblock %}
-
