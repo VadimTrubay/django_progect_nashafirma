@@ -3,10 +3,8 @@
 
 <h1 class="title-page">{{ title }}</h1>
     {% if not request.user.username == 'admin' %}
-    <a role="button" href="{% url 'add_order' %}">+ Add new order</a>
-
+    <p class="center"><a role="button" href="{% url 'add_order' %}">Add new order</a></p>
     {% endif %}
-
     <table role="grid">
         <thead>
         <tr class="title-table">
@@ -28,11 +26,11 @@
                 {% if request.user.username == 'admin' %}
                 <a href="{% url 'edit_order' order.pk %}">
                     {% endif %}
-                    {% if order.done %}<span class="status-done">&#10004;</span>
-                    {% else %}<span class="status-not-done">&#10008;</span>{% endif %}</a>
+                    {% if order.done %}<span class="done">&#10004;</span>
+                    {% else %}<span class="notdone">&#10008;</span>{% endif %}</a>
             </td>
             <td>
-                <a style="color: #115588" href="{% url 'view_order' order.pk %}">
+                <a class="text-edit" href="{% url 'view_order' order.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                          stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                          xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +40,7 @@
                 </a>
             </td>
             <td>
-                <a style="color: #565511" href="{% url 'delete_order' order.pk %}">
+                <a class="text-delete" href="{% url 'delete_order' order.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                          stroke-linecap="round" stroke-linejoin="round"  class="icon-delete" height="1em" width="1em"
                          xmlns="http://www.w3.org/2000/svg">
