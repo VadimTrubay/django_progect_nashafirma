@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form method="post" action="">
-    {% csrf_token %}
-    <p class="title-page">are you sure you want to delete the "{{ object }}" for user "{{ order.user }}?</p>
-    <div>
-        <button type="reset" class="button" onclick="history.back()">No</button>
-        <button type="submit" class="button">Yes</button>
-    </div>
-</form>
+<h2 class="title-page">{{ title }}</h2>
+<div class="form">
+    <form method="post" action="">
+        {% csrf_token %}
+        <p class="center">are you sure you want to delete</p>
+        <p class="center"></p><b>"{{ object }}"</b> for user <b>"{{ order.user }}</b>?</p>
+        <div class="btn-container">
+            <button type="submit" class="button-save">Yes</button>
+            <button type="reset" class="button-back" onclick="history.back()">No</button>
+        </div>
+    </form>
+</div>
 
 {% endblock content %}
