@@ -3,7 +3,7 @@
 
 <h2 class="title-page">{{ title }}</h2>
     {% if request.user.username == 'admin' %}
-    <a role="button" href="{% url 'add_product' %}">+ Add new product</a>
+    <p class="center"><a role="button" href="{% url 'add_product' %}">Add new product</a></p>
     <table role="grid">
         <thead>
             <tr class="title-table">
@@ -23,7 +23,7 @@
                 <td><a href="{% url 'edit_product' product.pk %}">{{ product.price }}</a>
                 </td>
                 <td>
-                    <a style="color: #115588" href="{% url 'edit_product' product.pk %}">
+                    <a class="text-edit" href="{% url 'edit_product' product.pk %}">
                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                             stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
                     </a>
                 </td>
                 <td>
-                    <a style="color: #565511" href="{% url 'delete_product' product.pk %}">
+                    <a class="text-delete" href="{% url 'delete_product' product.pk %}">
                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                             stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
