@@ -5,13 +5,13 @@
 <div class="form">
     <form method="post" action="">
         {% csrf_token %}
-        <p>are you sure you want to delete the <b>"{{ object.product }}"</b>?</p>
+        <p class="center">are you sure you want to delete</p>
+        <p class="center"><b>"{{ object.product }}"</b>?</p>
         <div class="btn-container">
-            <button type="reset"  class="button-save" onclick="history.back()">No</button>
-            <button type="submit" class="button-back">Yes</button>
+            <button type="submit" class="button-save">Yes</button>
+            <button type="reset"  class="button-back" onclick="history.back()">No</button>
         </div>
     </form>
 </div>
-
 
 {% endblock content %}
