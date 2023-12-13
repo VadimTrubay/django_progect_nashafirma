@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{ title }} for "{{user}}" --> "{{current_date}}"</h2>
-<form method="post" action="">
-    {% csrf_token %}
-    <div>{{ f.errors }}</div>
-    <button type="submit" class="button">Add</button>
-    <button type="reset" class="button" onclick="history.back()">No</button>
-</form>
+<h2 class="title-page">{{ title }}</h2>
+<p class="center">for <b>"{{user}}"</b> --> <b>"{{current_date}}"</b></p>
+    <div class="form">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div>{{ f.errors }}</div>
+        <div class="btn-container">
+            <button type="submit" class="button-save">Save</button>
+            <button type="reset" class="button-back" onclick="history.back()">Back</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
