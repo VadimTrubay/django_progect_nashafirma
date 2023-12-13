@@ -1,9 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{title}} "{{order}}" for user "{{ order.user }}"</h2>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var productNotes = document.querySelectorAll(".product-note");
+
+        productNotes.forEach(function (note) {
+            note.addEventListener("mouseover", function () {
+                note.querySelector(".truncated-text").style.display = "none";
+                note.querySelector(".full-text").style.display = "inline";
+            });
+
+            note.addEventListener("mouseout", function () {
+                note.querySelector(".full-text").style.display = "none";
+                note.querySelector(".truncated-text").style.display = "inline";
+            });
+        });
+    });
+</script>
+
+
+<h2 class="title-page">{{title}} </h2>
+<p class="center"><b>"{{order}}"</b> for user <b>"{{ order.user }}"</b></p>
 {% if not request.user.username == 'admin' %}
-<a role="button" href="{% url 'add_order' %}">+ Add new order</a>
+<p class="center"><a role="button" href="{% url 'add_item' order.pk %}">+ Add product to order</a></p>
 {% endif %}
 {% if order %}
 <table role="grid">
@@ -34,7 +54,7 @@
 </a>
 </th>
             <td>
-                <a style="color: #115588" href="{% url 'edit_item_product' product.pk %}">
+                <a class="text-edit" href="{% url 'edit_item_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                         stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +64,7 @@
                 </a>
             </td>
             <td scope="row">
-                <a style="color: #565511" href="{% url 'delete_item_product' product.pk %}">
+                <a class="text-delete" href="{% url 'delete_item_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                         stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +81,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <th>Итого:</th>
+            <th>Price:</th>
             <td></td>
             <td>{{ order.calculate_sum_weight }}</td>
             <td></td>
@@ -73,20 +93,3 @@
 {% endif %}
 {% endblock %}
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var productNotes = document.querySelectorAll(".product-note");
-
-        productNotes.forEach(function (note) {
-            note.addEventListener("mouseover", function () {
-                note.querySelector(".truncated-text").style.display = "none";
-                note.querySelector(".full-text").style.display = "inline";
-            });
-
-            note.addEventListener("mouseout", function () {
-                note.querySelector(".full-text").style.display = "none";
-                note.querySelector(".truncated-text").style.display = "inline";
-            });
-        });
-    });
-</script>
