@@ -44,7 +44,7 @@ class UserLoginView(auth_views.LoginView):
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView):
     title = "Profile"
     model = SiteUser
-    template_name = "users/profile-details.html"
+    template_name = "users/profile_details.html"
     context_object_name = "users"
 
     def get_context_data(self, **kwargs):
@@ -66,10 +66,10 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
     title = "Edit profile"
     model = SiteUser
     form_class = EditProfileForm
-    template_name = "users/edit-profile.html"
+    template_name = "users/profile_edit.html"
 
     def get_success_url(self):
-        return reverse_lazy("profile details", kwargs={"pk": self.request.user.pk})
+        return reverse_lazy("profile_details", kwargs={"pk": self.request.user.pk})
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -87,7 +87,7 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
 class DeleteProfileView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
     title = "Delete profile"
     model = SiteUser
-    template_name = "users/delete-profile.html"
+    template_name = "users/profile_delete.html"
     success_url = reverse_lazy("login")
 
     def get_context_data(self, **kwargs):

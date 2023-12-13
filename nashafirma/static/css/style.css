@@ -1,18 +1,44 @@
-:root {
-    --brand-color: #7cb342;
-    --brand-font: "Helvetica Neue";
-}
-
-/* Light-green Light scheme (Default) */
+/* Blue Light scheme (Default) */
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-    --primary: #7cb342;
-    --primary-hover: #289e0b;
-    --primary-focus: #dde6e0d4  25;
-    --primary-active: #8f3131;
+    --primary: #1e88e5;
+    --primary-hover: #1976d2;
+    --primary-focus: rgba(30, 136, 229, 0.125);
     --primary-inverse: #FFF;
+}
 
+/* Blue Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --primary: #1e88e5;
+        --primary-hover: #2196f3;
+        --primary-focus: rgba(30, 136, 229, 0.25);
+        --primary-inverse: #FFF;
+    }
+}
+
+/* Blue Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+    --primary: #1e88e5;
+    --primary-hover: #2196f3;
+    --primary-focus: rgba(30, 136, 229, 0.25);
+    --primary-inverse: #FFF;
+}
+
+/* Blue (Common styles) */
+:root {
+    --form-element-active-border-color: var(--primary);
+    --form-element-focus-color: var(--primary-focus);
+    --switch-color: var(--primary-inverse);
+    --switch-checked-background-color: var(--primary);
+    --brand-color: #1e88e5;
+    --brand-font: 'Times New Roman';
+    --brand-background-color: #e7e7e7;
+    --brand-second-color: #000000;
+    --table-text-color: #415462;
 }
 
 a {
@@ -20,16 +46,20 @@ a {
 }
 
 a:hover {
-    color: #000000;
+    color: var(--brand-second-color);
+}
+
+.active-page {
+    color: var(--brand-second-color);
 }
 
 a:focus {
-    color: #000000;
+    color: var(--brand-second-color);
 }
 
 .button-back {
     background-color: var(--primary-active);
-        margin: 10px;
+    margin: 10px;
 }
 
 .button-save {
@@ -44,8 +74,12 @@ a:focus {
 }
 
 .container {
-    background-color: #e7e7e7;
+    background-color: var(--brand-background-color);
     padding: 30px;
+}
+
+ h1, h2, table, span, a {
+    font-family: var(--brand-font);
 }
 
 .center {
@@ -53,7 +87,7 @@ a:focus {
 }
 
 .header {
-    background-color: #e7e7e7;
+    background-color: var(--brand-background-color);
     margin: 10px;
 }
 
@@ -88,21 +122,21 @@ a:focus {
 
 .header-auth-login a {
     font-size: 14px;
-    color: #000000;
+    color: var(--brand-second-color);
 }
 
 .header-auth-back {
     font-size: 14px;
-    color: #000000;
+    color: var(--brand-second-color);
 }
 
 .header-auth-user {
     font-size: 14px;
-    color: #000000;
+    color: var(--brand-second-color);
 }
 
-.header-nav-menu {
-    text-align: center;
+nav ul li{
+    font-weight: 700;
 }
 
 .content {
@@ -171,6 +205,10 @@ ul li {
     font-size: 10px;
 }
 
+table a {
+    color: var(--table-text-color);
+}
+
 .text-edit {
     color: #4677c1;
 }
@@ -201,6 +239,11 @@ ul li {
     /* Change color as needed */
     font-size: 18px;
     /* Adjust icon size as needed */
+}
+
+table {
+    position: relative;
+    margin: 70px 70px 70px 70px;
 }
 
 #search input[type="text"] {

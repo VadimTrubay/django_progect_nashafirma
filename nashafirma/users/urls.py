@@ -17,9 +17,9 @@ urlpatterns = [
     path("register/", UserRegistrationView.as_view(), name='register'),
     path("logout/", UserLogOutView.as_view(), name="logout"),
     path("profile/<int:pk>/", include(
-        [path("", ProfileDetailView.as_view(), name="profile details"),
-         path("edit/", EditProfileView.as_view(), name="edit profile"),
-         path("delete/", DeleteProfileView.as_view(), name="delete profile"), ]
+        [path("", ProfileDetailView.as_view(), name="profile_details"),
+         path("edit/", EditProfileView.as_view(), name="profile_edit"),
+         path("delete/", DeleteProfileView.as_view(), name="profile_delete"), ]
     ),
          ),
     path("reset-password/", ResetPasswordView.as_view(), name="password_reset"),

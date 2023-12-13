@@ -18,8 +18,8 @@
     <p class="profile-fields-p"><strong>Phone number</strong>: {{ user.telephone_number }}</p>
     <ul>
         {% if is_owner %}
-        <li><a class="text-edit" href="{% url 'edit profile' pk=object.pk %}">Edit profile</a></li>
-        <li><a class="text-delete" href="{% url 'delete profile' pk=object.pk %}">Delete profile</a></li>
+        <li><a class="text-edit" href="{% url 'profile_edit' pk=object.pk %}">Edit profile</a></li>
+        <li><a class="text-delete" href="{% url 'profile_delete' pk=object.pk %}">Delete profile</a></li>
         {% endif %}
     </ul>
 </div>

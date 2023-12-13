@@ -65,14 +65,14 @@
       </section>
       <nav aria-label="breadcrumb">
         <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'all_products' %}">Products</a></li>
+          <li><a {% if request.path == '/' %} class="active-page" {% endif %} href="{% url 'home' %}">Home</a></li>
+          <li><a {% if request.path == '/about/' %} class="active-page" {% endif %} href="{% url 'about' %}">About</a></li>
+          <li><a {% if request.path == '/products/all_products/' %} class="active-page" {% endif %} href="{% url 'all_products' %}">Products</a></li>
           {% if request.user.is_authenticated %}
-          <li><a href="{% url 'all_orders' %}">Orders</a></li>
-          <li><a href="{% url 'profile details' user.pk %}"><span>Profile</span></a>
-            {% endif %}
-          <li><a href="{% url 'contacts' %}">Contacts</a></li>
+          <li><a {% if request.path == '/orders/all_orders/' %} class="active-page" {% endif %} href="{% url 'all_orders' %}">Orders</a></li>
+          <li><a {% if request.path == '/users/profile/' %} class="active-page" {% endif %} href="{% url 'profile_details' user.pk %}"><span>Profile</span></a>
+          {% endif %}
+          <li><a {% if request.path == '/contacts/' %} class="active-page" {% endif %} href="{% url 'contacts' %}">Contacts</a></li>
         </ul>
       </nav>
       <nav aria-label="breadcrumb">
