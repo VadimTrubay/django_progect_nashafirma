@@ -2,26 +2,23 @@
 {% load static %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
-<ul>
-    <li><a href="{% url 'profile_details' pk=user.pk %}">Back to profile</a></li>
-    <li>
-        <a href="{% url 'profile_edit' pk=user.pk %}">Edit Profile</a>
-    </li>
-    <li>
-        <a href="{% url 'profile_delete' pk=user.pk %}">Delete profile</a>
-    </li>
-</ul>
+<div class="center">
+    <h2 class="title-page">{{ title }}</h2>
+    <p><a class="text" href="{% url 'profile_details' pk=user.pk %}">Back to profile</a></p>
+    {% if profile.profile_picture %}
+    <img src="{{ profile.profile_picture.url }}" alt="profile_picture" class="img-fluid">
+    {% else %}
+    <img src="/media/profile_pictures/profile_picture_default.jpg" alt="profile_picture" class="img-fluid">
+    {% endif %}
+</div>
 <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>
+<div class="form">
 <form action="{% url 'profile_edit' pk=user.pk %}" method="post" enctype="multipart/form-data">
     {{ form.as_p }}
     <button type="submit">Save Changes</button>
     {% csrf_token %}
 </form>
-{% if profile.profile_picture %}
-<img src="{{ profile.profile_picture.url }}" alt="profile_picture" class="img-fluid">
-{% else %}
-<img src="/media/profile_pictures/profile_picture_default.jpg" alt="profile_picture" class="img-fluid">
-{% endif %}
+</div>
+
 
 {% endblock %}
