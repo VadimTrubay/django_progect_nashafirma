@@ -3,12 +3,11 @@
 {% block content %}
 
 <div class="center">
-    <h2 class="title-page">{{ title }}</h2>
     <p><a class="text" href="{% url 'profile_details' pk=user.pk %}">Back to profile</a></p>
     {% if profile.profile_picture %}
-    <img src="{{ profile.profile_picture.url }}" alt="profile_picture" class="img-fluid">
+    <img class="profile-fields-img" src="{{ profile.profile_picture.url }}" alt="profile_picture" class="img-fluid">
     {% else %}
-    <img src="/media/profile_pictures/profile_picture_default.jpg" alt="profile_picture" class="img-fluid">
+    <img class="profile-fields-img" src="/media/profile_pictures/profile_picture_default.jpg" alt="profile_picture" class="img-fluid">
     {% endif %}
 </div>
 <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>

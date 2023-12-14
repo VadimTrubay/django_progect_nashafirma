@@ -19,14 +19,12 @@
     });
 </script>
 
-
-<h2 class="title-page">{{title}} </h2>
 <p class="center"><b>"{{order}}"</b> for user <b>"{{ order.user }}"</b></p>
 {% if not request.user.username == 'admin' %}
 {% if order.done == False %}
-    <p class="center"><a role="button" href="{% url 'add_item' order.pk %}">Add product to order</a></p>
+    <p class="center"><a href="{% url 'add_item' order.pk %}">+ Add product to order</a></p>
 {% else %}
-    <p class="center"><a role="button" href="{% url 'all_orders' %}">Order done</a></p>
+    <p class="center"><a href="{% url 'all_orders' %}">Order done <span class="done">&#10004;</span></a></p>
 {% endif %}
 {% endif %}
 {% if order %}

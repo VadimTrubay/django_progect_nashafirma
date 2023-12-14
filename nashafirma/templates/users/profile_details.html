@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
     {% if user.profile_picture %}
     <div class="profile-fields">
     <img class="profile-fields-img" src="{{ user.profile_picture.url }}" alt="profile_picture">

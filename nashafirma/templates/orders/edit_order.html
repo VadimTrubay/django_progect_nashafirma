@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
 <p class="center"><b>"{{ object }}"</b> for user <b>"{{ object.user }}"</b></p>
 <div class="form">
     <form method="post" action="">
         {% csrf_token %}
+        <p class="center">are you sure you want to read status?</p>
         <label>{{form.as_p}}</label>
         <span>{{ form.errors.name }}</span>
         <div class="btn-container">

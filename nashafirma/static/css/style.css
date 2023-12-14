@@ -51,6 +51,10 @@ a {
     text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
 a:hover {
     color: var(--brand-second-color);
 }
@@ -67,57 +71,71 @@ a:focus {
     color: var(--brand-second-color);
 }
 
+.back {
+    color: #fe0000;
+}
+
+body, ul, p {
+    margin: 0;
+    padding: 0;
+    font-family: var(--brand-font);
+}
+
+.button {
+    margin: 10px 15px;
+}
+
 .button-back {
     background-color: var(--primary-active);
-    margin: 15px;
+    margin: 0 15px;
 }
 
 .button-save {
     background-color: var(--brand-color);
-    margin: 15px;
+    margin: 0 15px;
 }
 
 .btn-container {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    
 }
 
 .content {
-    height: 1150px;
+    height: 1200px;
+    margin-top: 15px;
+    padding: 0 50px;
 }
 
 .container {
     background-color: var(--brand-background-color);
-    padding: 50px;
-}
-
- h1, h2, table, span, a {
-    font-family: var(--brand-font);
-}
-
-.done {
-    color: #43753f;
-}
-
-.notdone {
-    color: #8e0000;
+    padding: 90px;
 }
 
 .center {
     text-align: center;
 }
 
-.header {
-    background-color: var(--brand-background-color);
-    margin: 10px;
+.copyright {
+    text-align: center;
+    font-size: 10px;
 }
 
-.title-page {
-    text-align: center;
-    font-size: 20px;
-    margin: 10px;
-    color: var(--brand-color);
+.done {
+    color: #46b93e;
+}
+
+.menu li{
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.notdone {
+    color: #8e0000;
+}
+
+.header {
+    background-color: var(--brand-background-color);
 }
 
 .user {
@@ -134,22 +152,43 @@ a:focus {
     text-align: center;
 }
 
+.header-search form {
+    padding: 0;
+    margin: 5px;
+}
+
+.header-search input {
+    padding: 0;
+    margin: 0;
+}
+
+.header-logo {
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 4px;
+}
 
 .header-logo-search {
     display: flex;
     justify-content: space-between;
-    margin: 0;
 }
 
 .header-auth {
     display: flex;
     justify-content: space-between;
-    margin: 0;
 }
 
-.header-auth-login a {
-    font-size: 14px;
+.header-auth-login {
     color: var(--brand-second-color);
+    margin: 0 10px;
+}
+
+.header-auth-login li > a {
+    font-size: 12px;
+    color: var(--brand-second-color);
+}
+
+.header-auth-user a {
+    color: var(--brand-color);
 }
 
 .header-auth-back {
@@ -157,20 +196,32 @@ a:focus {
     color: var(--brand-second-color);
 }
 
+hr {
+    border: 1px solid;
+    border-radius: 10%;
+    color: #ffffff;
+}
+
 .header-auth-user {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--brand-second-color);
 }
 
+.header-auth-user span {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-nav ul li{
+.left {
+    justify-content: left;
+}
+
+nav ul li {
     font-weight: 700;
 }
 
-.profile-fields{
+.profile-fields {
     display: flex;
     justify-content: center;
-    margin: 0;
 }
 
 .profile-fields-name {
@@ -180,30 +231,24 @@ nav ul li{
 }
 
 .profile-fields-p {
-    margin: 0 0 0 0;
     text-align: center;
 }
 
 .profile-fields-img {
     text-align: center;
-    width: 100px;
-    margin: 0;
+    width: 150px;
+    border: #000 solid 1px;
+    border-radius: 420%;
 }
 
 .form {
     display: flex;
     justify-content: center;
-
-}
-
-.form p {
-    margin-bottom: 0;
 }
 
 .footer-ul {
     display: flex;
     justify-content: center;
-    margin: 0;
 }
 
 .footer-ul-li {
@@ -214,23 +259,27 @@ ul li {
     list-style-type: none;
 }
 
-.phone, .email {
+.phone,
+.email {
     display: block;
     text-align: center;
-    color: #777;
+    color: #3b3b3b;
     font-weight: 500;
 }
 
-.copyright {
-    text-align: center;
+section {
     margin: 0;
-    font-size: 10px;
 }
 
 table a {
     color: var(--table-text-color);
 }
 
+.title-page {
+    text-align: center;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.785);
+}
 
 .text {
     color: var(--table-text-color);
@@ -241,7 +290,6 @@ table a {
 }
 
 .text-delete {
-    margin-top: 0;
     color: #8e0000;
 }
 
@@ -264,15 +312,8 @@ table a {
 /* Additional styling for the search button icon (assuming you're using Font Awesome) */
 .search-button i {
     color: #000;
-    /* Change color as needed */
     font-size: 18px;
-    /* Adjust icon size as needed */
 }
-
-/* table {
-    position: relative;
-    margin:30px;
-} */
 
 #search input[type="text"] {
     font-family: var(--brand-font);
@@ -280,7 +321,7 @@ table a {
     border: 0 none;
     font: bold 15px;
     color: #777;
-    width: 250px;
+    width: 190px;
     height: 40px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 30px;
@@ -297,5 +338,5 @@ table a {
 }
 
 #search input[type="text"]:focus {
-    width: 350px;
+    width: 300px;
 }

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
 <p class="center">for <b>"{{user}}"</b> --> <b>"{{current_date}}"</b></p>
     <div class="form">
     <form method="post" action="">
         {% csrf_token %}
+        <p class="center">are you sure you want to add new order?</p>
         <div>{{ f.errors }}</div>
         <div class="btn-container">
             <button type="submit" class="button-save">Save</button>

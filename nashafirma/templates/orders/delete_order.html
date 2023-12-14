@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
 <div class="form">
     <form method="post" action="">
         {% csrf_token %}
-        <p class="center">are you sure you want to delete</p>
+        <p class="center">are you sure you want to delete?</p>
         <p class="center"></p><b>"{{ object }}"</b> for user <b>"{{ order.user }}</b>?</p>
         <div class="btn-container">
             <button type="submit" class="button-save">Yes</button>

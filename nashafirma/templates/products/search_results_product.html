@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="title-page">{{ title }}</h2>
 {% if request.user.username == 'admin' %}
-<p class="center"><a role="button" href="{% url 'add_product' %}">Add new product</a></p>
+<p class="center"><a href="{% url 'add_product' %}">+ Add new product</a></p>
 {% endif %}
 {% if products %}
 <table role="grid">
