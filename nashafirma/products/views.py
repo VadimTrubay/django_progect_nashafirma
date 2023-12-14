@@ -7,7 +7,7 @@ from django.db.models import Q
 
 
 class AddProductView(CreateView):
-    title = "+ Add new product"
+    title = "Add new product"
     form_class = ProductForm
     template_name = "products/add_product.html"
     success_url = reverse_lazy("all_products")
