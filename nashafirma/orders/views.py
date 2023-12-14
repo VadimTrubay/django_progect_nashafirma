@@ -74,7 +74,7 @@ class ViewOrderView(DetailView):
 
 class AllOrdersView(ListView):
     title = "All orders"
-    paginate_by = 30
+    paginate_by = 20
     model = Order
     template_name = "orders/all_orders.html"
     context_object_name = "orders"
@@ -209,6 +209,8 @@ class SearchResultsOrderView(ListView):
                     | Q(done__icontains=query)
                 )
                 queryset = queryset.reverse()
+                if query == " ":
+                    queryset = self.model.objects.all()
                 return queryset
             return self.model.objects.none()
         else:
@@ -222,6 +224,8 @@ class SearchResultsOrderView(ListView):
                     | Q(done__icontains=query)
                 )
                 queryset = queryset.reverse()
+                if query == " ":
+                    queryset = self.model.objects.all()
                 return queryset
             return self.model.objects.none()
 
