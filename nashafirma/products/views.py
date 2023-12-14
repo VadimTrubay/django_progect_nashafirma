@@ -20,7 +20,7 @@ class AddProductView(CreateView):
 
 class AllProductsView(ListView):
     title = "All products"
-    paginate_by = 30
+    paginate_by = 20
     model = Product
     template_name = "products/all_products.html"
     context_object_name = "products"
@@ -78,5 +78,7 @@ class SearchResultsProductView(ListView):
                 Q(product__icontains=query) |
                 Q(price__icontains=query)
             )
+            if query == " ":
+                    queryset = self.model.objects.all()
             return queryset
         return self.model.objects.none()
