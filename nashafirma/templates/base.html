@@ -64,7 +64,7 @@
         </div>
       </section>
       <nav aria-label="breadcrumb">
-        <ul>
+        <ul class="menu" >
           <li><a {% if request.path == '/' %} class="active-page" {% endif %} href="{% url 'home' %}">Home</a></li>
           <li><a {% if request.path == '/about/' %} class="active-page" {% endif %} href="{% url 'about' %}">About</a></li>
           <li><a {% if request.path == '/products/all_products/' %} class="active-page" {% endif %} href="{% url 'all_products' %}">Products</a></li>
