@@ -147,14 +147,20 @@ a:focus {
     color: var(--brand-second-color);
 }
 
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
 nav ul li{
     font-weight: 700;
 }
 
 .content {
-    margin: 10px;
-    height: 900px;
-    overflow-y: auto;
+    padding: auto;
+    margin: 0 50px;
+    width: 800px;
 }
 
 .profile-fields{
@@ -220,6 +226,7 @@ ul li {
 table a {
     color: var(--table-text-color);
 }
+
 
 .text {
     color: var(--table-text-color);
