@@ -9,12 +9,13 @@ class Order(models.Model):
     user = models.ForeignKey(
         SiteUser,
         blank=True,
-        null=True,
         on_delete=models.CASCADE,
         verbose_name="user",
     )
     products = models.ManyToManyField(
-        Product, through="OrderItem", verbose_name="products"
+        Product, 
+        through="OrderItem", 
+        verbose_name="products"
     )
     done = models.BooleanField(default=False, verbose_name="done")
 
@@ -42,15 +43,15 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
-        blank=True,
-        null=True,
         on_delete=models.CASCADE,
         verbose_name="order",
     )
     product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, verbose_name="product"
+        Product, 
+        on_delete=models.CASCADE, 
+        verbose_name="product"
     )
-    weight = models.FloatField(default=0, blank=True, null=True, verbose_name="weight")
+    weight = models.FloatField(default=0, verbose_name="weight")
     note = models.CharField(max_length=100, blank=True, verbose_name="note")
 
     def __str__(self):
