@@ -3,7 +3,7 @@
 
 <h2 class="title-page">{{ title }}</h2>
 {% if request.user.username == 'admin' %}
-    <a role="button" href="{% url 'add_product' %}">+ Add new product</a>
+<p class="center"><a role="button" href="{% url 'add_product' %}">Add new product</a></p>
 {% endif %}
 {% if products %}
 <table role="grid">
@@ -73,6 +73,6 @@
     </tbody>
 </table>
 {% endif %}
-</div>
+
 {% endif %}
 {% endblock %}
