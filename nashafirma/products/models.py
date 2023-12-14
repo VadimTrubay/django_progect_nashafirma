@@ -3,8 +3,8 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    product = models.CharField(max_length=100, blank=True, verbose_name="product")
-    price = models.FloatField(default=0, blank=True, null=True, verbose_name="price")
+    product = models.CharField(max_length=100, verbose_name="product")
+    price = models.FloatField(default=0, verbose_name="price")
 
     def __str__(self):
         return self.product
