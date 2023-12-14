@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* Blue Light scheme (Default) */
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
@@ -63,12 +69,12 @@ a:focus {
 
 .button-back {
     background-color: var(--primary-active);
-    margin: 10px;
+    margin: 15px;
 }
 
 .button-save {
     background-color: var(--brand-color);
-    margin: 10px;
+    margin: 15px;
 }
 
 .btn-container {
@@ -77,9 +83,13 @@ a:focus {
     margin: 10px;
 }
 
+.content {
+    height: 1150px;
+}
+
 .container {
     background-color: var(--brand-background-color);
-    padding: 30px;
+    padding: 50px;
 }
 
  h1, h2, table, span, a {
@@ -108,6 +118,11 @@ a:focus {
     font-size: 20px;
     margin: 10px;
     color: var(--brand-color);
+}
+
+.user {
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .question {
@@ -147,20 +162,9 @@ a:focus {
     color: var(--brand-second-color);
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
 
 nav ul li{
     font-weight: 700;
-}
-
-.content {
-    padding: auto;
-    margin: 0 50px;
-    width: 800px;
 }
 
 .profile-fields{
@@ -265,10 +269,10 @@ table a {
     /* Adjust icon size as needed */
 }
 
-table {
+/* table {
     position: relative;
-    margin: 70px 70px 70px 70px;
-}
+    margin:30px;
+} */
 
 #search input[type="text"] {
     font-family: var(--brand-font);
