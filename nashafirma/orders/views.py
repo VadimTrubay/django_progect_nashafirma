@@ -214,6 +214,7 @@ class SearchResultsOrderView(ListView):
                 queryset = queryset.reverse()
                 if query == " ":
                     queryset = self.model.objects.all()
+                    queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
         else:
@@ -228,7 +229,9 @@ class SearchResultsOrderView(ListView):
                 )
                 queryset = queryset.reverse()
                 if query == " ":
-                    queryset = self.model.objects.all()
+                    queryset = self.model.objects.filter(
+                        user=self.request.user)
+                    queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
 
@@ -271,6 +274,14 @@ class SortOrdersByDateView(ListView):
         if self.request.user.username == "admin":
             if created_at:
                 queryset = self.model.objects.all().filter(Q(created_at__icontains=created_at))
+                queryset = queryset.reverse()
+                return queryset
+            return self.model.objects.none()
+        else:
+            if created_at:
+                user_orders = self.model.objects.filter(user=self.request.user)
+                queryset = user_orders.filter(
+                    Q(created_at__icontains=created_at))
                 queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
