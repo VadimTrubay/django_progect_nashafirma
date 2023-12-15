@@ -20,7 +20,11 @@
         <tr class="user">
             <th>{{ forloop.counter }}</th>
             <td><a href="{% url 'sort_by_date' order.created_at %}">{{ order.created_at }}</a></td>
-            <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
+            {% if request.user.username == 'admin' %}
+                <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
+            {% else %}
+                <td><a href="">{{ order.user }}</a></td>
+            {% endif %}
             <td>
                 {% if request.user.username == 'admin' %}
                 <a href="{% url 'edit_order_done' order.pk %}">
