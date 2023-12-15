@@ -12,14 +12,15 @@
     <br>
     <div class="profile-fields-p">
     <p class="profile-fields-name">{{ user.first_name }} {{ user.last_name }}</p>
-    <p class="profile-fields-p"><strong>Username</strong>: {{ user.username }}</p>
+    <br>
+    <p class="profile-fields-p"><strong>Ім'я</strong>: {{ user.username }}</p>
     <p class="profile-fields-p"><strong>Email</strong>: {{ user.email }}</p>
-    <p class="profile-fields-p"><strong>Phone number</strong>: {{ user.telephone_number }}</p>
+    <p class="profile-fields-p"><strong>Тел</strong>: {{ user.telephone_number }}</p>
     <ul>
         {% if is_owner %}
         <br>
-        <li><a class="text-edit" href="{% url 'profile_edit' pk=object.pk %}">Edit profile</a></li>
-        <li><a class="text-delete" href="{% url 'profile_delete' pk=object.pk %}">Delete profile</a></li>
+        <li><a class="text-edit" href="{% url 'profile_edit' pk=object.pk %}">Редагувати профіль</a></li>
+        <li><a class="text-delete" href="{% url 'profile_delete' pk=object.pk %}">Видалити профіль</a></li>
         {% endif %}
     </ul>
 </div>

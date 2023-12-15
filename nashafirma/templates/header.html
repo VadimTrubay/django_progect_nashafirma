@@ -1,0 +1,97 @@
+{% block header %}
+{% load static %}
+
+<header class="header">
+    <section class="header-logo-search">
+        <div class="header-logo-foto">
+            <h1 class="header-logo-foto header-logo"><a href="{% url 'home' %}">Наша - Фірма</a></h1>
+            <!-- <img class="header-logo-foto foto-logo" src="{% static './images/foto-logo.png' %}" alt="vegetables in the box"> -->
+        </div>
+        {% if request.user.is_authenticated %}
+        {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' %}
+        <div class="header-search">
+            <form id="search" method="get" action="{% url 'search_results_order' %}">
+                <input type="text" name="search_order" placeholder="Пошук ..." autocomplete="off">
+            </form>
+        </div>
+        {% elif request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
+        <div class="header-search">
+            <form id="search" method="get" action="{% url 'search_results_product' %}">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+            </form>
+        </div>
+        {% else %}
+        <div class="header-search">
+            <form id="search" method="get" action="">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+            </form>
+        </div>
+        {% endif %}
+        {% else %}
+        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
+        <div class="header-search">
+            <form id="search" method="get" action="{% url 'search_results_product' %}">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+            </form>
+        </div>
+        {% else %}
+        <div class="header-search">
+            <form id="search" method="get" action="">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+            </form>
+        </div>
+        {% endif %}
+        {% endif %}
+    </section>
+    <section class="header-auth">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ul>
+                    <li class="user">користувач:<span class="user-white"> {{ user.username|default:"гість" }}</span>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+    <section class="header-menu">
+        <nav aria-label="breadcrumb">
+            <ul class="menu">
+                <li><a {% if request.path == '/' %} class="active-page" {% endif %} href="{% url 'home' %}">Головна</a>
+                </li>
+                <li><a {% if request.path == '/about/' %} class="active-page" {% endif %} href="{% url 'about' %}">Про
+                        нас</a>
+                </li>
+                <li><a {% if request.path == '/products/all_products/' %} class="active-page" {% endif %}
+                        href="{% url 'all_products' %}">Продукти</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a {% if request.path == '/orders/all_orders/' %} class="active-page" {% endif %}
+                        href="{% url 'all_orders' %}">Замовлення</a></li>
+                <li><a {% if request.path == '/users/profile/' %} class="active-page" {% endif %}
+                        href="{% url 'profile_details' user.pk %}"><span>Профіль</span></a>
+                    {% endif %}
+                <li><a {% if request.path == '/contacts/' %} class="active-page" {% endif %}
+                        href="{% url 'contacts' %}">Контакти</a></li>
+                <li><a class="back" href="#" class="outline" onclick="history.back()">Назад</a></li>
+            </ul>
+        </nav>
+        {% if request.user.is_authenticated %}
+        <nav aria-label="breadcrumb">
+            <ul class="menu">
+                <li><a href="{% url 'logout' %}">Вийти</a></li>
+            </ul>
+        </nav>
+        {% else %}
+        <nav aria-label="breadcrumb">
+            <ul class="menu">
+                <li><a href="{% url 'login' %}">Авторизація</a></li>
+                <li><a href="{% url 'register' %}">Реєстрація</a></li>
+            </ul>
+        </nav>
+        {% endif %}
+    </section>
+    <hr>
+    <h1 class="title-page"><span class="with-line">{{ title }}</span></h1>
+</header>
+
+{% endblock %}

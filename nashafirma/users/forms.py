@@ -26,9 +26,10 @@ class RegistrationForm(UserCreationForm):
             "password2",
         )
 
+
 class LoginForm(AuthenticationForm):
     captcha = CaptchaField()
-    
+
     class Meta:
         model = UserModel
         fields = ['username', 'password']

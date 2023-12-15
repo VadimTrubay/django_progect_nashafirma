@@ -1,118 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% load static %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static './css/style.css' %}" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
   <title>{{ title }}</title>
 </head>
 
 <body>
   <div class="container">
-
-    <header class="header">
-      <section class="header-logo-search">
-        <h1><a class="header-logo" href="{% url 'home' %}">Nasha-Firma</a></h1>
-        {% if request.user.is_authenticated %}
-        {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' %}
-        <div class="header-search">
-          <form id="search" method="get" action="{% url 'search_results_order' %}">
-            <input type="text" name="search_order" placeholder="Search order..." autocomplete="off">
-          </form>
-        </div>
-        {% endif %}
-        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
-        <div class="header-search">
-          <form id="search" method="get" action="{% url 'search_results_product' %}">
-            <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
-          </form>
-        </div>
-        {% endif %}
-        {% else %}
-        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
-        <div class="header-search">
-          <form id="search" method="get" action="{% url 'search_results_product' %}">
-            <input type="text" name="search_product" placeholder="Search product..." autocomplete="off">
-          </form>
-        </div>
-        {% endif %}
-        {% endif %}
-      </section>
-      <section class="header-auth">
-        <div class="header-auth-login">
-          {% if request.user.is_authenticated %}
-          <nav aria-label="breadcrumb">
-            <ul>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-          </nav>
-          {% else %}
-          <nav aria-label="breadcrumb">
-            <ul>
-              <li><a href="{% url 'login' %}">Login</a></li>
-              <li><a href="{% url 'register' %}">Registrations</a></li>
-            </ul>
-          </nav>
-          {% endif %}
-        </div>
-        <div class="header-auth-login">
-          <nav aria-label="breadcrumb">
-            <ul>
-              <li><a href="">user</a></li>
-              <li class="header-auth-user"><a href="">{{ user.username|default:"guest" }}</a></li>
-            </ul>
-          </nav>
-        </div>
-      </section>
-      <nav aria-label="breadcrumb">
-        <ul class="menu" >
-          <li><a {% if request.path == '/' %} class="active-page" {% endif %} href="{% url 'home' %}">Home</a></li>
-          <li><a {% if request.path == '/about/' %} class="active-page" {% endif %} href="{% url 'about' %}">About</a></li>
-          <li><a {% if request.path == '/products/all_products/' %} class="active-page" {% endif %} href="{% url 'all_products' %}">Products</a></li>
-          {% if request.user.is_authenticated %}
-          <li><a {% if request.path == '/orders/all_orders/' %} class="active-page" {% endif %} href="{% url 'all_orders' %}">Orders</a></li>
-          <li><a {% if request.path == '/users/profile/' %} class="active-page" {% endif %} href="{% url 'profile_details' user.pk %}"><span>Profile</span></a>
-          {% endif %}
-          <li><a {% if request.path == '/contacts/' %} class="active-page" {% endif %} href="{% url 'contacts' %}">Contacts</a></li>
-          <li><a class="back" href="#" class="outline" onclick="history.back()">< Back</a></li>
-        </ul>
-      </nav>
-      <hr>
-        <h1 class="title-page">{{ title }}</h1>
-    </header>
-
+    {% include 'header.html' %}
     <main class="content">
-      {% block content %}
-
-      {% endblock content%}
+    {% block content %}
+    {% endblock content%}
     </main>
-
-    <footer>
-      <section class="footer">
-        <ul class="footer-ul">
-          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-          </li>
-          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
-          <li class="footer-ul-li"><a class="footer-ul-li-a" href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-          </li>
-        </ul>
-        <p class="copyright">©2023 Nasha-firma | All Rights Reserved</p>
-      </section>
-    </footer>
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <hr>
+    {% include 'footer.html' %}
   </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

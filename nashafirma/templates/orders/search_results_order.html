@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if orders %}
 {% if not request.user.username == 'admin' %}
-<p class="center"><a href="{% url 'add_order' %}">+ Add new order</a></p>
+<p class="center"><a href="{% url 'add_order' %}">+ Додати нове замовлення</a></p>
 {% endif %}
-<table role="grid">
+<table class="note" role="grid">
     <thead>
         <tr class="title-table">
             <th>№</th>
-            <th>order</th>
-            <th>user</th>
-            <th>status</th>
-            <th>edit</th>
-            <th>delete</th>
+            <th>замовлення</th>
+            <th>користувач</th>
+            <th>статус</th>
+            <th>редагувати</th>
+            <th>видалити</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +24,7 @@
             <td>{{ order.user }}</td>
             <td>
                 {% if request.user.username == 'admin' %}
-                <a href="{% url 'edit_order' order.pk %}">
+                <a href="{% url 'edit_order_done' order.pk %}">
                     {% endif %}
                     {% if order.done %}<span class="done">&#10004;</span>
                     {% else %}<span class="notdone">&#10008;</span>{% endif %}</a>
@@ -55,5 +56,7 @@
         {% endfor %}
     </tbody>
 </table>
-
+{% else %}
+<p class="center">Пошук не дав результатів</p>
+{% endif %}
 {% endblock %}

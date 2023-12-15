@@ -42,7 +42,7 @@ class UserLoginView(auth_views.LoginView):
 
 
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView):
-    title = "Profile"
+    title = "Профіль"
     model = SiteUser
     template_name = "users/profile_details.html"
     context_object_name = "users"
@@ -63,7 +63,7 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView
 
 
 class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
-    title = "Edit profile"
+    title = "Редагувати профіль"
     model = SiteUser
     form_class = EditProfileForm
     template_name = "users/profile_edit.html"
@@ -85,7 +85,7 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
 
 
 class DeleteProfileView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
-    title = "Delete profile"
+    title = "Видалити профіль"
     model = SiteUser
     template_name = "users/profile_delete.html"
     success_url = reverse_lazy("login")
@@ -108,7 +108,7 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     email_template_name = 'users/password_reset_email.html'
     html_email_template_name = 'users/password_reset_email.html'
     success_url = reverse_lazy('password_reset_done')
-    success_message = "An email with instructions to reset your password has been sent to %(email)s."
+    success_message = "На Ваш %(email)s було відправлено листа для зміни пароля."
     subject_template_name = 'users/password_reset_subject.txt'
 
 

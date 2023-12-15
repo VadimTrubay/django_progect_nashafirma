@@ -5,19 +5,19 @@ from users.models import SiteUser
 
 
 class Order(models.Model):
-    created_at = models.DateField(auto_now_add=True, verbose_name="created_ad")
+    created_at = models.DateField(auto_now_add=True, verbose_name="створено")
     user = models.ForeignKey(
         SiteUser,
         blank=True,
         on_delete=models.CASCADE,
-        verbose_name="user",
+        verbose_name="користувач",
     )
     products = models.ManyToManyField(
-        Product, 
-        through="OrderItem", 
-        verbose_name="products"
+        Product,
+        through="OrderItem",
+        verbose_name="продукти"
     )
-    done = models.BooleanField(default=False, verbose_name="done")
+    done = models.BooleanField(default=False, verbose_name="статус")
 
     def __str__(self):
         formatted_date_time = self.created_at.strftime("%d %B %Y")
@@ -35,8 +35,8 @@ class Order(models.Model):
         )
 
     class Meta:
-        verbose_name = "order"
-        verbose_name_plural = "order"
+        verbose_name = "замовлення"
+        verbose_name_plural = "замовлення"
         ordering = ["created_at", "user", "done"]
 
 
@@ -44,15 +44,15 @@ class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
-        verbose_name="order",
+        verbose_name="замовлення",
     )
     product = models.ForeignKey(
-        Product, 
-        on_delete=models.CASCADE, 
-        verbose_name="product"
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name="продукт"
     )
-    weight = models.FloatField(default=0, verbose_name="weight")
-    note = models.CharField(max_length=100, blank=True, verbose_name="note")
+    weight = models.FloatField(default=0, verbose_name="вага")
+    note = models.CharField(max_length=100, blank=True, verbose_name="нотатка")
 
     def __str__(self):
         return f"{self.order}"
@@ -64,6 +64,6 @@ class OrderItem(models.Model):
         return round(self.product.price * self.weight, 2)
 
     class Meta:
-        verbose_name = "products"
-        verbose_name_plural = "products"
+        verbose_name = "продукти"
+        verbose_name_plural = "продукти"
         ordering = ["order", "product", "weight"]

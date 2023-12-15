@@ -5,11 +5,11 @@
     <div class="form">
     <form method="post" action="">
         {% csrf_token %}
-        <p class="center">are you sure you want to add new order?</p>
+        <p class="center">Ви дійсно хочете додати нове замовлення?</p>
         <div>{{ f.errors }}</div>
         <div class="btn-container">
-            <button type="submit" class="button-save">Save</button>
-            <button type="reset" class="button-back" onclick="history.back()">Back</button>
+            <button type="submit" class="button-save">Зберегти</button>
+            <button type="reset" class="button-back" onclick="history.back()">Назад</button>
         </div>
     </form>
 </div>

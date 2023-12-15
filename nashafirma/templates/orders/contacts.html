@@ -1,7 +1,15 @@
 {% extends "base.html" %} 
 {% block content %}
+{% load static %}
 
-<a class="phone" href="tel:0999999999">тел: 099-999-99-99</a>
-<a class="email" href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
+<div class="contact-phone">
+    <img class="foto-phone" src="{% static './images/phone.png' %}" alt="phone">
+    <a class="phone" href="tel:0999999999">тел: 099-999-99-99</a>
+</div>
+
+<div class="contact-email">
+    <img class="foto-email" src="{% static './images/email.png' %}" alt="email">
+    <a class="email" href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
+</div>
 
 {% endblock %}

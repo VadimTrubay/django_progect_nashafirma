@@ -4,11 +4,11 @@
 <div class="form">
     <form method="post" action="">
         {% csrf_token %}
-        <p class="center">are you sure you want to delete</p>
+        <p class="center">Ви дійсно хочете видалити</p>
         <p class="center"><b>"{{ object.product }}"</b>?</p>
         <div class="btn-container">
-            <button type="submit" class="button-save">Yes</button>
-            <button type="reset"  class="button-back" onclick="history.back()">No</button>
+            <button type="submit" class="button-save">Так</button>
+            <button type="reset"  class="button-back" onclick="history.back()">Ні</button>
         </div>
     </form>
 </div>

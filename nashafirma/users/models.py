@@ -25,24 +25,29 @@ class SiteUser(AbstractUser):
         max_length=MAX_LEN_USERNAME,
         validators=(validators.MinLengthValidator(MIN_LEN_USERNAME),),
         default="",
+        verbose_name="користувач"
     )
     email = models.EmailField(
         unique=True,
         default="",
+        verbose_name="email"
     )
     first_name = models.CharField(
         max_length=MAX_LEN_FIRST_NAME,
         default="",
         validators=(validators.MinLengthValidator(MIN_LEN_FIRST_NAME),),
+        verbose_name="ім'я"
     )
     last_name = models.CharField(
         max_length=MAX_LEN_SECOND_NAME,
         default="",
         validators=(validators.MinLengthValidator(MIN_LEN_SECOND_NAME),),
+        verbose_name="прізвище"
     )
     telephone_number = models.CharField(
         max_length=MAX_LEN_TELEPHONE_NUMBER,
         validators=(validators.MinLengthValidator(MIN_LEN_TELEPHONE_NUMBER),),
+        verbose_name="телефон"
     )
     profile_picture = models.ImageField(
         upload_to=user_directory_path,
@@ -53,4 +58,5 @@ class SiteUser(AbstractUser):
                 allowed_extensions=["jpg", "jpeg", "png"]
             ),
         ],
+        verbose_name="фото"
     )
