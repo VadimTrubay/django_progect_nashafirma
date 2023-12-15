@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if product %}
+
 {% if request.user.username == 'admin' %}
 <p class="center"><a href="{% url 'add_product' %}">+ Додати новий продукт</a></p>
 <table  class="note" role="grid">
@@ -93,5 +93,5 @@
     </ul>
 </nav>
 {% endif %}
-{% endif %}
+
 {% endblock %}
