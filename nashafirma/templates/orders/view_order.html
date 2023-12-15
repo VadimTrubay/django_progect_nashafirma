@@ -20,87 +20,85 @@
 </script>
 
 <p class="center"><b>"{{order}}"</b> для користувача <b>"{{ order.user }}"</b></p>
+<br>
 {% if not request.user.username == 'admin' %}
-{% if order.done == False %}
-    <p class="center"><a href="{% url 'add_item' order.pk %}">+ Додати новий продукт</a></p>
-{% else %}
-    <p class="center"><a href="{% url 'all_orders' %}">Замовлення виконане<span class="done" >&#10004;</span></a></p>
+    {% if order.done == False %}
+        <p class="center"><a href="{% url 'add_item' order.pk %}">+ Додати новий продукт</a></p>
+        {% else %}
+        <p class="center"><a href="{% url 'all_orders' %}">Замовлення виконане<span class="done">&#10004;</span></a></p>
+    {% endif %}
 {% endif %}
-{% endif %}
-{% if order %}
-<table class="note" role="grid">
-    <thead>
-        <tr class="title-table">
-            <th>№</th>
-            <th>продукт</th>
-            <th>вага</th>
-            <th>ціна</th>
-            <th>сума</th>
-            <th>нотатка</th>
-            <th>редагувати</th>
-            <th>видалити</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for product in order.orderitem_set.all %}
-        <tr>
-            <th>{{ forloop.counter }}</th>
-            <th><a href="{% url 'edit_item_product' product.pk %}">{{ product.product }}</a></th>
-            <th>{{product.weight}}</th>
-            <th>{{product.product.price}}</th>
-            <th>{{ product.calculate_total}}</th>
-            <th>
-                <a href="{% url 'edit_item_product' product.pk %}" class="product-note">
-                    <span class="truncated-text">{{ product.note | truncatechars:20 }}</span>
-                    <span class="full-text" style="display: none;">{{ product.note }}</span>
-                </a>
-                {% if order.done == False %}
-            </th>
+    {% if order %}
+    <table class="note" role="grid">
+        <thead>
+            <tr class="title-table">
+                <th>№</th>
+                <th>продукт</th>
+                <th>вага</th>
+                <th>ціна</th>
+                <th>сума</th>
+                <th>нотатка</th>
+                <th>редагувати</th>
+                <th>видалити</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in order.orderitem_set.all %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <th><a href="">{{ product.product }}</a></th>
+                <th>{{product.weight}}</th>
+                <th>{{product.product.price}}</th>
+                <th>{{ product.calculate_total}}</th>
+                <th>
+                    <a href="{% url 'edit_item_product' product.pk %}" class="product-note">
+                        <span class="truncated-text">{{ product.note | truncatechars:20 }}</span>
+                        <span class="full-text" style="display: none;">{{ product.note }}</span>
+                    </a>
+                    {% if order.done == False %}
+                </th>
 
-            <td>
-                <a class="text-edit" href="{% url 'edit_item_product' product.pk %}">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
+                <td>
+                    <a class="text-edit" href="{% url 'edit_item_product' product.pk %}">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 22 22" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 20h9"></path>
                         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                     </svg>
-                </a>
-            </td>
-            <td scope="row">
-                <a class="text-delete" href="{% url 'delete_item_product' product.pk %}">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="3 6 5 6 21 6"></polyline>
-                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                        </path>
-                        <line x1="10" y1="11" x2="10" y2="17"></line>
-                        <line x1="14" y1="11" x2="14" y2="17"></line>
-                    </svg>
-                </a>
-            </td>
-            </th>
-            {% else %}
-            <th>
-            <td>
-            </td>
-            <td scope="row">
-            </td>
-            </th>
-            {% endif %}
-            {% endfor %}
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>Разом:</th>
-            <td></td>
-            <td>{{ order.calculate_sum_weight }}</td>
-            <td></td>
-            <td>{{ order.calculate_sum_total }}</td>
-            <td></td>
-        </tr>
-    </tfoot>
-</table>
+                    </a>
+                </td>
+                <td scope="row">
+                    <a class="text-delete" href="{% url 'delete_item_product' product.pk %}">
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                            stroke-linejoin="round" class="icon-sm" height="1em" width="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
+                    </a>
+                </td>
+                </th>
+                {% else %}
+                <th>
+                <td>
+                </td>
+                </th>
+                {% endif %}
+                {% endfor %}
+            <tr>
+                <th>Разом:</th>
+                <td></td>
+                <td>{{ order.calculate_sum_weight }}</td>
+                <td></td>
+                <td>{{ order.calculate_sum_total }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 {% endif %}
 {% endblock %}
