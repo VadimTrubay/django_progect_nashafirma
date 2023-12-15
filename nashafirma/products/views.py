@@ -2,6 +2,7 @@ from .models import Product
 from .forms import ProductForm
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 from django.db.models import Q
 
@@ -20,7 +21,7 @@ class AddProductView(CreateView):
 
 class AllProductsView(ListView):
     title = "Всі продукти"
-    paginate_by = 20
+    paginate_by = 5
     model = Product
     template_name = "products/all_products.html"
     context_object_name = "products"
@@ -52,7 +53,14 @@ class EditProductView(UpdateView):
     model = Product
     fields = ["product", "price"]
     template_name = "products/edit_product.html"
-    success_url = reverse_lazy("all_products")
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        print(next_url)
+        if next_url:
+            return next_url
+        else:
+            return reverse_lazy('all_products')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
