@@ -76,7 +76,7 @@ class ViewOrderView(DetailView):
 
 class AllOrdersView(ListView):
     title = "Всі замовлення"
-    paginate_by = 20
+    paginate_by = 3
     model = Order
     template_name = "orders/all_orders.html"
     context_object_name = "orders"
@@ -149,6 +149,13 @@ class DeleteOrderView(DeleteView):
     model = Order
     template_name = "orders/delete_order.html"
     success_url = reverse_lazy("all_orders")
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url
+        else:
+            return reverse_lazy('all_orders')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
