@@ -203,6 +203,7 @@ class AddItemView(CreateView):
 
 class SearchResultsOrderView(ListView):
     title = "Результати пошуку замовлення"
+    paginate_by = 3
     model = Order
     template_name = "orders/search_results_order.html"
     context_object_name = "orders"
@@ -250,6 +251,7 @@ class SearchResultsOrderView(ListView):
 
 class SortOrdersByNameView(ListView):
     title = "Сортування за ім'ям"
+    paginate_by = 3
     model = Order
     template_name = "orders/sort_by_name.html"
     context_object_name = "orders"
@@ -272,6 +274,7 @@ class SortOrdersByNameView(ListView):
 
 class SortOrdersByDateView(ListView):
     title = "Сортування за датою"
+    paginate_by = 3
     model = Order
     template_name = "orders/sort_by_date.html"
     context_object_name = "orders"
