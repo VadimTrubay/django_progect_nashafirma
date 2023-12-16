@@ -21,14 +21,10 @@ class AddProductView(CreateView):
 
 class AllProductsView(ListView):
     title = "Всі продукти"
-    paginate_by = 5
+    paginate_by = 3
     model = Product
     template_name = "products/all_products.html"
     context_object_name = "products"
-    # ordering = 'product'
-
-    # def get_queryset(self):
-    #     return self.model.objects.order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -41,6 +37,13 @@ class DeleteProductView(DeleteView):
     model = Product
     template_name = "products/delete_product.html"
     success_url = reverse_lazy("all_products")
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url
+        else:
+            return reverse_lazy('all_products')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -70,6 +73,7 @@ class EditProductView(UpdateView):
 
 class SearchResultsProductView(ListView):
     title = "Результати пошуку продукту"
+    paginate_by = 3
     model = Product
     template_name = "products/search_results_product.html"
     context_object_name = "products"
@@ -78,6 +82,14 @@ class SearchResultsProductView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = self.title
         return context
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        print(next_url)
+        if next_url:
+            return next_url
+        else:
+            return reverse_lazy('search_product')
 
     def get_queryset(self):
         query = self.request.GET.get("search_product")
