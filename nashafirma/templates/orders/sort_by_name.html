@@ -28,6 +28,7 @@
                     {% endif %}
                     {% if order.done %}<span class="done">&#10004;</span>
                     {% else %}<span class="notdone">&#10008;</span>{% endif %}</a>
+                    <a class="sort" href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
             </td>
             <td>
                 <a class="text-edit" href="{% url 'view_order' order.pk %}">
