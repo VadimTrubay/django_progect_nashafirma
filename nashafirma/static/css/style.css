@@ -75,6 +75,10 @@ a:focus {
     color: var(--brand-second-color);
 }
 
+.auth {
+    color: #686868;
+}
+
 .back {
     color: var(--brand-color);
 }
@@ -119,6 +123,13 @@ body, ul, p {
     padding-right: auto;
 }
 
+.contact-phone,
+.contact-email {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
 .container {
     background-color: var(--brand-background-color);
     padding: 100px;
@@ -145,9 +156,9 @@ body, ul, p {
 }
 
 .menu li{
-    padding: 10px;
+    padding: 5px;
     margin-left: 15px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .header {
@@ -156,7 +167,7 @@ body, ul, p {
 
 .user {
     color: var(--brand-color);
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .user-white {
@@ -242,6 +253,11 @@ hr {
     justify-content: left;
 }
 
+.min-menu a {
+    color: var(--brand-color);
+    background-color: var(--brand-background-color);
+}
+
 nav ul li {
     font-weight: 700;
 }
@@ -256,20 +272,15 @@ nav ul li {
     width: 30px;
 }
 
-.contact-phone, 
-.contact-email {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
 .phone, 
 .email {
     margin: 0 10px;
     vertical-align: middle;
 }
 
-.profile-fields {
+.profile-fields,
+.footer-ul,
+.form {
     display: flex;
     justify-content: center;
 }
@@ -287,18 +298,8 @@ nav ul li {
 .profile-fields-img {
     text-align: center;
     width: 150px;
-    border: #000 solid 1px;
+    border: var(--brand-second-color) solid 1px;
     border-radius: 420%;
-}
-
-.form {
-    display: flex;
-    justify-content: center;
-}
-
-.footer-ul {
-    display: flex;
-    justify-content: center;
 }
 
 .footer-ul-li {
@@ -331,6 +332,26 @@ td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+}
+
+@media (max-width: 994px) {
+    .norm {
+        display: none;
+    }
+
+    .min {
+        display: block;
+    }
+}
+
+@media (min-width: 994px) {
+    .norm {
+        display: block;
+    }
+
+    .min {
+        display: none;
+    }
 }
 
 .note a:focus,
@@ -390,7 +411,7 @@ table a {
     border: 0 none;
     font-size: bold 10px;
     color: #777;
-    width: 150px;
+    width: 130px;
     height: 30px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 30px;
@@ -407,7 +428,7 @@ table a {
 }
 
 #search input[type="text"]:focus {
-    width: 250px;
+    width: 200px;
 }
 
 .with-line {
