@@ -76,7 +76,7 @@ class ViewOrderView(DetailView):
 
 class AllOrdersView(ListView):
     title = "Всі замовлення"
-    paginate_by = 3
+    paginate_by = 20
     model = Order
     template_name = "orders/all_orders.html"
     context_object_name = "orders"
@@ -84,6 +84,7 @@ class AllOrdersView(ListView):
     def get_queryset(self):
         if self.request.user.username == "admin":
             object_list = self.model.objects.all().reverse()
+
         else:
             object_list = self.model.objects.filter(
                 user=self.request.user).reverse()
@@ -203,7 +204,7 @@ class AddItemView(CreateView):
 
 class SearchResultsOrderView(ListView):
     title = "Результати пошуку замовлення"
-    paginate_by = 3
+    paginate_by = 20
     model = Order
     template_name = "orders/search_results_order.html"
     context_object_name = "orders"
@@ -251,7 +252,7 @@ class SearchResultsOrderView(ListView):
 
 class SortOrdersByNameView(ListView):
     title = "Сортування за ім'ям"
-    paginate_by = 3
+    paginate_by = 20
     model = Order
     template_name = "orders/sort_by_name.html"
     context_object_name = "orders"
@@ -274,7 +275,7 @@ class SortOrdersByNameView(ListView):
 
 class SortOrdersByDateView(ListView):
     title = "Сортування за датою"
-    paginate_by = 3
+    paginate_by = 20
     model = Order
     template_name = "orders/sort_by_date.html"
     context_object_name = "orders"
@@ -292,6 +293,37 @@ class SortOrdersByDateView(ListView):
                 user_orders = self.model.objects.filter(user=self.request.user)
                 queryset = user_orders.filter(
                     Q(created_at__icontains=created_at))
+                queryset = queryset.reverse()
+                return queryset
+            return self.model.objects.none()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
+
+
+class SortOrdersByDoneView(ListView):
+    title = "Сортування за статусом"
+    paginate_by = 20
+    model = Order
+    template_name = "orders/sort_by_done.html"
+    context_object_name = "orders"
+
+    def get_queryset(self):
+        done = self.kwargs.get('done')
+        if self.request.user.username == "admin":
+            if done:
+                queryset = self.model.objects.all().filter(Q(done__icontains=done))
+                print(queryset)
+                queryset = queryset.reverse()
+                return queryset
+            return self.model.objects.none()
+        else:
+            if done:
+                user_orders = self.model.objects.filter(user=self.request.user)
+                queryset = user_orders.filter(
+                    Q(done__icontains=done))
                 queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
