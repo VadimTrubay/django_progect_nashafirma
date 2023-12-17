@@ -9,7 +9,8 @@ from orders.views import (AddOrderView,
                           SearchResultsOrderView,
                           EditOrderDoneView,
                           SortOrdersByNameView,
-                          SortOrdersByDateView)
+                          SortOrdersByDateView,
+                          SortOrdersByDoneView)
 
 urlpatterns = [
     path("add_order/", AddOrderView.as_view(), name="add_order"),
@@ -29,4 +30,6 @@ urlpatterns = [
          name="sort_by_name"),
     path("sort_by_date/<str:created_at>", SortOrdersByDateView.as_view(),
          name="sort_by_date"),
+    path("sort_by_done/<str:done>", SortOrdersByDoneView.as_view(),
+         name="sort_by_done"),
 ]
