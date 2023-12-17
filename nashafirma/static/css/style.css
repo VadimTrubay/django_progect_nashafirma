@@ -362,6 +362,11 @@ table a {
     color: #8e0000;
 }
 
+.sort {
+    display: inline-block;
+    font-size: 20px;
+}
+
 /* Style for the search container */
 .search-container {
     position: relative;
