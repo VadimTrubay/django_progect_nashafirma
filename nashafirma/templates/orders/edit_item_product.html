@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="center"><b>"{{ object.product }}"</b> для замовлення <b>"{{ object }}"</b></p>
+<p class="center"><b>"{{ object.product }}"</b></p>
+<p class="center">для замовлення</p>
+<p class="center"><b>"{{ object }}"</b></p>
 <div class="form">
     <form method="post" action="">
     {% csrf_token %}
     <label>{{form.as_p}}</label>
     <span>{{ form.errors.name }}</span>
     <div class="btn-container">
-        <button type="submit" class="button-save">Зберегти</button>
-        <button type="reset" class="button-back" onclick="history.back()">назад</button>
+        <button type="submit" class="button button-save">Зберегти</button>
+        <button type="reset" class="button button-back" onclick="history.back()">назад</button>
     </div>
 </form>
 </div>
