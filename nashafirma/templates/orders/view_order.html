@@ -35,11 +35,11 @@
                 <th>№</th>
                 <th>продукт</th>
                 <th>вага</th>
-                <th>ціна</th>
-                <th>сума</th>
+                <th class="not-print">ціна</th>
+                <th class="not-print">сума</th>
                 <th>нотатка</th>
-                <th>редагувати</th>
-                <th>видалити</th>
+                <th class="not-print">редагувати</th>
+                <th class="not-print">видалити</th>
             </tr>
         </thead>
         <tbody>
@@ -48,8 +48,8 @@
                 <th>{{ forloop.counter }}</th>
                 <th><a href="">{{ product.product }}</a></th>
                 <th>{{product.weight}}</th>
-                <th>{{product.product.price}}</th>
-                <th>{{ product.calculate_total}}</th>
+                <th class="not-print">{{product.product.price}}</th>
+                <th class="not-print">{{ product.calculate_total}}</th>
                 <th>
                     <a href="" class="product-note">
                         <span class="truncated-text">{{ product.note | truncatechars:20 }}</span>
@@ -58,7 +58,7 @@
                     {% if order.done == False %}
                 </th>
 
-                <td>
+                <td class="not-print">
                     <a class="text-edit" href="{% url 'edit_item_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 22 22" stroke-linecap="round"
                         stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@
                     </svg>
                     </a>
                 </td>
-                <td scope="row">
+                <td class="not-print" scope="row">
                     <a class="text-delete" href="{% url 'delete_item_product' product.pk %}">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 23 23" stroke-linecap="round"
                         stroke-linejoin="round" class="icon-delete" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
@@ -80,10 +80,8 @@
                 </td>
                 </th>
                 {% else %}
-                <th>
-                <td>
-                </td>
-                </th>
+                <th class="not-print"></td>
+                <td class="not-print"></th>
                 {% endif %}
                 {% endfor %}
             <tr>
@@ -91,10 +89,10 @@
                 <td></td>
                 <td>{{ order.calculate_sum_weight }}</td>
                 <td></td>
-                <td>{{ order.calculate_sum_total }}</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="not-print">{{ order.calculate_sum_total }}</td>
+                <td class="not-print"></td>
+                <td class="not-print"></td>
+                <td class="not-print"></td>
             </tr>
         </tbody>
     </table>

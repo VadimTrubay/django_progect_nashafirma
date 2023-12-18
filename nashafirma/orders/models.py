@@ -27,12 +27,10 @@ class Order(models.Model):
         return reverse("view_order", kwargs={"pk": self.pk})
 
     def calculate_sum_weight(self):
-        return sum(item.weight for item in self.orderitem_set.all())
+        return round(sum(item.weight for item in self.orderitem_set.all()), 2)
 
     def calculate_sum_total(self):
-        return round(
-            sum(item.calculate_total() for item in self.orderitem_set.all()), 2
-        )
+        return round(sum(item.calculate_total() for item in self.orderitem_set.all()), 2)
 
     class Meta:
         verbose_name = "замовлення"
