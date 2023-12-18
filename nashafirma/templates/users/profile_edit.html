@@ -13,7 +13,7 @@
 <div class="form">
 <form action="{% url 'profile_edit' pk=user.pk %}" method="post" enctype="multipart/form-data">
     {{ form.as_p }}
-    <button type="submit">Зберегти зміни</button>
+    <button class="button" type="submit">Зберегти зміни</button>
     {% csrf_token %}
 </form>
 </div>
