@@ -5,10 +5,12 @@
     <form method="post" action="">
         {% csrf_token %}
         <p class="center">Ви дійсно хочете видалити?</p>
-        <p class="center"></p><b>"{{ object }}"</b> для користувача <b>"{{ order.user }}</b>?</p>
+        <p class="center"><b>"{{ object }}"</b></p>
+        <p class="center"><b>для користувача</p>
+        <p class="center"><b>"{{ order.user }}</b>?</p>
         <div class="btn-container">
-            <button type="submit" class="button-save">Так</button>
-            <button type="reset" class="button-back" onclick="history.back()">Ні</button>
+            <button type="submit" class="button button-save">Так</button>
+            <button type="reset" class="button button-back" onclick="history.back()">Ні</button>
         </div>
     </form>
 </div>
