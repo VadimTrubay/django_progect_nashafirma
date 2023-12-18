@@ -31,7 +31,7 @@
     {% if order %}
     <table class="note" role="grid">
         <thead>
-            <tr class="title-table">
+            <tr style="background-color: #b2b2b2;" class="title-table">
                 <th>№</th>
                 <th>продукт</th>
                 <th>вага</th>
@@ -74,12 +74,12 @@
                 <td class="not-print"></th>
                 {% endif %}
                 {% endfor %}
-            <tr>
-                <th>Разом:</th>
+            <tr style="background-color: #b2b2b2;">
+                <th><b>Разом:</b></th>
                 <td></td>
-                <td>{{ order.calculate_sum_weight }}</td>
+                <td><b>{{ order.calculate_sum_weight }}</b></td>
                 <td></td>
-                <td class="not-print">{{ order.calculate_sum_total }}</td>
+                <td class="not-print"><b>{{ order.calculate_sum_total }}</b></td>
                 <td class="not-print"></td>
                 <td class="not-print"></td>
                 <td class="not-print"></td>
