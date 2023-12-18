@@ -133,11 +133,32 @@ body, ul, p {
     padding-right: auto;
 }
 
-.contact-phone,
+.contact-phone::before {
+    content: "";
+    display: inline-block;
+    height: 30px;
+    width: 30px;    
+    background-image: url("../images/phone.png");
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px 10px;
+}
+
+.contact-email::before {
+    content: "";
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../images/email.png");
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px 10px;
+}
+
+
 .contact-email {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+    display: inline-block;
+
 }
 
 .container {
@@ -410,6 +431,10 @@ table a {
 
 .text-delete {
     color: #8e0000;
+}
+
+.note > .table-footer {
+    background-color: #3b3b3b;
 }
 
 .sort {
