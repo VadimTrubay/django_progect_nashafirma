@@ -94,6 +94,11 @@ body, ul, p {
     font-family: var(--brand-font);
 }
 
+/* .button:hover,
+.button:focus {
+    background-color: #8e0000;
+} */
+
 .button {
     margin: 10px 15px;
 }
