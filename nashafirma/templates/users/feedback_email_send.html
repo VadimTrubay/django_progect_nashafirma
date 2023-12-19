@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Доброго дня Admin,
+
+Вам надійшов лист з сайту з слідуючим змістом:
+{{ content }}
+
+IP Адреса відправника: {{ ip }}
+Email відправника: {{ email }}
+{% if user %}Користувач: {{ user.username }}{% endif %}
+
+{% endautoescape %}

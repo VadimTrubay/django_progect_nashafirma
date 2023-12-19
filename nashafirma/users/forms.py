@@ -5,7 +5,7 @@ from django.contrib.auth.forms import (
     AuthenticationForm,
     UsernameField,
 )
-
+from users.models import Feedback
 from captcha.fields import CaptchaField
 
 UserModel = get_user_model()
@@ -46,3 +46,17 @@ class EditProfileForm(forms.ModelForm):
             "email",
             "profile_picture",
         ]
+
+
+class FeedbackCreateForm(forms.ModelForm):
+    captcha = CaptchaField()
+
+    class Meta:
+        model = Feedback
+        fields = ('subject', 'email', 'content')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update(
+                {'class': 'form-control', 'autocomplete': 'off'})

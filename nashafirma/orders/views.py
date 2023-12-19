@@ -334,15 +334,5 @@ class SortOrdersByDoneView(ListView):
         return context
 
 
-class ContactsView(DataMixin, TemplateView):
-    title = "Контакти"
-    template_name = "orders/contacts.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
-
-
 def pageNotFound(request, exception):
     return render(request, "404.html", status=404)

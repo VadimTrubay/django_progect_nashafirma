@@ -153,6 +153,8 @@ LOGIN_URL = 'users'
 
 
 """For Gmail"""
+EMAIL_ADMIN = env('GMAIL_ADMIN')
+EMAIL_SERVER = env('GMAIL_SERVER')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('GMAIL_HOST')
 EMAIL_PORT = env('GMAIL_PORT')

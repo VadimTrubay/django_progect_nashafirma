@@ -60,3 +60,25 @@ class SiteUser(AbstractUser):
         ],
         verbose_name="фото"
     )
+
+
+class Feedback(models.Model):
+    subject = models.CharField(max_length=255, verbose_name="тема листа")
+    email = models.EmailField(
+        max_length=255, verbose_name="ваш email")
+    content = models.TextField(verbose_name='зміст листа')
+    time_create = models.DateTimeField(
+        auto_now_add=True, verbose_name='дата відправки')
+    ip_address = models.GenericIPAddressField(
+        verbose_name='IP адреса відправнка',  blank=True, null=True)
+    user = models.ForeignKey(SiteUser, verbose_name='користувач',
+                             on_delete=models.CASCADE, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'зворотній звязок'
+        verbose_name_plural = 'зворотній звязок'
+        ordering = ['-time_create']
+        db_table = 'app_feedback'
+
+    def __str__(self):
+        return f'вам лист від {self.email}'
