@@ -106,12 +106,18 @@ class UserLogOutView(auth_views.LogoutView):
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
-    template_name = 'users/password_reset.html'
-    email_template_name = 'users/password_reset_email.html'
-    html_email_template_name = 'users/password_reset_email.html'
-    success_url = reverse_lazy('password_reset_done')
+    title = "Відновлення паролю"
+    template_name = "users/password_reset.html"
+    email_template_name = "users/password_reset_email.html"
+    html_email_template_name = "users/password_reset_email.html"
+    success_url = reverse_lazy("password_reset_done")
     success_message = "На Ваш %(email)s було відправлено листа для зміни пароля."
-    subject_template_name = 'users/password_reset_subject.txt'
+    subject_template_name = "users/password_reset_subject.txt"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
 
 
 class TermsView(TemplateView):
@@ -149,7 +155,7 @@ class FeedbackCreateView(SuccessMessageMixin, CreateView):
 
 
 class FeedbackSuccessView(TemplateView):
-    title = "Листа надіслано вдало"
+    title = "Лист надіслано вдало"
     template_name = 'users/feedback_success.html'
 
     def get_context_data(self, **kwargs):
