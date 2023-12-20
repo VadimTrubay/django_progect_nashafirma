@@ -49,8 +49,7 @@ class EditProfileForm(forms.ModelForm):
 
 
 class FeedbackCreateForm(forms.ModelForm):
-    captcha = CaptchaField()
-
+    
     class Meta:
         model = Feedback
         fields = ('subject', 'email', 'content')
