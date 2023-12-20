@@ -28,16 +28,17 @@ urlpatterns = [
          path("delete/", DeleteProfileView.as_view(), name="profile_delete"), ]
     ),
     ),
-    path("reset_password/", ResetPasswordView.as_view(), name="password_reset"),
-    path("reset_password/done/", PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
+    path("reset-password/", ResetPasswordView.as_view(), name="password_reset"),
+    path("reset-password/done/", PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
          name='password_reset_done'),
-    path("reset_password/confirm/<uidb64>/<token>/",
+    path("reset-password/confirm/<uidb64>/<token>/",
          PasswordResetConfirmView.as_view(
-             template_name='users/password_reset_confirm.html',
-             success_url=reverse_lazy('password_reset_confirm')),
-         name='password_reset_confirm'),
-    path('reset_password/complete/',
+             template_name="users/password_reset_confirm.html",
+             success_url="users/login",
+         ),
+         name="password_reset_confirm"),
+    path("reset-password/complete/",
          PasswordResetCompleteView.as_view(
-             template_name='users/password_reset_complete.html'),
-         name='password_reset_complete'),
+             template_name="users/password_reset_complete.html"),
+         name="password_reset_complete"),
 ]
