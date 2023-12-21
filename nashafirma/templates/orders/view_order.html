@@ -1,24 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var productNotes = document.querySelectorAll(".product-note");
-
-        productNotes.forEach(function (note) {
-            note.addEventListener("mouseover", function () {
-                note.querySelector(".truncated-text").style.display = "none";
-                note.querySelector(".full-text").style.display = "inline";
-            });
-
-            note.addEventListener("mouseout", function () {
-                note.querySelector(".full-text").style.display = "none";
-                note.querySelector(".truncated-text").style.display = "inline";
-            });
-        });
-    });
-</script>
-
 <p class="center"><b>"{{order}}"</b> для користувача <b>"{{ order.user }}"</b></p>
 <br>
 {% if not request.user.username == 'admin' %}
@@ -86,5 +68,23 @@
             </tr>
         </tbody>
     </table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var productNotes = document.querySelectorAll(".product-note");
+
+        productNotes.forEach(function (note) {
+            note.addEventListener("mouseover", function () {
+                note.querySelector(".truncated-text").style.display = "none";
+                note.querySelector(".full-text").style.display = "inline";
+            });
+
+            note.addEventListener("mouseout", function () {
+                note.querySelector(".full-text").style.display = "none";
+                note.querySelector(".truncated-text").style.display = "inline";
+            });
+        });
+    });
+</script>
 {% endif %}
 {% endblock %}
