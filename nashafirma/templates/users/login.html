@@ -8,9 +8,12 @@
         <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
         <div>{{ f.errors }}</div>
         {% endfor %}
-        <button type="submit">Login</button>
-        <a href="{% url 'password_reset' %}"><i>Забули пароль?</i></a>
-        <a href="{% url 'register' %}"><i>Створити новий аккаунт?</i></a>
+        <div class="btn-container">
+            <button type="submit" class="button button-save">Вхід</button>
+            <button type="reset" class="button button-back" onclick="history.back()">Назад</button>
+        </div>
+        <a href="{% url 'password_reset' %}"><i>Забули пароль? Натисни <u>мене</u>.</i></a>
+        <!-- <a href="{% url 'register' %}"><i>Створити новий аккаунт?</i></a> -->
     </form>
 </div>
 
