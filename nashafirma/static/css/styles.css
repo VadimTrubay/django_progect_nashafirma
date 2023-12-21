@@ -131,6 +131,8 @@ body, ul, p {
     margin-top: 15px;
     margin-left: auto;
     padding-right: auto;
+    background-color: #d1d0d0;
+    border-radius: 5px;
 }
 
 .contact-phone::before {
