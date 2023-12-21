@@ -11,19 +11,19 @@
         {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' %}
         <div class="header-search">
             <form id="search" method="get" action="{% url 'search_results_order' %}">
-                <input type="text" name="search_order" placeholder="Пошук ..." autocomplete="off">
+                <input type="text" name="search_order" placeholder="Пошук ..." autocomplete="on">
             </form>
         </div>
         {% elif request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
         <div class="header-search">
             <form id="search" method="get" action="{% url 'search_results_product' %}">
-                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="on">
             </form>
         </div>
         {% else %}
         <div class="header-search">
             <form id="search" method="get" action="">
-                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="on">
             </form>
         </div>
         {% endif %}
@@ -31,13 +31,13 @@
         {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' %}
         <div class="header-search">
             <form id="search" method="get" action="{% url 'search_results_product' %}">
-                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="on">
             </form>
         </div>
         {% else %}
         <div class="header-search">
             <form id="search" method="get" action="">
-                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="off">
+                <input type="text" name="search_product" placeholder="Пошук ..." autocomplete="on">
             </form>
         </div>
         {% endif %}
@@ -66,7 +66,7 @@
             <li><a {% if request.path == '/users/profile/' %} class="active-page" {% endif %}
                     href="{% url 'profile_details' user.pk %}"><span>Профіль</span></a>
                 {% endif %}
-            <li><a {% if request.path == '/feedback/' %} class="active-page" {% endif %}
+            <li><a {% if request.path == '/users/feedback/' %} class="active-page" {% endif %}
                     href="{% url 'feedback' %}">Контакти</a></li>
             <li><a class="back" href="#" class="outline" onclick="history.back()">Назад</a></li>
         </ul>
@@ -91,7 +91,7 @@
             <li><a {% if request.path == '/users/profile/' %} class="active-page" {% endif %}
                     href="{% url 'profile_details' user.pk %}"><span>Профіль</span></a>
                 {% endif %}
-            <li><a {% if request.path == '/feedback/' %} class="active-page" {% endif %} href="{% url 'feedback' %}">Контакти</a></li>
+            <li><a {% if request.path == '/users/feedback/' %} class="active-page" {% endif %} href="{% url 'feedback' %}">Контакти</a></li>
             <li><a class="back" href="#" class="outline" onclick="history.back()">Назад</a></li>
                     </ul>
                 </details>
@@ -108,8 +108,9 @@
         {% else %}
         <nav aria-label="breadcrumb">
             <ul class="menu">
-                <li><a class="auth" href="{% url 'login' %}">Авторизація</a></li>
-                <li><a class="auth" href="{% url 'register' %}">Реєстрація</a></li>
+
+                <li><a {% if request.path == '/users/login/' %} class="active-page" {% endif %} class="auth" href="{% url 'login' %}">Вхід</a></li>
+                <li><a {% if request.path == '/users/register/' %} class="active-page" {% endif %} class="auth" href="{% url 'register' %}">Реєстрація</a></li>
             </ul>
         </nav>
         {% endif %}
@@ -118,7 +119,6 @@
     {% if request.user.username == 'admin' %}
     <a class="print" href="#" onclick="window.print();return false;"> 
     <svg width="30px" height="30px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
-    
         <g style="fill:#888888;stroke:#000000;stroke-width:1px;">
             <path style="fill:#EBEBDA" d="M 19,44 19,3 81,3 81,44" />
             <path style="stroke-width:2px;"
