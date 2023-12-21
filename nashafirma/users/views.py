@@ -24,10 +24,16 @@ def get_profile(pk):
 
 
 class UserRegistrationView(view.CreateView):
+    title = "Реєстрація"
     model = UserModel
     template_name = "users/register.html"
     form_class = RegistrationForm
     success_url = reverse_lazy("home")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -36,8 +42,14 @@ class UserRegistrationView(view.CreateView):
 
 
 class UserLoginView(auth_views.LoginView):
+    title = "Вхід"
     form_class = LoginForm
     template_name = "users/login.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
 
     def get_success_url(self):
         return reverse_lazy("home")
