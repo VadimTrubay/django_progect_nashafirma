@@ -25,7 +25,7 @@ class SiteUser(AbstractUser):
         max_length=MAX_LEN_USERNAME,
         validators=(validators.MinLengthValidator(MIN_LEN_USERNAME),),
         default="",
-        verbose_name="користувач"
+        verbose_name="логін"
     )
     email = models.EmailField(
         unique=True,
