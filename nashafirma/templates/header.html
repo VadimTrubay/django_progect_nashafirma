@@ -1,12 +1,31 @@
 {% block header %}
 {% load static %}
+{% load i18n %}
 
 <header class="header">
     <section class="header-logo-search">
         <div class="header-logo-foto">
             <h1 class="header-logo-foto header-logo"><a href="{% url 'home' %}">Наша - Фірма</a></h1>
-            <!-- <img class="header-logo-foto foto-logo" src="{% static './images/foto-logo.png' %}" alt="vegetables in the box"> -->
+            <img class="header-logo-foto foto-logo" src="{% static './images/add.png' %}" alt="vegetables in the box">
         </div>
+<div class="header-lang">
+    <div class="lang">
+        <form id="formLangUA" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}" />
+            <input type="hidden" name="language" value="uk" />
+            
+            <a href="#" onclick="document.getElementById('formLangUA').submit(); return false;" class="{% if LANGUAGE_CODE == 'uk' %}active-page{% endif %}">UA |</a>
+        </form>
+        <form id="formLangRU" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}" />
+            <input type="hidden" name="language" value="ru" />
+            <a href="#" onclick="document.getElementById('formLangRU').submit(); return false;" class="{% if LANGUAGE_CODE == 'ru' %}active-page{% endif %}">| RU</a>
+        </form>
+    </div>
+
+</div>
         {% if request.user.is_authenticated %}
         {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' %}
         <div class="header-search">

@@ -123,7 +123,7 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     email_template_name = "users/password_reset_email.html"
     html_email_template_name = "users/password_reset_email.html"
     success_url = reverse_lazy("password_reset_done")
-    success_message = "На Ваш %(email)s було відправлено листа для зміни пароля."
+    success_message = "На Ваш %(email)s було відправлено листа для зміни паролю."
     subject_template_name = "users/password_reset_subject.txt"
 
     def get_context_data(self, **kwargs):

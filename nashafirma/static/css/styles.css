@@ -121,17 +121,19 @@ body, ul, p {
 
 .foto-logo {
     background-image: #c5c5c500;
-    width: 100px;
+    width: 30px;
     vertical-align: middle;
 }
 
 .content {
+    max-width: 60%;
+    margin: 0 auto;
     height: auto;
     min-height: 600px;
     margin-top: 15px;
     margin-left: auto;
     padding-right: auto;
-    background-color: #d1d0d0;
+    background-color: var(--brand-background-color);
     border-radius: 5px;
 }
 
@@ -165,7 +167,7 @@ body, ul, p {
 
 .container {
     background-color: var(--brand-background-color);
-    padding: 100px;
+    padding: 30px;
 }
 
 .center {
@@ -217,9 +219,26 @@ body, ul, p {
     text-align: center;
 }
 
+.header-lang {
+    color: var(--brand-color);
+}
+
+.header-lang a {
+    font-size: 900;
+    padding-top: 25px;
+}
+
+.lang {
+    display: flex;
+    min-width: 50%;
+}
+
 .header-search form {
     padding: 0;
     margin: 5px;
+}
+.header-search {
+    padding: 10px 0;
 }
 
 .header-search input {
@@ -242,6 +261,7 @@ body, ul, p {
     display: inline-block;
 }
 
+
 .header-auth {
     display: flex;
     justify-content: space-between;
@@ -249,7 +269,7 @@ body, ul, p {
 }
 
 .header-auth img {
-    width: 500px;
+    width: 50%;
 }
 
 .header-auth li {
@@ -376,13 +396,12 @@ section {
 
 table {
     border-collapse: collapse;
-    width: 100%;
 }
 
 th,
 td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2px;
     text-align: center;
 }
 
@@ -410,6 +429,11 @@ td {
 .note a:hover {
     color: #000000;
     font-weight: 700;
+}
+
+.note th,
+.note td {
+    font-size: 15px;
 }
 
 table a {

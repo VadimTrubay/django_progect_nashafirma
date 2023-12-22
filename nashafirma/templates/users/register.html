@@ -19,19 +19,10 @@
                 disabled>Реєстрація</button>
             <button type="reset" class="button button-back" onclick="history.back()">Назад</button>
         </div>
-        <!-- <p class="text-center text-muted mt-3 mb-0">Вже маєте профіль?
-            <a href="{% url 'login' %}" class="fw-bold text-body"><u>Авторизація</u></a>
-        </p> -->
+        <p>Вже маєте профіль?</p>
+        <p><a href="{% url 'login' %}">Вхід до особистого кабінету</a></p>
+        
     </form>
 </div>
-
-<script>
-    const checkbox = document.getElementById('checkbox');
-    const registrationBtn = document.getElementById('registrationBtn');
-
-    checkbox.addEventListener('change', function () {
-        registrationBtn.disabled = !this.checked;
-    });
-</script>
 
 {% endblock %}
