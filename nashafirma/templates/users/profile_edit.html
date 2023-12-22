@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load i18n %}
 
-<div class="center">
-    <p><a class="text" href="{% url 'profile_details' pk=user.pk %}">Назад до профілю</a></p>
+<div class='center'>
+    <p><a class='text' href="{% url 'profile_details' pk=user.pk %}">{% trans 'Назад до профілю' %}</a></p>
     {% if object.profile_picture %}
-    <img class="profile-fields-img" src="{{ object.profile_picture.url }}" alt="profile_picture" class="img-fluid">
+    <img class='profile-fields-img' src='{{ object.profile_picture.url }}' alt='profile_picture' class='img-fluid'>
     {% else %}
-    <img class="profile-fields-img" src="/media/profile_pictures/profile_picture_default.jpg" alt="profile_picture" class="img-fluid">
+    <img class='profile-fields-img' src='/media/profile_pictures/profile_picture_default.jpg' alt='profile_picture' class='img-fluid'>
     {% endif %}
 </div>
-<div class="form">
-<form action="{% url 'profile_edit' pk=user.pk %}" method="post" enctype="multipart/form-data">
+<div class='form'>
+<form action="{% url 'profile_edit' pk=user.pk %}" method='post' enctype='multipart/form-data'>
     {{ form.as_p }}
-    <button class="button" type="submit">Зберегти зміни</button>
+    <button class='button' type='submit'>{% trans 'Зберегти зміни' %}</button>
     {% csrf_token %}
 </form>
 </div>

@@ -1,27 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
+{% load i18n %}
 
-<div class="form">
-    <form method="post" action="">
+<div class='form'>
+    <form method='post' action=''>
         {% csrf_token %}
         {% for f in form %}
-        <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
+        <p><label for='{{ f.id_for_label }}'>{{f.label}}: </label>{{ f }}</p>
+        <div class='form-error'>{{ f.errors }}</div>
         {% endfor %}
-        <div class="">
-            <input class="form-check-input me-2" type="checkbox" value="" id="checkbox" />
-            <label class="form-check-label" for="checkbox">
-                Я згоден з <a href="{% url 'terms' %}" class="text-body"><u>Terms of service</u></a>
+        <div class=''>
+            <input class='form-check-input me-2' type='checkbox' value='' id='checkbox' />
+            <label class='form-check-label' for='checkbox'>
+                {% trans 'Я згоден з' %} <a href="{% url 'terms' %}" class='text-body'><u>Terms of service</u></a>
             </label>
         </div>
-        <div class="btn-container">
-            <button type="submit" class="button button-save" id="registrationBtn"
-                disabled>Реєстрація</button>
-            <button type="reset" class="button button-back" onclick="history.back()">Назад</button>
+        <div class='btn-container'>
+            <button type='submit' class='button button-save' id='registrationBtn'
+                disabled>{% trans 'Реєстрація' %}</button>
+            <button type='reset' class='button button-back' onclick='history.back()'>{% trans 'Назад' %}</button>
         </div>
-        <p>Вже маєте профіль?</p>
-        <p><a href="{% url 'login' %}">Вхід до особистого кабінету</a></p>
-        
+        <p>{% trans 'Вже маєте профіль?' %}</p>
+        <p><a href="{% url 'login' %}">{% trans 'Вхід до особистого кабінету' %}</a></p>
     </form>
 </div>
 

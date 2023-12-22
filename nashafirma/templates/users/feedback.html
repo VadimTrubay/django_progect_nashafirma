@@ -2,20 +2,20 @@
 {% block content %}
 {% load static %}
 
-<a class="contact-phone phone" href="tel:0999999999">тел: 099-999-99-99</a>
-<a class="contact-email email" href="mailto:nasha-firma@gmail.com">nasha-firma@gmail.com</a>
+<a class='contact-phone phone' href='tel:0999999999'>тел: 099-999-99-99</a>
+<a class='contact-email email' href='mailto:nasha-firma@gmail.com'>nasha-firma@gmail.com</a>
 
 {% if request.user.is_authenticated %}
-<div class="form">
-    <form method="post" action="{% url 'feedback' %}">
+<div class='form'>
+    <form method='post' action="{% url 'feedback' %}">
         {% csrf_token %}
         {% for f in form %}
-        <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
+        <p><label for='{{ f.id_for_label }}'>{{f.label}}: </label>{{ f }}</p>
+        <div class='form-error'>{{ f.errors }}</div>
         {% endfor %}
-        <div class="btn-container">
-            <button type="submit" class="button button-save">Відправити</button>
-            <button type="reset" class="button button-back" onclick="history.back()">Назад</button>
+        <div class='btn-container'>
+            <button type='submit' class='button button-save'>{% trans 'Відправити' %}</button>
+            <button type='reset' class='button button-back' onclick='history.back()'>{% trans 'Назад' %}</button>
         </div>
     </form>
 </div>

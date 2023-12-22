@@ -1,19 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
+{% load i18n %}
 
 {% if orders %}
 {% if not request.user.username == 'admin' %}
-<p class="center"><a href="{% url 'add_order' %}">+ Додати нове замовлення</a></p>
+<p class='center'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
 {% endif %}
-<table class="note" role="grid">
+<table class='note' role='grid'>
     <thead>
-        <tr style="background-color: #b2b2b2;" class="title-table">
+        <tr style='background-color: #b2b2b2;' class='title-table'>
             <th>№</th>
-            <th>замовлення</th>
-            <th>користувач</th>
-            <th>статус</th>
-            <th>переглянути</th>
-            <th>видалити</th>
+            <th>{% trans 'замовлення' %}</th>
+            <th>{% trans 'користувач' %}</th>
+            <th>{% trans 'статус' %}</th>
+            <th>{% trans 'переглянути' %}</th>
+            <th>{% trans 'видалити' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -26,17 +27,17 @@
                 {% if request.user.username == 'admin' %}
                 <a href="{% url 'edit_order_done' order.pk %}">
                     {% endif %}
-                    {% if order.done %}<span class="done">&#10004;</span>
-                    {% else %}<span class="notdone">&#10008;</span>{% endif %}</a>
-                    <a class="sort" href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
+                    {% if order.done %}<span class='done'>&#10004;</span>
+                    {% else %}<span class='notdone'>&#10008;</span>{% endif %}</a>
+                    <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
             </td>
             <td>
-                <a class="text-edit" href="{% url 'view_order' order.pk %}">
+                <a class='text-edit' href="{% url 'view_order' order.pk %}">
                 {% include 'icon_edit.html' %}
                 </a>
             </td>
             <td>
-                <a class="text-delete" href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
+                <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
                     {% include 'icon_delete.html' %}
                 </a>
             </td>
@@ -45,34 +46,34 @@
     </tbody>
 </table>
 {% else %}
-<p class="center">Пошук не дав результатів</p>
+<p class='center'>{% trans 'Пошук не дав результатів' %}</p>
 {% endif %}
 
 {% if page_obj.has_other_pages %}
-<nav class="list-pages">
+<nav class='list-pages'>
     <ul>
         {% if page_obj.has_previous %}
-        <li class="page-num">
-            <a href="?page=1">&laquo;</a>
+        <li class='page-num'>
+            <a href='?page=1'>&laquo;</a>
         </li>
-        <li class="page-num">
-            <a href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a>
+        <li class='page-num'>
+            <a href='?page={{ page_obj.previous_page_number }}'>&lsaquo;</a>
         </li>
         {% endif %}
 
         {% for p in paginator.page_range %}
         {% if page_obj.number == p %}
-        <li class="page-num page-num-selected"><span>{{ p }}</span></li>
-        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %} <li class="page-num"><a
-                href="?page={{ p }}">{{ p }}</a></li>
+        <li class='page-num page-num-selected'><span>{{ p }}</span></li>
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %} <li class='page-num'><a
+                href='?page={{ p }}'>{{ p }}</a></li>
             {% endif %}
             {% endfor %}
             {% if page_obj.has_next %}
-            <li class="page-item">
-                <a href="?&page={{ page_obj.next_page_number }}">&rsaquo;</a>
+            <li class='page-item'>
+                <a href='?&page={{ page_obj.next_page_number }}'>&rsaquo;</a>
             </li>
-            <li class="page-num">
-                <a href="?page={{ paginator.num_pages }}">&raquo;</a>
+            <li class='page-num'>
+                <a href='?page={{ paginator.num_pages }}'>&raquo;</a>
             </li>
             {% endif %}
     </ul>

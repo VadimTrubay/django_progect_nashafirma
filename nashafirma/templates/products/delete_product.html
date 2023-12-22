@@ -1,14 +1,15 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
+{% load i18n %}
 
-<div class="form">
-    <form method="post" action="">
+<div class='form'>
+    <form method='post' action=''>
         {% csrf_token %}
-        <p class="center">Ви дійсно хочете видалити</p>
-        <p class="center"><b>"{{ object.product }}"</b>?</p>
-        <div class="btn-container">
-            <button type="submit" class="button button-save">Так</button>
-            <button type="reset"  class="button button-back" onclick="history.back()">Ні</button>
+        <p class='center'>{% trans 'Ви дійсно хочете видалити' %}</p>
+        <p class='center'><b>'{{ object.product }}'</b>?</p>
+        <div class='btn-container'>
+            <button type='submit' class='button button-save'>{% trans 'Так' %}</button>
+            <button type='reset'  class='button button-back' onclick='history.back()'>{% trans 'Ні' %}</button>
         </div>
     </form>
 </div>
