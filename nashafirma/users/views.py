@@ -1,3 +1,4 @@
+from django.utils.translation import gettext as _
 from django.contrib.auth import views as auth_views, get_user_model, login
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404
@@ -24,7 +25,7 @@ def get_profile(pk):
 
 
 class UserRegistrationView(view.CreateView):
-    title = "Реєстрація"
+    title = _("Реєстрація")
     model = UserModel
     template_name = "users/register.html"
     form_class = RegistrationForm
@@ -42,7 +43,7 @@ class UserRegistrationView(view.CreateView):
 
 
 class UserLoginView(auth_views.LoginView):
-    title = "Вхід"
+    title = _("Вхід")
     form_class = LoginForm
     template_name = "users/login.html"
 
@@ -56,7 +57,7 @@ class UserLoginView(auth_views.LoginView):
 
 
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView):
-    title = "Профіль"
+    title = _("Профіль")
     model = SiteUser
     template_name = "users/profile_details.html"
     context_object_name = "users"
@@ -77,7 +78,7 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView
 
 
 class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
-    title = "Редагувати профіль"
+    title = _("Редагувати профіль")
     model = SiteUser
     form_class = EditProfileForm
     template_name = "users/profile_edit.html"
@@ -99,7 +100,7 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
 
 
 class DeleteProfileView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
-    title = "Видалити профіль"
+    title = _("Видалити профіль")
     model = SiteUser
     template_name = "users/profile_delete.html"
     success_url = reverse_lazy("login")
@@ -118,7 +119,7 @@ class UserLogOutView(auth_views.LogoutView):
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
-    title = "Відновлення паролю"
+    title = _("Відновлення паролю")
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"
     html_email_template_name = "users/password_reset_email.html"
@@ -133,7 +134,7 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
 
 
 class TermsView(TemplateView):
-    title = "Умови використання"
+    title = _("Умови використання")
     template_name = 'users/terms.html'
 
     def get_context_data(self, **kwargs):
@@ -143,7 +144,7 @@ class TermsView(TemplateView):
 
 
 class FeedbackCreateView(SuccessMessageMixin, CreateView):
-    title = "Контакти"
+    title = _("Контакти")
     model = Feedback
     form_class = FeedbackCreateForm
     template_name = "users/feedback.html"
@@ -167,7 +168,7 @@ class FeedbackCreateView(SuccessMessageMixin, CreateView):
 
 
 class FeedbackSuccessView(TemplateView):
-    title = "Лист надіслано вдало"
+    title = _("Лист надіслано вдало")
     template_name = 'users/feedback_success.html'
 
     def get_context_data(self, **kwargs):

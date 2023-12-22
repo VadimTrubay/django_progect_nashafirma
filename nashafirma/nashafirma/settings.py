@@ -103,6 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGES = (
     ('uk', 'Ukrainian'),
     ('ru', 'Russian'),
+    ('en', 'English'),
 )
 
 LANGUAGE_CODE = "uk"
@@ -113,10 +114,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-LOCALE_PATHS = (
-    'locale',
-    # os.path.join(BASE_DIR, 'locale'),
-)
+LOCALE_PATHS = ('locale',)
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (BASE_DIR / "static",)

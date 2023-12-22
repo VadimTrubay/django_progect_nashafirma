@@ -230,7 +230,17 @@ body, ul, p {
 
 .lang {
     display: flex;
-    min-width: 50%;
+    padding-top: 20px;
+}
+
+.lang a {
+    font-size: 12px;
+    padding: 0;
+}
+
+.lang span {
+    margin: 0 3px;
+    color: var(--table-text-color);
 }
 
 .header-search form {
@@ -493,7 +503,7 @@ table a {
     color: #777;
     width: 130px;
     height: 30px;
-    padding: 6px 15px 6px 35px;
+    padding: 6px 15px 6px 15px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;

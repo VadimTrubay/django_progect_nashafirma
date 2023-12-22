@@ -1,3 +1,4 @@
+from django.utils.translation import gettext as _
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views.generic import (
     ListView,
@@ -17,7 +18,7 @@ from datetime import datetime
 
 
 class HomeView(DataMixin, TemplateView):
-    title = "Головна"
+    title = _("Головна")
     template_name = "orders/index.html"
 
     def get_context_data(self, **kwargs):
@@ -27,7 +28,7 @@ class HomeView(DataMixin, TemplateView):
 
 
 class AboutView(DataMixin, TemplateView):
-    title = "Про нас"
+    title = _("Про нас")
     template_name = "orders/about.html"
 
     def get_context_data(self, **kwargs):
@@ -37,7 +38,7 @@ class AboutView(DataMixin, TemplateView):
 
 
 class AddOrderView(DataMixin, CreateView):
-    title = "Додати нове замовлення"
+    title = _("Додати нове замовлення")
     form_class = OrderForm
     template_name = "orders/add_order.html"
     success_url = reverse_lazy("all_orders")
@@ -54,7 +55,7 @@ class AddOrderView(DataMixin, CreateView):
 
 
 class ViewOrderView(DetailView):
-    title = "Переглянути замовлення"
+    title = _("Переглянути замовлення")
     model = Order
     template_name = "orders/view_order.html"
     context_object_name = "order"
@@ -75,7 +76,7 @@ class ViewOrderView(DetailView):
 
 
 class AllOrdersView(ListView):
-    title = "Всі замовлення"
+    title = _("Всі замовлення")
     paginate_by = 20
     model = Order
     template_name = "orders/all_orders.html"
@@ -97,7 +98,7 @@ class AllOrdersView(ListView):
 
 
 class EditOrderDoneView(UpdateView):
-    title = "Редагувати статус замовлення"
+    title = _("Редагувати статус замовлення")
     form_class = OrderForm
     template_name = "orders/edit_order_done.html"
     context_object_name = "order"
@@ -125,7 +126,7 @@ class EditOrderDoneView(UpdateView):
 
 
 class EditItemProductView(UpdateView):
-    title = "Редагувати продукт"
+    title = _("Редагувати продукт")
     form_class = OrderItemForm
     template_name = "orders/edit_item_product.html"
     context_object_name = "order"
@@ -146,7 +147,7 @@ class EditItemProductView(UpdateView):
 
 
 class DeleteOrderView(DeleteView):
-    title = "Видалити замовлення"
+    title = _("Видалити замовлення")
     model = Order
     template_name = "orders/delete_order.html"
     success_url = reverse_lazy("all_orders")
@@ -165,7 +166,7 @@ class DeleteOrderView(DeleteView):
 
 
 class DeleteItemProductView(DeleteView):
-    title = "Видалити продукт"
+    title = _("Видалити продукт")
     model = OrderItem
     template_name = "orders/delete_item_product.html"
     success_url = reverse_lazy("all_orders")
@@ -181,7 +182,7 @@ class DeleteItemProductView(DeleteView):
 
 
 class AddItemView(CreateView):
-    title = "Додати новий продукт до замовлення"
+    title = _("Додати новий продукт до замовлення")
     form_class = OrderItemForm
     template_name = "orders/add_item.html"
     success_url = reverse_lazy("all_orders")
@@ -203,7 +204,7 @@ class AddItemView(CreateView):
 
 
 class SearchResultsOrderView(ListView):
-    title = "Результати пошуку замовлення"
+    title = _("Результати пошуку замовлення")
     paginate_by = 20
     model = Order
     template_name = "orders/search_results_order.html"
@@ -251,7 +252,7 @@ class SearchResultsOrderView(ListView):
 
 
 class SortOrdersByNameView(ListView):
-    title = "Сортування за ім'ям"
+    title = _("Сортування за ім'ям")
     paginate_by = 20
     model = Order
     template_name = "orders/sort_by_name.html"
@@ -274,7 +275,7 @@ class SortOrdersByNameView(ListView):
 
 
 class SortOrdersByDateView(ListView):
-    title = "Сортування за датою"
+    title = _("Сортування за датою")
     paginate_by = 20
     model = Order
     template_name = "orders/sort_by_date.html"
@@ -304,7 +305,7 @@ class SortOrdersByDateView(ListView):
 
 
 class SortOrdersByDoneView(ListView):
-    title = "Сортування за статусом"
+    title = _("Сортування за статусом")
     paginate_by = 20
     model = Order
     template_name = "orders/sort_by_done.html"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-22 16:07+0200\n"
+"POT-Creation-Date: 2023-12-22 21:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,268 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\templates\header.html:24
-msgid "Change"
+#: .\orders\models.py:10
+msgid "створено"
+msgstr ""
+
+#: .\orders\models.py:15 .\templates\header.html:82
+#: .\templates\orders\all_orders.html:13 .\users\models.py:75
+msgid "користувач"
+msgstr ""
+
+#: .\orders\models.py:20 .\orders\models.py:68 .\orders\models.py:69
+msgid "продукти"
+msgstr ""
+
+#: .\orders\models.py:22 .\templates\orders\all_orders.html:14
+msgid "статус"
+msgstr ""
+
+#: .\orders\models.py:38 .\orders\models.py:39 .\orders\models.py:47
+#: .\templates\orders\all_orders.html:12
+msgid "замовлення"
+msgstr ""
+
+#: .\orders\models.py:52 .\products\models.py:7 .\products\models.py:17
+#: .\products\models.py:18
+msgid "продукт"
+msgstr ""
+
+#: .\orders\models.py:54
+msgid "вага"
+msgstr ""
+
+#: .\orders\models.py:56
+msgid "нотатка"
+msgstr ""
+
+#: .\orders\views.py:21 .\templates\header.html:89 .\templates\header.html:113
+msgid "Головна"
+msgstr ""
+
+#: .\orders\views.py:31 .\templates\header.html:115
+msgid "Про нас"
+msgstr ""
+
+#: .\orders\views.py:41
+msgid "Додати нове замовлення"
+msgstr ""
+
+#: .\orders\views.py:58
+msgid "Переглянути замовлення"
+msgstr ""
+
+#: .\orders\views.py:79
+msgid "Всі замовлення"
+msgstr ""
+
+#: .\orders\views.py:101
+msgid "Редагувати статус замовлення"
+msgstr ""
+
+#: .\orders\views.py:129 .\products\views.py:56
+msgid "Редагувати продукт"
+msgstr ""
+
+#: .\orders\views.py:150
+msgid "Видалити замовлення"
+msgstr ""
+
+#: .\orders\views.py:169 .\products\views.py:37
+msgid "Видалити продукт"
+msgstr ""
+
+#: .\orders\views.py:185
+msgid "Додати новий продукт до замовлення"
+msgstr ""
+
+#: .\orders\views.py:207
+msgid "Результати пошуку замовлення"
+msgstr ""
+
+#: .\orders\views.py:255
+msgid "Сортування за ім'ям"
+msgstr ""
+
+#: .\orders\views.py:278
+msgid "Сортування за датою"
+msgstr ""
+
+#: .\orders\views.py:308
+msgid "Сортування за статусом"
+msgstr ""
+
+#: .\products\models.py:8
+msgid "ціна"
+msgstr ""
+
+#: .\products\views.py:12
+msgid "Додати новий продукт"
+msgstr ""
+
+#: .\products\views.py:24
+msgid "Всі продукти"
+msgstr ""
+
+#: .\products\views.py:76
+msgid "Результати пошуку продукту"
+msgstr ""
+
+#: .\templates\header.html:8
+msgid "Наша-Фірма"
+msgstr ""
+
+#: .\templates\header.html:16 .\templates\header.html:22
+#: .\templates\header.html:28 .\templates\header.html:36
+#: .\templates\header.html:42
+msgid "Пошук ..."
+msgstr ""
+
+#: .\templates\header.html:91
+msgid "Прo нас"
+msgstr ""
+
+#: .\templates\header.html:94 .\templates\header.html:118
+msgid "Продукти"
+msgstr ""
+
+#: .\templates\header.html:97 .\templates\header.html:121
+msgid "Замовлення"
+msgstr ""
+
+#: .\templates\header.html:99 .\templates\header.html:123 .\users\views.py:60
+msgid "Профіль"
+msgstr ""
+
+#: .\templates\header.html:102 .\users\views.py:147
+msgid "Контакти"
+msgstr ""
+
+#: .\templates\header.html:103 .\templates\header.html:126
+#: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
+msgid "Назад"
+msgstr ""
+
+#: .\templates\header.html:111
+msgid "Меню"
+msgstr ""
+
+#: .\templates\header.html:135
+msgid "Вийти"
+msgstr ""
+
+#: .\templates\header.html:141 .\users\views.py:46
+msgid "Вхід"
+msgstr ""
+
+#: .\templates\header.html:142 .\users\views.py:28
+msgid "Реєстрація"
+msgstr ""
+
+#: .\templates\header.html:168
+msgid "Друк сторінки"
 msgstr ""
 
 #: .\templates\orders\about.html:5
 msgid "Наша команда займається постачанням свіжих овочів до ресторанів!"
 msgstr ""
 
+#: .\templates\orders\add_item.html:13 .\templates\orders\add_order.html:12
+msgid "Зберегти"
+msgstr ""
+
+#: .\templates\orders\add_order.html:5
+msgid "для"
+msgstr ""
+
+#: .\templates\orders\add_order.html:9
+msgid "Ви дійсно хочете додати нове замовлення?"
+msgstr ""
+
+#: .\templates\orders\all_orders.html:6
+msgid "+ Додати нове замовлення"
+msgstr ""
+
+#: .\templates\orders\all_orders.html:15
+msgid "переглянути"
+msgstr ""
+
+#: .\templates\orders\all_orders.html:16
+msgid "видалити"
+msgstr ""
+
 #: .\templates\orders\index.html:5
-msgid "Раді Вітати на сайті компанії"
+msgid "Раді Вітати на сайті компанії Наша-Фірмa!"
+msgstr ""
+
+#: .\users\models.py:29
+msgid "логін"
+msgstr ""
+
+#: .\users\models.py:34
+msgid "email"
+msgstr ""
+
+#: .\users\models.py:40
+msgid "ім'я"
+msgstr ""
+
+#: .\users\models.py:46
+msgid "прізвище"
+msgstr ""
+
+#: .\users\models.py:51
+msgid "телефон"
+msgstr ""
+
+#: .\users\models.py:62
+msgid "фото"
+msgstr ""
+
+#: .\users\models.py:67
+msgid "тема листа"
+msgstr ""
+
+#: .\users\models.py:69
+msgid "ваш email"
+msgstr ""
+
+#: .\users\models.py:70
+msgid "зміст листа"
+msgstr ""
+
+#: .\users\models.py:72
+msgid "дата відправки"
+msgstr ""
+
+#: .\users\models.py:74
+msgid "IP адреса відправнка"
+msgstr ""
+
+#: .\users\models.py:79 .\users\models.py:80
+msgid "зворотній звязок"
 msgstr ""
 
 #: .\users\validators.py:8
-msgid "File size cannot exceed 5 MB."
+msgid "Файл не може бути більше 5 MB."
+msgstr ""
+
+#: .\users\views.py:81
+msgid "Редагувати профіль"
+msgstr ""
+
+#: .\users\views.py:103
+msgid "Видалити профіль"
+msgstr ""
+
+#: .\users\views.py:122
+msgid "Відновлення паролю"
+msgstr ""
+
+#: .\users\views.py:137
+msgid "Умови використання"
+msgstr ""
+
+#: .\users\views.py:171
+msgid "Лист надіслано вдало"
 msgstr ""

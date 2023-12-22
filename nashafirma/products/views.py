@@ -1,3 +1,4 @@
+from django.utils.translation import gettext as _
 from .models import Product
 from .forms import ProductForm
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
@@ -8,7 +9,7 @@ from django.db.models import Q
 
 
 class AddProductView(CreateView):
-    title = "Додати новий продукт"
+    title = _("Додати новий продукт")
     form_class = ProductForm
     template_name = "products/add_product.html"
     success_url = reverse_lazy("all_products")
@@ -20,7 +21,7 @@ class AddProductView(CreateView):
 
 
 class AllProductsView(ListView):
-    title = "Всі продукти"
+    title = _("Всі продукти")
     paginate_by = 20
     model = Product
     template_name = "products/all_products.html"
@@ -33,7 +34,7 @@ class AllProductsView(ListView):
 
 
 class DeleteProductView(DeleteView):
-    title = "Видалити продукт"
+    title = _("Видалити продукт")
     model = Product
     template_name = "products/delete_product.html"
     success_url = reverse_lazy("all_products")
@@ -52,7 +53,7 @@ class DeleteProductView(DeleteView):
 
 
 class EditProductView(UpdateView):
-    title = "Редагувати продукт"
+    title = _("Редагувати продукт")
     model = Product
     fields = ["product", "price"]
     template_name = "products/edit_product.html"
@@ -72,7 +73,7 @@ class EditProductView(UpdateView):
 
 
 class SearchResultsProductView(ListView):
-    title = "Результати пошуку продукту"
+    title = _("Результати пошуку продукту")
     paginate_by = 20
     model = Product
     template_name = "products/search_results_product.html"
