@@ -16,10 +16,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 #: .\orders\models.py:10
 msgid "створено"
-msgstr "створено"
+msgstr "сформировано"
 
 #: .\orders\models.py:15 .\templates\header.html:82
 #: .\templates\orders\all_orders.html:13
@@ -28,11 +30,11 @@ msgstr "створено"
 #: .\templates\orders\sort_by_done.html:14
 #: .\templates\orders\sort_by_name.html:14 .\users\models.py:75
 msgid "користувач"
-msgstr "користувач"
+msgstr "пользователь"
 
 #: .\orders\models.py:20 .\orders\models.py:68 .\orders\models.py:69
 msgid "продукти"
-msgstr "продукти"
+msgstr "продукты"
 
 #: .\orders\models.py:22 .\templates\orders\all_orders.html:14
 #: .\templates\orders\search_results_order.html:15
@@ -49,7 +51,7 @@ msgstr "статус"
 #: .\templates\orders\sort_by_done.html:13
 #: .\templates\orders\sort_by_name.html:13
 msgid "замовлення"
-msgstr "замовлення"
+msgstr "заказ"
 
 #: .\orders\models.py:52 .\products\models.py:7 .\products\models.py:17
 #: .\products\models.py:18 .\templates\orders\view_order.html:19
@@ -62,67 +64,67 @@ msgstr "продукт"
 
 #: .\orders\models.py:54 .\templates\orders\view_order.html:20
 msgid "вага"
-msgstr "вага"
+msgstr "вес"
 
 #: .\orders\models.py:56 .\templates\orders\view_order.html:23
 msgid "нотатка"
-msgstr "нотатка"
+msgstr "заметка"
 
 #: .\orders\views.py:21 .\templates\header.html:89 .\templates\header.html:113
 msgid "Головна"
-msgstr "Головна"
+msgstr "Главная"
 
 #: .\orders\views.py:31 .\templates\header.html:115
 msgid "Про нас"
-msgstr "Про нас"
+msgstr "О нас"
 
 #: .\orders\views.py:41
 msgid "Додати нове замовлення"
-msgstr "Додати нове замовлення"
+msgstr "Добавить новый заказ"
 
 #: .\orders\views.py:58
 msgid "Переглянути замовлення"
-msgstr "Переглянути замовлення"
+msgstr "Просмотреть заказ"
 
 #: .\orders\views.py:79
 msgid "Всі замовлення"
-msgstr "Всі замовлення"
+msgstr "Все заказы"
 
 #: .\orders\views.py:101
 msgid "Редагувати статус замовлення"
-msgstr "Редагувати статус замовлення"
+msgstr "Редактировать статус заказа"
 
 #: .\orders\views.py:129 .\products\views.py:56
 msgid "Редагувати продукт"
-msgstr "Редагувати продукт"
+msgstr "Редактировать продукт"
 
 #: .\orders\views.py:150
 msgid "Видалити замовлення"
-msgstr "Видалити замовлення"
+msgstr "Удалить заказ"
 
 #: .\orders\views.py:169 .\products\views.py:37
 msgid "Видалити продукт"
-msgstr "Видалити продукт"
+msgstr "Удалить продукт"
 
 #: .\orders\views.py:185
 msgid "Додати новий продукт до замовлення"
-msgstr "Додати новий продукт до замовлення"
+msgstr "Добавить новый продукт к заказу"
 
 #: .\orders\views.py:207
 msgid "Результати пошуку замовлення"
-msgstr "Результати пошуку замовлення"
+msgstr "Результаты поиска заказа"
 
 #: .\orders\views.py:255
 msgid "Сортування за ім'ям"
-msgstr "Сортування за ім'ям"
+msgstr "Сортировка по имени"
 
 #: .\orders\views.py:278
 msgid "Сортування за датою"
-msgstr ""
+msgstr "Сортировка по дате"
 
 #: .\orders\views.py:308
 msgid "Сортування за статусом"
-msgstr "Сортування за статусом"
+msgstr "Сортировка по статусу"
 
 #: .\products\models.py:8 .\templates\orders\view_order.html:21
 #: .\templates\products\all_products.html:12
@@ -130,53 +132,53 @@ msgstr "Сортування за статусом"
 #: .\templates\products\search_results_product.html:13
 #: .\templates\products\search_results_product.html:47
 msgid "ціна"
-msgstr "ціна"
+msgstr "цена"
 
 #: .\products\views.py:12
 msgid "Додати новий продукт"
-msgstr "Додати новий продукт"
+msgstr "Добавить новый продукт"
 
 #: .\products\views.py:24
 msgid "Всі продукти"
-msgstr "Всі продукти"
+msgstr "Все продукты"
 
 #: .\products\views.py:76
 msgid "Результати пошуку продукту"
-msgstr "Результати пошуку продукту"
+msgstr "Результаты поиска продукта"
 
 #: .\templates\404.html:5
 msgid "Вибачте, сторінку не знайдено."
-msgstr "Вибачте, сторінку не знайдено."
+msgstr "Извините, страницу не найдено."
 
 #: .\templates\header.html:8
 msgid "Наша-Фірма"
-msgstr "Наша-Фірма"
+msgstr "Наша-Фирма"
 
 #: .\templates\header.html:16 .\templates\header.html:22
 #: .\templates\header.html:28 .\templates\header.html:36
 #: .\templates\header.html:42
 msgid "Пошук ..."
-msgstr "Пошук ..."
+msgstr "Поиск ..."
 
 #: .\templates\header.html:91
 msgid "Прo нас"
-msgstr "Прo нас"
+msgstr "О нас"
 
 #: .\templates\header.html:94 .\templates\header.html:118
 msgid "Продукти"
-msgstr "Продукти"
+msgstr "Продукты"
 
 #: .\templates\header.html:97 .\templates\header.html:121
 msgid "Замовлення"
-msgstr "Замовлення"
+msgstr "Заказы"
 
 #: .\templates\header.html:99 .\templates\header.html:123 .\users\views.py:60
 msgid "Профіль"
-msgstr "Профіль"
+msgstr "Профиль"
 
 #: .\templates\header.html:102 .\users\views.py:147
 msgid "Контакти"
-msgstr "Контакти"
+msgstr "Контакты"
 
 #: .\templates\header.html:103 .\templates\header.html:126
 #: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
@@ -190,29 +192,29 @@ msgstr "Назад"
 
 #: .\templates\header.html:111
 msgid "Меню"
-msgstr Меню
+msgstr "Меню"
 
 #: .\templates\header.html:135
 msgid "Вийти"
-msgstr "Вийти"
+msgstr "Выйти"
 
 #: .\templates\header.html:141 .\templates\users\login.html:13
 #: .\users\views.py:46
 msgid "Вхід"
-msgstr "Вхід"
+msgstr "Войти"
 
 #: .\templates\header.html:142 .\templates\users\register.html:20
 #: .\users\views.py:28
 msgid "Реєстрація"
-msgstr "Реєстрація"
+msgstr "Регистрация"
 
 #: .\templates\header.html:168
 msgid "Друк сторінки"
-msgstr "Друк сторінки"
+msgstr "Печать страницы"
 
 #: .\templates\orders\about.html:5
 msgid "Наша команда займається постачанням свіжих овочів до ресторанів!"
-msgstr "Наша команда займається постачанням свіжих овочів до ресторанів!"
+msgstr "Наша компания занимается поставкам овощей в рестораны!"
 
 #: .\templates\orders\add_item.html:13 .\templates\orders\add_order.html:12
 #: .\templates\orders\edit_item_product.html:14
@@ -220,7 +222,7 @@ msgstr "Наша команда займається постачанням св
 #: .\templates\products\add_product.html:13
 #: .\templates\products\edit_product.html:11
 msgid "Зберегти"
-msgstr "Зберегти"
+msgstr "Сохранить"
 
 #: .\templates\orders\add_order.html:5
 msgid "для"
@@ -228,7 +230,7 @@ msgstr "для"
 
 #: .\templates\orders\add_order.html:9
 msgid "Ви дійсно хочете додати нове замовлення?"
-msgstr "Ви дійсно хочете додати нове замовлення?"
+msgstr "Вы действительно хотите добавить новый заказ?"
 
 #: .\templates\orders\all_orders.html:6
 #: .\templates\orders\search_results_order.html:7
@@ -236,7 +238,7 @@ msgstr "Ви дійсно хочете додати нове замовленн�
 #: .\templates\orders\sort_by_done.html:7
 #: .\templates\orders\sort_by_name.html:7
 msgid "+ Додати нове замовлення"
-msgstr "+ Додати нове замовлення"
+msgstr "+ Добавить новый заказ"
 
 #: .\templates\orders\all_orders.html:15
 #: .\templates\orders\search_results_order.html:16
@@ -244,7 +246,7 @@ msgstr "+ Додати нове замовлення"
 #: .\templates\orders\sort_by_done.html:16
 #: .\templates\orders\sort_by_name.html:16
 msgid "переглянути"
-msgstr "переглянути"
+msgstr "просмотреть"
 
 #: .\templates\orders\all_orders.html:16
 #: .\templates\orders\search_results_order.html:17
@@ -255,45 +257,45 @@ msgstr "переглянути"
 #: .\templates\products\all_products.html:14
 #: .\templates\products\search_results_product.html:15
 msgid "видалити"
-msgstr "видалити"
+msgstr "удалить"
 
 #: .\templates\orders\delete_item_product.html:8
 #: .\templates\products\delete_product.html:8
 #: .\templates\users\profile_delete.html:8
 msgid "Ви дійсно хочете видалити"
-msgstr "Ви дійсно хочете видалити"
+msgstr "Вы действительно хотите удалить"
 
 #: .\templates\orders\delete_item_product.html:11
 #: .\templates\orders\delete_order.html:13
 #: .\templates\products\delete_product.html:11
 #: .\templates\users\profile_delete.html:11
 msgid "Так"
-msgstr "Так"
+msgstr "Да"
 
 #: .\templates\orders\delete_item_product.html:12
 #: .\templates\orders\delete_order.html:14
 #: .\templates\products\delete_product.html:12
 #: .\templates\users\profile_delete.html:12
 msgid "Ні"
-msgstr "Ні"
+msgstr "Нет"
 
 #: .\templates\orders\delete_order.html:8
 msgid "Ви дійсно хочете видалити?"
-msgstr "Ви дійсно хочете видалити?"
+msgstr "Вы действительно хотите удалить?"
 
 #: .\templates\orders\delete_order.html:10
 #: .\templates\orders\edit_order_done.html:5
 #: .\templates\orders\view_order.html:5
 msgid "для користувача"
-msgstr "для користувача"
+msgstr "для пользователя"
 
 #: .\templates\orders\edit_item_product.html:6
 msgid "для замовлення"
-msgstr "для замовлення"
+msgstr "для заказа"
 
 #: .\templates\orders\index.html:5
 msgid "Раді Вітати на сайті компанії Наша-Фірмa!"
-msgstr "Раді Вітати на сайті компанії Наша-Фірмa!"
+msgstr "Добро пожаловать на сайт компании Наша-Фирма!"
 
 #: .\templates\orders\search_results_order.html:49
 #: .\templates\orders\sort_by_date.html:53
@@ -301,95 +303,95 @@ msgstr "Раді Вітати на сайті компанії Наша-Фірм
 #: .\templates\orders\sort_by_name.html:49
 #: .\templates\products\search_results_product.html:62
 msgid "Пошук не дав результатів"
-msgstr "Пошук не дав результатів"
+msgstr "Поиск не дал результатов"
 
 #: .\templates\orders\view_order.html:9
 #: .\templates\products\all_products.html:6
 #: .\templates\products\search_results_product.html:7
 msgid "+ Додати новий продукт"
-msgstr "+ Додати новий продукт"
+msgstr "+ Добавить новый продукт"
 
 #: .\templates\orders\view_order.html:11
 msgid "Замовлення виконане"
-msgstr "Замовлення виконане"
+msgstr "Заказ выполнен"
 
 #: .\templates\orders\view_order.html:22
 msgid "сума"
-msgstr "сума"
+msgstr "сумма"
 
 #: .\templates\orders\view_order.html:24
 #: .\templates\products\all_products.html:13
 #: .\templates\products\search_results_product.html:14
 msgid "редагувати"
-msgstr "редагувати"
+msgstr "редактировать"
 
 #: .\templates\users\feedback.html:17
 msgid "Відправити"
-msgstr "Відправити"
+msgstr "Отправить"
 
 #: .\templates\users\feedback_success.html:5
 msgid "Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, дякуємо!"
-msgstr "Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, дякуємо!"
+msgstr "Ваше писмо было отправлено администратору сайта, ждите ответа, спасибо!"
 
 #: .\templates\users\login.html:16
 msgid "Забули пароль? Відновити тут ->"
-msgstr "Забули пароль? Відновити тут ->"
+msgstr "Забыли пароль? Восстановить тут ->"
 
 #: .\templates\users\login.html:17
 msgid "Створити новий аккаунт?"
-msgstr "Створити новий аккаунт?"
+msgstr "Создать новый аккаунт?"
 
 #: .\templates\users\password_reset.html:5
 msgid "Забули пароль?"
-msgstr "Забули пароль?"
+msgstr "Забыли пароль?"
 
 #: .\templates\users\password_reset.html:6
 msgid "Введіть адресу електронної пошти, щоб отримати новий пароль."
-msgstr "Введіть адресу електронної пошти, щоб отримати новий пароль."
+msgstr "Введите адрес електронной почты, чтобы получить новый пароль."
 
 #: .\templates\users\password_reset.html:11
 msgid "Відправиити e-mail"
-msgstr "Відправиити e-mail"
+msgstr "Отправить e-mail"
 
 #: .\templates\users\password_reset_complete.html:5
 msgid "Авторизуйтесь в Вашому аккаунті"
-msgstr "Авторизуйтесь в Вашому аккаунті"
+msgstr "Авторизируйтесь в Вашем аккаунте"
 
 #: .\templates\users\password_reset_confirm.html:5
 msgid "Введіть новий пароль"
-msgstr "Введіть новий пароль"
+msgstr "Введите новый пароль"
 
 #: .\templates\users\password_reset_confirm.html:10
 msgid "Зберегти новий пароль"
-msgstr "Зберегти новий пароль"
+msgstr "Сохранить новый пароль"
 
 #: .\templates\users\password_reset_done.html:5
 msgid "Скиньте свій пароль."
-msgstr "Скиньте свій пароль."
+msgstr "Сбросьте свой пароль."
 
 #: .\templates\users\password_reset_done.html:5
 msgid "Ми надіслали вам інструкції щодо встановлення пароля."
-msgstr "Ми надіслали вам інструкції щодо встановлення пароля."
+msgstr "Мы отправили вам инструкции по восстановленю пароля."
 
 #: .\templates\users\password_reset_done.html:6
 msgid "Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви ввели адресу, яку ви зареєстрували."
-msgstr "Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви ввели адресу, яку ви зареєстрували."
+msgstr "если вы не получили електронного письма, пожалуйста, убедитесь в правильности написания адреса на который заригистрирован аккаунт"
 
 #: .\templates\users\password_reset_email.html:4
 msgid "Привіт"
-msgstr "Привіт"
+msgstr "Привет"
 
 #: .\templates\users\password_reset_email.html:12
 msgid "Ваше імя"
-msgstr "Ваше імя"
+msgstr "Ваше имя"
 
 #: .\templates\users\password_reset_email.html:13
 msgid "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний лист."
-msgstr "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний лист."
+msgstr "Если ви не отправляли запрос на сброс пароля, проигнорируйте это письмо."
 
 #: .\templates\users\password_reset_email.html:14
 msgid "Дякую,"
-msgstr "Дякую,"
+msgstr "Спасибо,"
 
 #: .\templates\users\password_reset_email.html:15
 msgid "Наша команда"
@@ -397,35 +399,35 @@ msgstr "Наша команда"
 
 #: .\templates\users\profile_details.html:24 .\users\views.py:81
 msgid "Редагувати профіль"
-msgstr "Редагувати профіль"
+msgstr "Редактировать профиль"
 
 #: .\templates\users\profile_details.html:25
 msgid "Видалити профіль."
-msgstr "Видалити профіль."
+msgstr "Удалить профиль"
 
 #: .\templates\users\profile_edit.html:7
 msgid "Назад до профілю"
-msgstr "Назад до профілю"
+msgstr "Назад в профиль"
 
 #: .\templates\users\profile_edit.html:17
 msgid "Зберегти зміни"
-msgstr "Зберегти зміни"
+msgstr "Сохранить изменения"
 
 #: .\templates\users\register.html:15
 msgid "Я згоден з"
-msgstr "Я згоден з"
+msgstr "Я согласен с"
 
 #: .\templates\users\register.html:23
 msgid "Вже маєте профіль?"
-msgstr "Вже маєте профіль?"
+msgstr "Уже имеете профиль?"
 
 #: .\templates\users\register.html:24
 msgid "Вхід до особистого кабінету"
-msgstr "Вхід до особистого кабінету"
+msgstr "Вход в личный кабинет"
 
 #: .\users\models.py:29
 msgid "логін"
-msgstr "логін"
+msgstr "логин"
 
 #: .\users\models.py:34
 msgid "email"
@@ -433,11 +435,11 @@ msgstr "email"
 
 #: .\users\models.py:40
 msgid "ім'я"
-msgstr "ім'я"
+msgstr "имя"
 
 #: .\users\models.py:46
 msgid "прізвище"
-msgstr "прізвище"
+msgstr "фамилия"
 
 #: .\users\models.py:51
 msgid "телефон"
@@ -449,7 +451,7 @@ msgstr "фото"
 
 #: .\users\models.py:67
 msgid "тема листа"
-msgstr "тема листа"
+msgstr "тема письма"
 
 #: .\users\models.py:69
 msgid "ваш email"
@@ -457,36 +459,36 @@ msgstr "ваш email"
 
 #: .\users\models.py:70
 msgid "зміст листа"
-msgstr "зміст листа"
+msgstr "содержание письма"
 
 #: .\users\models.py:72
 msgid "дата відправки"
-msgstr "дата відправки"
+msgstr "дата отправки"
 
 #: .\users\models.py:74
 msgid "IP адреса відправнка"
-msgstr "IP адреса відправнка"
+msgstr "IP адрес отправителя"
 
 #: .\users\models.py:79 .\users\models.py:80
 msgid "зворотній звязок"
-msgstr "зворотній звязок"
+msgstr "обратная связь"
 
 #: .\users\validators.py:8
 msgid "Файл не може бути більше 5 MB."
-msgstr "Файл не може бути більше 5 MB."
+msgstr "Файл не может быть больше 5 MB"
 
 #: .\users\views.py:103
 msgid "Видалити профіль"
-msgstr "Видалити профіль"
+msgstr "Удалить профиль"
 
 #: .\users\views.py:122
 msgid "Відновлення паролю"
-msgstr "Відновлення паролю"
+msgstr "Восстановление пароля"
 
 #: .\users\views.py:137
 msgid "Умови використання"
-msgstr "Умови використання"
+msgstr "Условия использования"
 
 #: .\users\views.py:171
 msgid "Лист надіслано вдало"
-msgstr "Лист надіслано вдало"
+msgstr "Письмо отправлено удачно"
