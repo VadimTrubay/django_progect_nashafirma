@@ -37,7 +37,7 @@ class SiteUser(AbstractUser):
         max_length=MAX_LEN_FIRST_NAME,
         default="",
         validators=(validators.MinLengthValidator(MIN_LEN_FIRST_NAME),),
-        verbose_name=_("ім'я"),
+        verbose_name=_("імя"),
     )
     last_name = models.CharField(
         max_length=MAX_LEN_SECOND_NAME,
@@ -71,7 +71,7 @@ class Feedback(models.Model):
     time_create = models.DateTimeField(
         auto_now_add=True, verbose_name=_('дата відправки'))
     ip_address = models.GenericIPAddressField(
-        verbose_name=_('IP адреса відправнка'),  blank=True, null=True)
+        verbose_name=_('IP адреса відправника'),  blank=True, null=True)
     user = models.ForeignKey(SiteUser, verbose_name=_('користувач'),
                              on_delete=models.CASCADE, null=True, blank=True)
 

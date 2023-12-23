@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-23 00:04+0200\n"
+"POT-Creation-Date: 2023-12-23 03:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,7 +118,7 @@ msgstr "Сортування за ім'ям"
 
 #: .\orders\views.py:278
 msgid "Сортування за датою"
-msgstr ""
+msgstr "Сортування за датою"
 
 #: .\orders\views.py:308
 msgid "Сортування за статусом"
@@ -174,7 +174,7 @@ msgstr "Замовлення"
 msgid "Профіль"
 msgstr "Профіль"
 
-#: .\templates\header.html:102 .\users\views.py:147
+#: .\templates\header.html:102 .\templates\header.html:125 .\users\views.py:147
 msgid "Контакти"
 msgstr "Контакти"
 
@@ -183,14 +183,14 @@ msgstr "Контакти"
 #: .\templates\orders\edit_item_product.html:15
 #: .\templates\orders\edit_order_done.html:13
 #: .\templates\products\add_product.html:14
-#: .\templates\products\edit_product.html:12 .\templates\users\feedback.html:18
+#: .\templates\products\edit_product.html:12 .\templates\users\feedback.html:19
 #: .\templates\users\login.html:14 .\templates\users\register.html:21
 msgid "Назад"
 msgstr "Назад"
 
 #: .\templates\header.html:111
 msgid "Меню"
-msgstr Меню
+msgstr "Меню"
 
 #: .\templates\header.html:135
 msgid "Вийти"
@@ -209,6 +209,11 @@ msgstr "Реєстрація"
 #: .\templates\header.html:168
 msgid "Друк сторінки"
 msgstr "Друк сторінки"
+
+#: .\templates\header.html:176
+#, python-format
+msgid "%(title)s"
+msgstr ""
 
 #: .\templates\orders\about.html:5
 msgid "Наша команда займається постачанням свіжих овочів до ресторанів!"
@@ -323,13 +328,17 @@ msgstr "сума"
 msgid "редагувати"
 msgstr "редагувати"
 
-#: .\templates\users\feedback.html:17
+#: .\templates\users\feedback.html:18
 msgid "Відправити"
 msgstr "Відправити"
 
 #: .\templates\users\feedback_success.html:5
-msgid "Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, дякуємо!"
-msgstr "Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, дякуємо!"
+msgid ""
+"Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, "
+"дякуємо!"
+msgstr ""
+"Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, "
+"дякуємо!"
 
 #: .\templates\users\login.html:16
 msgid "Забули пароль? Відновити тут ->"
@@ -372,20 +381,28 @@ msgid "Ми надіслали вам інструкції щодо встано
 msgstr "Ми надіслали вам інструкції щодо встановлення пароля."
 
 #: .\templates\users\password_reset_done.html:6
-msgid "Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви ввели адресу, яку ви зареєстрували."
-msgstr "Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви ввели адресу, яку ви зареєстрували."
+msgid ""
+"Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви "
+"ввели адресу, яку ви зареєстрували."
+msgstr ""
+"Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви "
+"ввели адресу, яку ви зареєстрували."
 
 #: .\templates\users\password_reset_email.html:4
 msgid "Привіт"
 msgstr "Привіт"
 
 #: .\templates\users\password_reset_email.html:12
-msgid "Ваше імя"
-msgstr "Ваше імя"
+msgid "Ваше імя користувача, якщо ви забули:"
+msgstr ""
 
 #: .\templates\users\password_reset_email.html:13
-msgid "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний лист."
-msgstr "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний лист."
+msgid ""
+"Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний "
+"лист."
+msgstr ""
+"Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний "
+"лист."
 
 #: .\templates\users\password_reset_email.html:14
 msgid "Дякую,"
@@ -395,13 +412,31 @@ msgstr "Дякую,"
 msgid "Наша команда"
 msgstr "Наша команда"
 
+#: .\templates\users\profile_details.html:18
+#, fuzzy
+#| msgid "для"
+msgid "Імя"
+msgstr "для"
+
+#: .\templates\users\profile_details.html:19
+#, fuzzy
+#| msgid "email"
+msgid "Email"
+msgstr "email"
+
+#: .\templates\users\profile_details.html:20
+#, fuzzy
+#| msgid "Так"
+msgid "Тел"
+msgstr "Так"
+
 #: .\templates\users\profile_details.html:24 .\users\views.py:81
 msgid "Редагувати профіль"
 msgstr "Редагувати профіль"
 
-#: .\templates\users\profile_details.html:25
-msgid "Видалити профіль."
-msgstr "Видалити профіль."
+#: .\templates\users\profile_details.html:25 .\users\views.py:103
+msgid "Видалити профіль"
+msgstr "Видалити профіль"
 
 #: .\templates\users\profile_edit.html:7
 msgid "Назад до профілю"
@@ -432,7 +467,9 @@ msgid "email"
 msgstr "email"
 
 #: .\users\models.py:40
-msgid "ім'я"
+#, fuzzy
+#| msgid "ім'я"
+msgid "імя"
 msgstr "ім'я"
 
 #: .\users\models.py:46
@@ -464,8 +501,8 @@ msgid "дата відправки"
 msgstr "дата відправки"
 
 #: .\users\models.py:74
-msgid "IP адреса відправнка"
-msgstr "IP адреса відправнка"
+msgid "IP адреса відправника"
+msgstr "IP адреса відправника"
 
 #: .\users\models.py:79 .\users\models.py:80
 msgid "зворотній звязок"
@@ -474,10 +511,6 @@ msgstr "зворотній звязок"
 #: .\users\validators.py:8
 msgid "Файл не може бути більше 5 MB."
 msgstr "Файл не може бути більше 5 MB."
-
-#: .\users\views.py:103
-msgid "Видалити профіль"
-msgstr "Видалити профіль"
 
 #: .\users\views.py:122
 msgid "Відновлення паролю"
@@ -490,3 +523,9 @@ msgstr "Умови використання"
 #: .\users\views.py:171
 msgid "Лист надіслано вдало"
 msgstr "Лист надіслано вдало"
+
+#~ msgid "Видалити профіль."
+#~ msgstr "Видалити профіль."
+
+#~ msgid "Ваше імя"
+#~ msgstr "Ваше імя"

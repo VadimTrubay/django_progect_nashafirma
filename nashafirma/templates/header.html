@@ -122,7 +122,7 @@
             <li><a {% if request.path == '/users/profile/' or request.path == '/ru/users/profile/' or request.path == '/en/users/profile/' %} class='active-page' {% endif %}
                     href="{% url 'profile_details' user.pk %}"><span>{% trans 'Профіль' %}</span></a>
                 {% endif %}
-            <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/'%} class='active-page' {% endif %} href="{% url 'feedback' %}">Контакти</a></li>
+            <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/'%} class='active-page' {% endif %} href="{% url 'feedback' %}">{% trans 'Контакти' %}</a></li>
             <li><a class='back' href='#' class='outline' onclick='history.back()'>{% trans 'Назад' %}</a></li>
                     </ul>
                 </details>
@@ -168,7 +168,8 @@
     </svg> {% trans 'Друк сторінки' %}</a>
     {% endif %}
     <!-- title pages -->
-    <h1 class='title-page'><span class='with-line'>{{ title }}</span></h1>
+    <h1 class='title-page'><span class='with-line'>{% blocktranslate %}{{ title }}{% endblocktranslate %}</span></h1>
 </header>
 
 {% endblock %}
+
