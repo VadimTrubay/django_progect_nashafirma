@@ -22,7 +22,7 @@ class AddProductView(CreateView):
 
 class AllProductsView(ListView):
     title = _("Всі продукти")
-    paginate_by = 20
+    paginate_by = 40
     model = Product
     template_name = "products/all_products.html"
     context_object_name = "products"
@@ -74,7 +74,7 @@ class EditProductView(UpdateView):
 
 class SearchResultsProductView(ListView):
     title = _("Результати пошуку продукту")
-    paginate_by = 20
+    paginate_by = 40
     model = Product
     template_name = "products/search_results_product.html"
     context_object_name = "products"

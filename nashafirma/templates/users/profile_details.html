@@ -3,6 +3,7 @@
 {% block content %}
 {% load i18n %}
 
+<h1 class='title-page'>{% trans 'Профіль' %}</h1>
 {% if user.profile_picture %}
 <div class='profile-fields'>
     <img class='profile-fields-img' src='{{ user.profile_picture.url }}' alt='profile_picture'>
@@ -15,9 +16,9 @@
 <div class='profile-fields-p'>
     <p class='profile-fields-name'>{{ user.first_name }} {{ user.last_name }}</p>
     <br>
-    <p class='profile-fields-p'><strong>{% trans 'Імя' %}</strong>: {{ user.username }}</p>
-    <p class='profile-fields-p'><strong>{% trans 'Email' %}</strong>: {{ user.email }}</p>
-    <p class='profile-fields-p'><strong>{% trans 'Тел' %}</strong>: {{ user.telephone_number }}</p>
+    <p class='profile-fields-p'><strong>{% trans 'імя' %}</strong>: {{ user.username }}</p>
+    <p class='profile-fields-p'><strong>{% trans 'email' %}</strong>: {{ user.email }}</p>
+    <p class='profile-fields-p'><strong>{% trans 'тел' %}</strong>: {{ user.telephone_number }}</p>
     <ul>
         {% if is_owner %}
         <br>

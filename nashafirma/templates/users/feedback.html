@@ -3,8 +3,9 @@
 {% load static %}
 {% load i18n %}
 
-<a class='contact-phone phone' href='tel:0999999999'>тел: 099-999-99-99</a>
-<a class='contact-email email' href='mailto:nasha-firma@gmail.com'>nasha-firma@gmail.com</a>
+<h1 class='title-page'>{% trans 'Контакти' %}</h1>
+<a class='contact-phone phone' href='+38(097)-716-23-56'>тел: +38(097)-716-23-56</a>
+<a class='contact-email email' href='mailto:nasha-firma@ukr.net'>nasha-firma@ukr.net</a>
 
 {% if request.user.is_authenticated %}
 <div class='form'>

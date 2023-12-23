@@ -2,6 +2,7 @@
 {% block content %}
 {% load i18n %}
 
+<h1 class='title-page'>{% trans 'Сортування за імям' %}</h1>
 {% if orders %}
 {% if not request.user.username == 'admin' %}
 <p class='center'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
@@ -22,7 +23,7 @@
         <tr>
             <th>{{ forloop.counter }}</th>
             <td><a href="{% url 'sort_by_date' order.created_at %}">{{ order.created_at }}</a></td>
-            <td>{{ order.user }}</td>
+            <td><a href="">{{ order.user }}</a></td>
             <td>
                 {% if request.user.username == 'admin' %}
                 <a href="{% url 'edit_order_done' order.pk %}">

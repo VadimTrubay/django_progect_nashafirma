@@ -77,7 +77,7 @@ class ViewOrderView(DetailView):
 
 class AllOrdersView(ListView):
     title = _("Всі замовлення")
-    paginate_by = 20
+    paginate_by = 40
     model = Order
     template_name = "orders/all_orders.html"
     context_object_name = "orders"
@@ -205,7 +205,7 @@ class AddItemView(CreateView):
 
 class SearchResultsOrderView(ListView):
     title = _("Результати пошуку замовлення")
-    paginate_by = 20
+    paginate_by = 40
     model = Order
     template_name = "orders/search_results_order.html"
     context_object_name = "orders"
@@ -252,8 +252,8 @@ class SearchResultsOrderView(ListView):
 
 
 class SortOrdersByNameView(ListView):
-    title = _("Сортування за ім'ям")
-    paginate_by = 20
+    title = _("Сортування за імям")
+    paginate_by = 40
     model = Order
     template_name = "orders/sort_by_name.html"
     context_object_name = "orders"
@@ -276,7 +276,7 @@ class SortOrdersByNameView(ListView):
 
 class SortOrdersByDateView(ListView):
     title = _("Сортування за датою")
-    paginate_by = 20
+    paginate_by = 40
     model = Order
     template_name = "orders/sort_by_date.html"
     context_object_name = "orders"
@@ -306,7 +306,7 @@ class SortOrdersByDateView(ListView):
 
 class SortOrdersByDoneView(ListView):
     title = _("Сортування за статусом")
-    paginate_by = 20
+    paginate_by = 40
     model = Order
     template_name = "orders/sort_by_done.html"
     context_object_name = "orders"

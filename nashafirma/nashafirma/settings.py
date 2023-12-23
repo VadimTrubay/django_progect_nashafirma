@@ -9,9 +9,9 @@ environ.Env.read_env(BASE_DIR / ".env")
 
 SECRET_KEY = env("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "modeltranslation",
@@ -74,11 +74,11 @@ WSGI_APPLICATION = "nashafirma.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': 'khzbwate_nasha-firma',
+        'USER': 'khzbwate_admin',
+        'PASSWORD': 'admin0101admin',
+        'HOST': '/var/run/postgresql',
+        'PORT': '5432',
     }
 }
 
@@ -134,16 +134,16 @@ AUTH_USER_MODEL = "users.SiteUser"
 LOGIN_URL = 'users'
 
 """For Gmail"""
-EMAIL_ADMIN = env('GMAIL_ADMIN')
-EMAIL_SERVER = env('GMAIL_SERVER')
+EMAIL_ADMIN = 'user0606user@gmail.com'
+EMAIL_SERVER = 'smtp.gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('GMAIL_HOST')
-EMAIL_PORT = env('GMAIL_PORT')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
 EMAIL_STARTTLS = True
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('GMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('GMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'user0606user@gmail.com'
+EMAIL_HOST_PASSWORD = 'jezyscoekirdwblv'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

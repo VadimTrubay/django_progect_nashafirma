@@ -2,6 +2,7 @@
 {% block content %}
 {% load i18n %}
 
+<h1 class='title-page'>{% trans 'Всі продукти' %}</h1>
 {% if request.user.username == 'admin' %}
 <p class='center'><a href="{% url 'add_product' %}">{% trans '+ Додати новий продукт' %}</a></p>
 <table class='note' role='grid'>

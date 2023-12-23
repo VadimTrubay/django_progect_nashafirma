@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-23 03:16+0200\n"
+"POT-Creation-Date: 2023-12-23 17:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,11 +23,11 @@ msgid "створено"
 msgstr "created"
 
 #: .\orders\models.py:15 .\templates\header.html:82
-#: .\templates\orders\all_orders.html:13
-#: .\templates\orders\search_results_order.html:14
-#: .\templates\orders\sort_by_date.html:14
-#: .\templates\orders\sort_by_done.html:14
-#: .\templates\orders\sort_by_name.html:14 .\users\models.py:75
+#: .\templates\orders\all_orders.html:14
+#: .\templates\orders\search_results_order.html:15
+#: .\templates\orders\sort_by_date.html:15
+#: .\templates\orders\sort_by_done.html:15
+#: .\templates\orders\sort_by_name.html:15 .\users\models.py:75
 msgid "користувач"
 msgstr "user"
 
@@ -35,121 +35,127 @@ msgstr "user"
 msgid "продукти"
 msgstr "product"
 
-#: .\orders\models.py:22 .\templates\orders\all_orders.html:14
-#: .\templates\orders\search_results_order.html:15
-#: .\templates\orders\sort_by_date.html:15
-#: .\templates\orders\sort_by_done.html:15
-#: .\templates\orders\sort_by_name.html:15
+#: .\orders\models.py:22 .\templates\orders\all_orders.html:15
+#: .\templates\orders\search_results_order.html:16
+#: .\templates\orders\sort_by_date.html:16
+#: .\templates\orders\sort_by_done.html:16
+#: .\templates\orders\sort_by_name.html:16
 msgid "статус"
 msgstr "status"
 
 #: .\orders\models.py:38 .\orders\models.py:39 .\orders\models.py:47
-#: .\templates\orders\all_orders.html:12
-#: .\templates\orders\search_results_order.html:13
-#: .\templates\orders\sort_by_date.html:13
-#: .\templates\orders\sort_by_done.html:13
-#: .\templates\orders\sort_by_name.html:13
+#: .\templates\orders\all_orders.html:13
+#: .\templates\orders\search_results_order.html:14
+#: .\templates\orders\sort_by_date.html:14
+#: .\templates\orders\sort_by_done.html:14
+#: .\templates\orders\sort_by_name.html:14
 msgid "замовлення"
 msgstr "order"
 
 #: .\orders\models.py:52 .\products\models.py:7 .\products\models.py:17
-#: .\products\models.py:18 .\templates\orders\view_order.html:19
-#: .\templates\products\all_products.html:11
-#: .\templates\products\all_products.html:45
-#: .\templates\products\search_results_product.html:12
-#: .\templates\products\search_results_product.html:46
-msgid "продукт"
-msgstr "product"
-
-#: .\orders\models.py:54 .\templates\orders\view_order.html:20
-msgid "вага"
-msgstr "weight"
-
-#: .\orders\models.py:56 .\templates\orders\view_order.html:23
-msgid "нотатка"
-msgstr "note"
-
-#: .\orders\views.py:21 .\templates\header.html:89 .\templates\header.html:113
-msgid "Головна"
-msgstr "Home"
-
-#: .\orders\views.py:31 .\templates\header.html:115
-msgid "Про нас"
-msgstr "About"
-
-#: .\orders\views.py:41
-msgid "Додати нове замовлення"
-msgstr "Add a new order"
-
-#: .\orders\views.py:58
-msgid "Переглянути замовлення"
-msgstr "View order"
-
-#: .\orders\views.py:79
-msgid "Всі замовлення"
-msgstr "All orders"
-
-#: .\orders\views.py:101
-#, fuzzy
-#| msgid "Результати пошуку замовлення"
-msgid "Редагувати статус замовлення"
-msgstr "Order search results"
-
-#: .\orders\views.py:129 .\products\views.py:56
-msgid "Редагувати продукт"
-msgstr "Edit order status"
-
-#: .\orders\views.py:150
-msgid "Видалити замовлення"
-msgstr "Delete order"
-
-#: .\orders\views.py:169 .\products\views.py:37
-msgid "Видалити продукт"
-msgstr "Delete product"
-
-#: .\orders\views.py:185
-msgid "Додати новий продукт до замовлення"
-msgstr "Add a new product to the order"
-
-#: .\orders\views.py:207
-msgid "Результати пошуку замовлення"
-msgstr "Order search results"
-
-#: .\orders\views.py:255
-#, fuzzy
-#| msgid "Сортування за датою"
-msgid "Сортування за ім'ям"
-msgstr "Sort by name"
-
-#: .\orders\views.py:278
-msgid "Сортування за датою"
-msgstr "Sort by name"
-
-#: .\orders\views.py:308
-msgid "Сортування за статусом"
-msgstr "Sort by status"
-
-#: .\products\models.py:8 .\templates\orders\view_order.html:21
+#: .\products\models.py:18 .\templates\orders\view_order.html:20
 #: .\templates\products\all_products.html:12
 #: .\templates\products\all_products.html:46
 #: .\templates\products\search_results_product.html:13
 #: .\templates\products\search_results_product.html:47
+msgid "продукт"
+msgstr "product"
+
+#: .\orders\models.py:54 .\templates\orders\view_order.html:21
+msgid "вага"
+msgstr "weight"
+
+#: .\orders\models.py:56 .\templates\orders\view_order.html:24
+msgid "нотатка"
+msgstr "note"
+
+#: .\orders\views.py:21 .\templates\header.html:89 .\templates\header.html:113
+#: .\templates\orders\index.html:5
+msgid "Головна"
+msgstr "Home"
+
+#: .\orders\views.py:31 .\templates\header.html:115
+#: .\templates\orders\about.html:5
+msgid "Про нас"
+msgstr "About"
+
+#: .\orders\views.py:41 .\templates\orders\add_order.html:5
+msgid "Додати нове замовлення"
+msgstr "Add a new order"
+
+#: .\orders\views.py:58 .\templates\orders\view_order.html:5
+msgid "Переглянути замовлення"
+msgstr "View order"
+
+#: .\orders\views.py:79 .\templates\orders\all_orders.html:5
+msgid "Всі замовлення"
+msgstr "All orders"
+
+#: .\orders\views.py:101 .\templates\orders\edit_order_done.html:5
+msgid "Редагувати статус замовлення"
+msgstr "Edit order status"
+
+#: .\orders\views.py:129 .\products\views.py:56
+#: .\templates\orders\edit_item_product.html:5
+#: .\templates\products\edit_product.html:5
+msgid "Редагувати продукт"
+msgstr "Edit product"
+
+#: .\orders\views.py:150 .\templates\orders\delete_order.html:5
+msgid "Видалити замовлення"
+msgstr "Delete order"
+
+#: .\orders\views.py:169 .\products\views.py:37
+#: .\templates\orders\delete_item_product.html:5
+#: .\templates\products\delete_product.html:5
+msgid "Видалити продукт"
+msgstr "Delete product"
+
+#: .\orders\views.py:185 .\templates\orders\add_item.html:5
+msgid "Додати новий продукт до замовлення"
+msgstr "Add a new product to the order"
+
+#: .\orders\views.py:207 .\templates\orders\search_results_order.html:5
+msgid "Результати пошуку замовлення"
+msgstr "Order search results"
+
+#: .\orders\views.py:255 .\templates\orders\sort_by_name.html:5
+msgid "Сортування за імям"
+msgstr "Sort by name"
+
+#: .\orders\views.py:278 .\templates\orders\sort_by_date.html:5
+msgid "Сортування за датою"
+msgstr "Sort by date"
+
+#: .\orders\views.py:308 .\templates\orders\sort_by_done.html:5
+msgid "Сортування за статусом"
+msgstr "Sort by status"
+
+#: .\products\models.py:8 .\templates\orders\view_order.html:22
+#: .\templates\products\all_products.html:13
+#: .\templates\products\all_products.html:47
+#: .\templates\products\search_results_product.html:14
+#: .\templates\products\search_results_product.html:48
 msgid "ціна"
 msgstr "prices"
 
-#: .\products\views.py:12
+#: .\products\views.py:12 .\templates\products\add_product.html:5
 msgid "Додати новий продукт"
 msgstr "Add a new product"
 
-#: .\products\views.py:24
+#: .\products\views.py:24 .\templates\products\all_products.html:5
 msgid "Всі продукти"
 msgstr "All products"
 
-#: .\products\views.py:76
+#: .\products\views.py:76 .\templates\products\search_results_product.html:5
 msgid "Результати пошуку продукту"
 msgstr "Product search results"
 
 #: .\templates\404.html:5
+msgid "Page not found"
+msgstr "Page not found"
+
+#: .\templates\404.html:6
 msgid "Вибачте, сторінку не знайдено."
 msgstr "Sorry, page not found."
 
@@ -175,21 +181,23 @@ msgstr "Products"
 msgid "Замовлення"
 msgstr "Orders"
 
-#: .\templates\header.html:99 .\templates\header.html:123 .\users\views.py:60
+#: .\templates\header.html:99 .\templates\header.html:123
+#: .\templates\users\profile_details.html:6 .\users\views.py:60
 msgid "Профіль"
 msgstr "Profile"
 
-#: .\templates\header.html:102 .\templates\header.html:125 .\users\views.py:147
+#: .\templates\header.html:102 .\templates\header.html:125
+#: .\templates\users\feedback.html:6 .\users\views.py:147
 msgid "Контакти"
 msgstr "Contacts"
 
 #: .\templates\header.html:103 .\templates\header.html:126
-#: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
-#: .\templates\orders\edit_item_product.html:15
-#: .\templates\orders\edit_order_done.html:13
-#: .\templates\products\add_product.html:14
-#: .\templates\products\edit_product.html:12 .\templates\users\feedback.html:19
-#: .\templates\users\login.html:14 .\templates\users\register.html:21
+#: .\templates\orders\add_item.html:15 .\templates\orders\add_order.html:14
+#: .\templates\orders\edit_item_product.html:16
+#: .\templates\orders\edit_order_done.html:14
+#: .\templates\products\add_product.html:15
+#: .\templates\products\edit_product.html:13 .\templates\users\feedback.html:20
+#: .\templates\users\login.html:15 .\templates\users\register.html:22
 msgid "Назад"
 msgstr "Back"
 
@@ -201,13 +209,13 @@ msgstr "Menu"
 msgid "Вийти"
 msgstr "Logout"
 
-#: .\templates\header.html:141 .\templates\users\login.html:13
-#: .\users\views.py:46
+#: .\templates\header.html:141 .\templates\users\login.html:5
+#: .\templates\users\login.html:14 .\users\views.py:46
 msgid "Вхід"
 msgstr "Login"
 
-#: .\templates\header.html:142 .\templates\users\register.html:20
-#: .\users\views.py:28
+#: .\templates\header.html:142 .\templates\users\register.html:5
+#: .\templates\users\register.html:21 .\users\views.py:28
 msgid "Реєстрація"
 msgstr "Registration"
 
@@ -215,129 +223,134 @@ msgstr "Registration"
 msgid "Друк сторінки"
 msgstr "Print page"
 
-#: .\templates\header.html:176
+#: .\templates\header.html:171
 #, python-format
 msgid "%(title)s"
 msgstr ""
 
-#: .\templates\orders\about.html:5
+#: .\templates\orders\about.html:6
 msgid "Наша команда займається постачанням свіжих овочів до ресторанів!"
 msgstr "Our team delivers fresh vegetables to restaurants!"
 
-#: .\templates\orders\add_item.html:13 .\templates\orders\add_order.html:12
-#: .\templates\orders\edit_item_product.html:14
-#: .\templates\orders\edit_order_done.html:12
-#: .\templates\products\add_product.html:13
-#: .\templates\products\edit_product.html:11
+#: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
+#: .\templates\orders\edit_item_product.html:15
+#: .\templates\orders\edit_order_done.html:13
+#: .\templates\products\add_product.html:14
+#: .\templates\products\edit_product.html:12
 msgid "Зберегти"
 msgstr "Save"
 
-#: .\templates\orders\add_order.html:5
+#: .\templates\orders\add_order.html:6
 msgid "для"
 msgstr "for"
 
-#: .\templates\orders\add_order.html:9
+#: .\templates\orders\add_order.html:10
 msgid "Ви дійсно хочете додати нове замовлення?"
 msgstr "Are you sure you want to add a new order?"
 
-#: .\templates\orders\all_orders.html:6
-#: .\templates\orders\search_results_order.html:7
-#: .\templates\orders\sort_by_date.html:7
-#: .\templates\orders\sort_by_done.html:7
-#: .\templates\orders\sort_by_name.html:7
+#: .\templates\orders\all_orders.html:7
+#: .\templates\orders\search_results_order.html:8
+#: .\templates\orders\sort_by_date.html:8
+#: .\templates\orders\sort_by_done.html:8
+#: .\templates\orders\sort_by_name.html:8
 msgid "+ Додати нове замовлення"
 msgstr "+ Add a new order"
-
-#: .\templates\orders\all_orders.html:15
-#: .\templates\orders\search_results_order.html:16
-#: .\templates\orders\sort_by_date.html:16
-#: .\templates\orders\sort_by_done.html:16
-#: .\templates\orders\sort_by_name.html:16
-msgid "переглянути"
-msgstr "view"
 
 #: .\templates\orders\all_orders.html:16
 #: .\templates\orders\search_results_order.html:17
 #: .\templates\orders\sort_by_date.html:17
 #: .\templates\orders\sort_by_done.html:17
 #: .\templates\orders\sort_by_name.html:17
-#: .\templates\orders\view_order.html:25
-#: .\templates\products\all_products.html:14
-#: .\templates\products\search_results_product.html:15
+msgid "переглянути"
+msgstr "view"
+
+#: .\templates\orders\all_orders.html:17
+#: .\templates\orders\search_results_order.html:18
+#: .\templates\orders\sort_by_date.html:18
+#: .\templates\orders\sort_by_done.html:18
+#: .\templates\orders\sort_by_name.html:18
+#: .\templates\orders\view_order.html:26
+#: .\templates\products\all_products.html:15
+#: .\templates\products\search_results_product.html:16
 msgid "видалити"
 msgstr "delete"
 
-#: .\templates\orders\delete_item_product.html:8
-#: .\templates\products\delete_product.html:8
-#: .\templates\users\profile_delete.html:8
+#: .\templates\orders\delete_item_product.html:9
+#: .\templates\products\delete_product.html:9
+#: .\templates\users\profile_delete.html:9
 msgid "Ви дійсно хочете видалити"
 msgstr "You really want to delete"
-
-#: .\templates\orders\delete_item_product.html:11
-#: .\templates\orders\delete_order.html:13
-#: .\templates\products\delete_product.html:11
-#: .\templates\users\profile_delete.html:11
-msgid "Так"
-msgstr "Yes"
 
 #: .\templates\orders\delete_item_product.html:12
 #: .\templates\orders\delete_order.html:14
 #: .\templates\products\delete_product.html:12
 #: .\templates\users\profile_delete.html:12
+msgid "Так"
+msgstr "Yes"
+
+#: .\templates\orders\delete_item_product.html:13
+#: .\templates\orders\delete_order.html:15
+#: .\templates\products\delete_product.html:13
+#: .\templates\users\profile_delete.html:13
 msgid "Ні"
 msgstr "No"
 
-#: .\templates\orders\delete_order.html:8
+#: .\templates\orders\delete_order.html:9
 msgid "Ви дійсно хочете видалити?"
 msgstr "Are you sure you want to delete?"
 
-#: .\templates\orders\delete_order.html:10
-#: .\templates\orders\edit_order_done.html:5
-#: .\templates\orders\view_order.html:5
+#: .\templates\orders\delete_order.html:11
+#: .\templates\orders\edit_order_done.html:6
+#: .\templates\orders\view_order.html:6
 msgid "для користувача"
 msgstr "for user"
 
-#: .\templates\orders\edit_item_product.html:6
+#: .\templates\orders\edit_item_product.html:7
 msgid "для замовлення"
 msgstr "for order"
 
-#: .\templates\orders\index.html:5
+#: .\templates\orders\index.html:6
 msgid "Раді Вітати на сайті компанії Наша-Фірмa!"
 msgstr "Welcome to the website of the company Nasha-Firma!"
 
-#: .\templates\orders\search_results_order.html:49
-#: .\templates\orders\sort_by_date.html:53
-#: .\templates\orders\sort_by_done.html:52
-#: .\templates\orders\sort_by_name.html:49
-#: .\templates\products\search_results_product.html:62
+#: .\templates\orders\search_results_order.html:50
+#: .\templates\orders\sort_by_date.html:54
+#: .\templates\orders\sort_by_done.html:53
+#: .\templates\orders\sort_by_name.html:50
+#: .\templates\products\search_results_product.html:63
 msgid "Пошук не дав результатів"
 msgstr "The search yielded no results"
 
-#: .\templates\orders\view_order.html:9
-#: .\templates\products\all_products.html:6
-#: .\templates\products\search_results_product.html:7
+#: .\templates\orders\view_order.html:10
+#: .\templates\products\all_products.html:7
+#: .\templates\products\search_results_product.html:8
 msgid "+ Додати новий продукт"
 msgstr "+ Add a new product"
 
-#: .\templates\orders\view_order.html:11
+#: .\templates\orders\view_order.html:12
 msgid "Замовлення виконане"
 msgstr "Order done"
 
-#: .\templates\orders\view_order.html:22
+#: .\templates\orders\view_order.html:23
 msgid "сума"
 msgstr "total"
 
-#: .\templates\orders\view_order.html:24
-#: .\templates\products\all_products.html:13
-#: .\templates\products\search_results_product.html:14
+#: .\templates\orders\view_order.html:25
+#: .\templates\products\all_products.html:14
+#: .\templates\products\search_results_product.html:15
 msgid "редагувати"
 msgstr "edit"
 
-#: .\templates\users\feedback.html:18
+#: .\templates\users\feedback.html:19
 msgid "Відправити"
 msgstr "Send"
 
 #: .\templates\users\feedback_success.html:5
+#: .\templates\users\password_reset_complete.html:5
+msgid "Успіх"
+msgstr "Success"
+
+#: .\templates\users\feedback_success.html:6
 msgid ""
 "Вашого листа було відправлено адміністратору сайту, чекайте на відповідь, "
 "дякуємо!"
@@ -345,47 +358,51 @@ msgstr ""
 "Your letter has been sent to the site administrator, please wait for a "
 "response, thank you!"
 
-#: .\templates\users\login.html:16
+#: .\templates\users\login.html:17
 msgid "Забули пароль? Відновити тут ->"
 msgstr "Forgot your password? Restore here ->"
 
-#: .\templates\users\login.html:17
+#: .\templates\users\login.html:18
 msgid "Створити новий аккаунт?"
 msgstr "Create a new account?"
 
 #: .\templates\users\password_reset.html:5
-msgid "Забули пароль?"
-msgstr "Forgot your password?"
+#: .\templates\users\password_reset_confirm.html:5
+#: .\templates\users\password_reset_done.html:5
+#: .\templates\users\password_reset_email.html:4
+
+msgid "Зміна паролю"
+msgstr "Reset password"
 
 #: .\templates\users\password_reset.html:6
 msgid "Введіть адресу електронної пошти, щоб отримати новий пароль."
 msgstr "Enter your email address to receive a new password."
 
 #: .\templates\users\password_reset.html:11
-msgid "Відправиити e-mail"
-msgstr "Send e-mail"
+msgid "Відправити email"
+msgstr "Send email"
 
-#: .\templates\users\password_reset_complete.html:5
+#: .\templates\users\password_reset_complete.html:6
 msgid "Авторизуйтесь в Вашому аккаунті"
-msgstr "Log in to your account"
+msgstr "Login to your account"
 
-#: .\templates\users\password_reset_confirm.html:5
+#: .\templates\users\password_reset_confirm.html:6
 msgid "Введіть новий пароль"
 msgstr "Enter a new password"
 
-#: .\templates\users\password_reset_confirm.html:10
+#: .\templates\users\password_reset_confirm.html:11
 msgid "Зберегти новий пароль"
 msgstr "Save the new password"
 
-#: .\templates\users\password_reset_done.html:5
-msgid "Скиньте свій пароль."
+#: .\templates\users\password_reset_done.html:6
+msgid "Змініть свій пароль."
 msgstr "Reset your password."
 
-#: .\templates\users\password_reset_done.html:5
-msgid "Ми надіслали вам інструкції щодо встановлення пароля."
+#: .\templates\users\password_reset_done.html:6
+msgid "Ми надіслали вам інструкції щодо встановлення пароля на ваш email."
 msgstr "We've sent you instructions on how to set your password."
 
-#: .\templates\users\password_reset_done.html:6
+#: .\templates\users\password_reset_done.html:7
 msgid ""
 "Якщо ви не отримали електронного листа, будь ласка, переконайтеся, що ви "
 "ввели адресу, яку ви зареєстрували."
@@ -393,15 +410,15 @@ msgstr ""
 "If you did not receive the email, please make sure you entered the address "
 "you registered."
 
-#: .\templates\users\password_reset_email.html:4
+#: .\templates\users\password_reset_email.html:5
 msgid "Привіт"
 msgstr "Hi"
 
-#: .\templates\users\password_reset_email.html:12
+#: .\templates\users\password_reset_email.html:13
 msgid "Ваше імя користувача, якщо ви забули:"
 msgstr "Your username if you forgot it:"
 
-#: .\templates\users\password_reset_email.html:13
+#: .\templates\users\password_reset_email.html:14
 msgid ""
 "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний "
 "лист."
@@ -409,73 +426,59 @@ msgstr ""
 "If you have not sent a password reset request, please ignore this email "
 "letter."
 
-#: .\templates\users\password_reset_email.html:14
+#: .\templates\users\password_reset_email.html:15
 msgid "Дякую,"
 msgstr "Thank you,"
 
-#: .\templates\users\password_reset_email.html:15
+#: .\templates\users\password_reset_email.html:16
 msgid "Наша команда"
 msgstr "Our team"
 
-#: .\templates\users\profile_details.html:18
-#, fuzzy
-#| msgid "для"
-msgid "Імя"
-msgstr "for"
-
-#: .\templates\users\profile_details.html:19
-#, fuzzy
-#| msgid "email"
-msgid "Email"
-msgstr "email"
-
-#: .\templates\users\profile_details.html:20
-#, fuzzy
-#| msgid "Так"
-msgid "Тел"
-msgstr "Yes"
-
-#: .\templates\users\profile_details.html:24 .\users\views.py:81
-msgid "Редагувати профіль"
-msgstr ""
-
-#: .\templates\users\profile_details.html:25 .\users\views.py:103
+#: .\templates\users\profile_delete.html:5
+#: .\templates\users\profile_details.html:26 .\users\views.py:103
 msgid "Видалити профіль"
 msgstr "Delete profile"
 
-#: .\templates\users\profile_edit.html:7
+#: .\templates\users\profile_details.html:19 .\users\models.py:40
+msgid "імя"
+msgstr "firstname"
+
+#: .\templates\users\profile_details.html:20 .\users\models.py:34
+msgid "email"
+msgstr "email"
+
+#: .\templates\users\profile_details.html:21
+msgid "тел"
+msgstr "phone"
+
+#: .\templates\users\profile_details.html:25
+#: .\templates\users\profile_edit.html:6 .\users\views.py:81
+msgid "Редагувати профіль"
+msgstr "Edit profile"
+
+#: .\templates\users\profile_edit.html:8
 msgid "Назад до профілю"
 msgstr "Back to profile"
 
-#: .\templates\users\profile_edit.html:17
+#: .\templates\users\profile_edit.html:18
 msgid "Зберегти зміни"
 msgstr "Save changes"
 
-#: .\templates\users\register.html:15
+#: .\templates\users\register.html:16
 msgid "Я згоден з"
 msgstr "I agree with"
 
-#: .\templates\users\register.html:23
+#: .\templates\users\register.html:24
 msgid "Вже маєте профіль?"
 msgstr "Already have a profile?"
 
-#: .\templates\users\register.html:24
+#: .\templates\users\register.html:25
 msgid "Вхід до особистого кабінету"
 msgstr "Login to personal account"
 
 #: .\users\models.py:29
 msgid "логін"
 msgstr "login"
-
-#: .\users\models.py:34
-msgid "email"
-msgstr "email"
-
-#: .\users\models.py:40
-#, fuzzy
-#| msgid "ім'я"
-msgid "імя"
-msgstr "firstname"
 
 #: .\users\models.py:46
 msgid "прізвище"
@@ -506,8 +509,6 @@ msgid "дата відправки"
 msgstr "date of dispatch"
 
 #: .\users\models.py:74
-#, fuzzy
-#| msgid "IP адреса відправнка"
 msgid "IP адреса відправника"
 msgstr "IP address of the sender"
 
@@ -530,9 +531,3 @@ msgstr "Terms of use"
 #: .\users\views.py:171
 msgid "Лист надіслано вдало"
 msgstr "The letter was sent successfully"
-
-#~ msgid "Видалити профіль."
-#~ msgstr "Edit profile"
-
-#~ msgid "Ваше імя"
-#~ msgstr "Your name"

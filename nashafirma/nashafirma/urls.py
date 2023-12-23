@@ -10,7 +10,6 @@ from orders.views import (HomeView,
 
 
 i18n_urls = (
-    path("admin/", admin.site.urls),
     path("i18n", include("django.conf.urls.i18n")),
     path("", HomeView.as_view(), name="home"),
     path("about/", AboutView.as_view(), name="about"),
