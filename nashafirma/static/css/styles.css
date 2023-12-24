@@ -12,6 +12,7 @@
     --primary-hover: #1976d2;
     --primary-focus: rgba(30, 136, 229, 0.125);
     --primary-inverse: #FFF;
+    --color: rgb(0, 0, 0);
 }
 
 /* Blue Dark scheme (Auto) */
@@ -22,6 +23,7 @@
         --primary-hover: #2196f3;
         --primary-focus: rgba(30, 136, 229, 0.25);
         --primary-inverse: #FFF;
+        ---color: rgb(0, 0, 0);
     }
 }
 
@@ -44,7 +46,7 @@
     --brand-font: 'Times New Roman';
     --brand-background-color: #c5c5c5;
     --brand-second-color: #ffffff;
-    --table-text-color: #415462;
+    --table-text-color: #000000;
 }
 
 a {
@@ -126,11 +128,11 @@ body, ul, p {
 }
 
 .content {
-    max-width: 60%;
-    margin: 0 auto;
+    max-width: 500px;
     height: auto;
     min-height: 600px;
     margin-top: 15px;
+    margin-right: auto;
     margin-left: auto;
     padding-right: auto;
     background-color: var(--brand-background-color);
@@ -443,7 +445,7 @@ td {
 
 .note th,
 .note td {
-    font-size: 15px;
+    font-size: 12px;
 }
 
 table a {
