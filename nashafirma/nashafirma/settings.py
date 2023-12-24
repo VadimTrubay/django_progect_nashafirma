@@ -7,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(BASE_DIR / ".env")
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = '#iqnq9p2w(47tmqwuh_s+ot$)tov9bh%(=dxfj5as)u&2pts'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -69,18 +69,33 @@ WSGI_APPLICATION = "nashafirma.wsgi.application"
 #         "NAME": str(os.path.join(BASE_DIR, "db.sqlite3")),
 #     }
 # }
-
 """Local PostgresSQL"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'khzbwate_nasha-firma',
-        'USER': 'khzbwate_admin',
-        'PASSWORD': 'admin0101admin',
-        'HOST': '/var/run/postgresql',
+        'NAME': 'nashafirma',
+        'USER': 'nashafirma',
+        'PASSWORD': 'vad0101vad',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+# """Local MySQL"""
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'nashafirmaod_db',
+#         'USER': 'nashafirmaod_db',
+#         'PASSWORD': 'Q(Zh_HV#Qf5M',
+#         'HOST': 'localhost',   # Set to your database host
+#         'PORT': '3306',        # Set to your database port
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             'charset': 'utf8mb4'
+#         },
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
