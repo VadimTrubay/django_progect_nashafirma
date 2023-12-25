@@ -12,7 +12,7 @@
     --primary-hover: #1976d2;
     --primary-focus: rgba(30, 136, 229, 0.125);
     --primary-inverse: #FFF;
-    --color: rgb(0, 0, 0);
+    --color: #ffffff;
 }
 
 /* Blue Dark scheme (Auto) */
@@ -23,7 +23,7 @@
         --primary-hover: #2196f3;
         --primary-focus: rgba(30, 136, 229, 0.25);
         --primary-inverse: #FFF;
-        ---color: rgb(0, 0, 0);
+        ---color: #ffffff;
     }
 }
 
@@ -33,7 +33,7 @@
     --primary: #1e88e5;
     --primary-hover: #2196f3;
     --primary-focus: rgba(30, 136, 229, 0.25);
-    --primary-inverse: #FFF;
+    --primary-inverse: #ffffff;
 }
 
 /* Blue (Common styles) */
@@ -44,9 +44,9 @@
     --switch-checked-background-color: var(--primary);
     --brand-color: #1e88e5;
     --brand-font: 'Times New Roman';
-    --brand-background-color: #c5c5c5;
+    --brand-background-color: #ffffff;
     --brand-second-color: #ffffff;
-    --table-text-color: #000000;
+    --table-text-color: #ffffff;
 }
 
 a {
@@ -82,7 +82,7 @@ a:focus {
 }
 
 .auth {
-    color: #686868;
+    color: var(--brand-color);
     padding-left: 0;
     font-size: 12px;
 }
@@ -91,16 +91,37 @@ a:focus {
     color: var(--brand-color);
 }
 
-body, ul, p {
+body {
     margin: 0;
     padding: 0;
     font-family: var(--brand-font);
 }
 
-/* .button:hover,
-.button:focus {
-    background-color: #8e0000;
-} */
+.container {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* width: 100vw;
+    height: 100vh; */
+    /* overflow: hidden; */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+ul, p {
+    margin: 0;
+    padding: 0;
+    font-family: var(--brand-font);
+}
 
 .button {
     margin: 10px 15px;
@@ -124,19 +145,19 @@ body, ul, p {
 
 .foto-logo {
     background-image: #c5c5c500;
-    width: 30px;
+    width: 25px;
     vertical-align: middle;
 }
 
 .content {
     max-width: 500px;
     height: auto;
-    min-height: 600px;
+    min-height: 1150px;
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
     padding-right: auto;
-    background-color: var(--brand-background-color);
+    /* background-color: var(--brand-background-color); */
     border-radius: 5px;
 }
 
@@ -165,12 +186,13 @@ body, ul, p {
 
 .contact-email {
     display: inline-block;
+    color: #fff;
 
 }
 
 .container {
     background-color: var(--brand-background-color);
-    padding: 30px;
+    padding: 40px;
 }
 
 .center {
@@ -200,9 +222,9 @@ body, ul, p {
     font-size: 13px;
 }
 
-.header {
+/* .header {
     background-color: var(--brand-background-color);
-}
+} */
 
 .user {
     color: var(--brand-color);
@@ -234,6 +256,7 @@ body, ul, p {
 .lang {
     display: flex;
     padding-top: 20px;
+    font-weight: 900;
 }
 
 .lang a {
@@ -263,6 +286,7 @@ body, ul, p {
     letter-spacing: 2px;
     font-family: inherit;
     vertical-align: middle;
+    font-size: 25px;
 }
 
 .header-logo-search {
@@ -277,7 +301,7 @@ body, ul, p {
 
 .header-auth {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: flex-end;
 }
 
@@ -336,7 +360,12 @@ hr {
 
 .min-menu a {
     color: var(--brand-color);
-    background-color: var(--brand-background-color);
+    background-color: #696969;
+}
+
+.min li {
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -384,7 +413,7 @@ nav ul li {
 }
 
 .print {
-    color: #686868;
+    color: #ffffff;
 }
 
 .footer-ul-li {
@@ -399,7 +428,7 @@ ul li {
 .email {
     display: block;
     text-align: center;
-    color: #3b3b3b;
+    color: #fffdfd;
     font-weight: 500;
 }
 
@@ -446,18 +475,24 @@ td {
 
 .note th,
 .note td {
-    font-size: 12px;
+    font-size: 11px;
+    color: #000000;
+    background-color: #fffdfd;
 }
 
 table a {
-    color: var(--table-text-color);
+    color: #000000;
+}
+
+.title-table th {
+    font-weight: 900;
 }
 
 .title-page {
     font-family: inherit;
     text-align: center;
     font-size: 20px;
-    color: rgba(0, 0, 0, 0.785);
+    color: #ffffff;
 }
 
 .text {
@@ -500,12 +535,12 @@ table a {
 
 #search input[type="text"] {
     font-family: var(--brand-font);
-    background: #f7f4f4;
+    background: #ffffff;
     border: 0 none;
     font-size: bold 10px;
-    color: #777;
-    width: 130px;
-    height: 30px;
+    color: #1d1d1d;
+    width: 110px;
+    height: 20px;
     padding: 6px 15px 6px 15px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -521,7 +556,7 @@ table a {
 }
 
 #search input[type="text"]:focus {
-    width: 200px;
+    width: 150px;
 }
 
 .with-line {
