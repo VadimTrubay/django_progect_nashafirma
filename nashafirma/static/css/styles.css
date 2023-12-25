@@ -100,11 +100,11 @@ body {
 .container {
     background-image: url('../images/background.jpg');
     background-size: cover;
-    background-position: center;
-    position: relative;
-    /* width: 100vw;
-    height: 100vh; */
-    /* overflow: hidden; */
+        background-position: center;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: auto;
 }
 
 .background-image {
