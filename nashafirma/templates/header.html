@@ -77,7 +77,7 @@
 
     <!-- image and auth -->
     <section class='header-auth'>
-        <img src="{% static './images/vegetables.png' %}"  alt='овочі'>
+        <!-- <img src="{% static './images/vegetables.png' %}"  alt='овочі'> -->
         <div>
             <p class='user'>{% trans 'користувач' %}: <span class='user-white'>{{ user.username }}</span></p>
         </div>
@@ -108,7 +108,7 @@
         <ul class='min'>
             <li>
                 <details role='list'>
-                    <summary aria-haspopup='listbox' role='button'>&#8801; {% trans 'Меню' %}</summary>
+                    <summary aria-haspopup='listbox' role='button'>{% trans 'Меню' %}</summary>
                     <ul class='min-menu' role='listbox'>
             <li><a {% if request.path == '/' or request.path == '/ru/' or request.path == '/en/' %} class='active-page' {% endif %} href="{% url 'home' %}">{% trans 'Головна' %}</a>
             </li>
