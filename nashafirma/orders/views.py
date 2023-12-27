@@ -315,7 +315,7 @@ class SortOrdersByDoneView(ListView):
         done = self.kwargs.get('done')
         if self.request.user.username == "admin":
             if done:
-                queryset = self.model.objects.all().filter(Q(done__icontains=done))
+                queryset = self.model.objects.all().filter(done=done)
                 print(queryset)
                 queryset = queryset.reverse()
                 return queryset
