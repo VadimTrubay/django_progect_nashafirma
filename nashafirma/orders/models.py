@@ -22,7 +22,7 @@ class Order(models.Model):
     done = models.BooleanField(default=False, verbose_name=_("статус"))
 
     def __str__(self):
-        formatted_date_time = self.created_at.strftime("%d %B %Y")
+        formatted_date_time = self.created_at.strftime("%d %b %Y")
         return formatted_date_time
 
     def get_absolute_url(self):
