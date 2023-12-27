@@ -14,7 +14,7 @@
             <th>{% trans 'замовлення' %}</th>
             <th>{% trans 'користувач' %}</th>
             <th>{% trans 'статус' %}</th>
-            <th>{% trans 'переглянути' %}</th>
+            <th>{% trans 'перегляд' %}</th>
             <th>{% trans 'видалити' %}</th>
         </tr>
     </thead>
@@ -22,7 +22,7 @@
         {% for order in orders %}
         <tr>
             <th>{{ forloop.counter }}</th>
-            <td><a href=''>{{ order.created_at }}</td>
+            <td><a href=''>{{ order.created_at|date:"d M Y" }}</td>
             {% if request.user.username == 'admin' %}</a>
                 <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
             {% else %}

@@ -53,7 +53,7 @@ class DeleteProductView(DeleteView):
 
 
 class EditProductView(UpdateView):
-    title = _("Редагувати продукт")
+    title = _("Змінити продукт")
     model = Product
     fields = ["product", "price"]
     template_name = "products/edit_product.html"

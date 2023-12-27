@@ -98,7 +98,7 @@ class AllOrdersView(ListView):
 
 
 class EditOrderDoneView(UpdateView):
-    title = _("Редагувати статус замовлення")
+    title = _("Змінити статус замовлення")
     form_class = OrderForm
     template_name = "orders/edit_order_done.html"
     context_object_name = "order"
@@ -126,7 +126,7 @@ class EditOrderDoneView(UpdateView):
 
 
 class EditItemProductView(UpdateView):
-    title = _("Редагувати продукт")
+    title = _("Змінити продукт")
     form_class = OrderItemForm
     template_name = "orders/edit_item_product.html"
     context_object_name = "order"

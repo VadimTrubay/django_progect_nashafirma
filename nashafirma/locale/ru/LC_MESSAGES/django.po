@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-23 17:42+0200\n"
+"POT-Creation-Date: 2023-12-27 13:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,14 +94,14 @@ msgid "Всі замовлення"
 msgstr "Все заказы"
 
 #: .\orders\views.py:101 .\templates\orders\edit_order_done.html:5
-msgid "Редагувати статус замовлення"
+msgid "Змінити статус замовлення"
 msgstr "Редактировать статус заказа"
 
 #: .\orders\views.py:129 .\products\views.py:56
 #: .\templates\orders\edit_item_product.html:5
 #: .\templates\products\edit_product.html:5
-msgid "Редагувати продукт"
-msgstr "Редактировать продукт"
+msgid "Змінити продукт"
+msgstr "Изменить продукт"
 
 #: .\orders\views.py:150 .\templates\orders\delete_order.html:5
 msgid "Видалити замовлення"
@@ -263,7 +263,7 @@ msgstr "+ Добавить новый заказ"
 #: .\templates\orders\sort_by_date.html:17
 #: .\templates\orders\sort_by_done.html:17
 #: .\templates\orders\sort_by_name.html:17
-msgid "переглянути"
+msgid "перегляд"
 msgstr "просмотреть"
 
 #: .\templates\orders\all_orders.html:17
@@ -340,8 +340,8 @@ msgstr "сумма"
 #: .\templates\orders\view_order.html:25
 #: .\templates\products\all_products.html:14
 #: .\templates\products\search_results_product.html:15
-msgid "редагувати"
-msgstr "редактировать"
+msgid "змінити"
+msgstr "изменить"
 
 #: .\templates\users\feedback.html:19
 msgid "Відправити"
@@ -371,7 +371,6 @@ msgstr "Создать новый аккаунт?"
 #: .\templates\users\password_reset_confirm.html:5
 #: .\templates\users\password_reset_done.html:5
 #: .\templates\users\password_reset_email.html:4
-
 msgid "Зміна паролю"
 msgstr "Смена пароля"
 
