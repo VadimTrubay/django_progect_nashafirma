@@ -30,7 +30,7 @@
             {% endif %}
             <td>
                 {% if request.user.username == 'admin' %}
-                <a href='{% url 'edit_order_done' order.pk %}'>
+                <a href="{% url 'edit_order_done' order.pk %}">
                     {% endif %}
                     {% if order.done %}<span class='done'>&#10004;</span>
                     {% else %}<span class='notdone'>&#10008;</span>{% endif %}</a>
@@ -38,7 +38,7 @@
             </td>
             <td>
                 <a class='text-edit' href="{% url 'view_order' order.pk %}">
-                {% include 'icon_edit.html' %}
+                {% include 'icon_view.html' %}
                 </a>
             </td>
             <td>
