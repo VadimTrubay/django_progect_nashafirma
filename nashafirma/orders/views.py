@@ -323,8 +323,7 @@ class SortOrdersByDoneView(ListView):
         else:
             if done:
                 user_orders = self.model.objects.filter(user=self.request.user)
-                queryset = user_orders.filter(
-                    Q(done__icontains=done))
+                queryset = user_orders.filter(done=done)
                 queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
