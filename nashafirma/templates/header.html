@@ -3,71 +3,33 @@
 {% load i18n %}
 
 <header class='header'>
+    <!-- logo -->
     <section class='header-logo-search'>
         <div class='header-logo-foto'>
             <h1 class='header-logo-foto header-logo'><a href="{% url 'home' %}">{% trans 'Наша-Фірма' %}</a></h1>
             <img class='header-logo-foto foto-logo' src="{% static './images/add.png' %}" alt='vegetables in the box'>
         </div>
-        <!-- Search -->
-        {% if request.user.is_authenticated %}
-        {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' or request.path == '/ru/orders/all_orders/' or request.path == '/ru/orders/search_order/' or request.path == '/en/orders/all_orders/' or request.path == '/en/orders/search_order/' %}
-        <div class='header-search'>
-            <form id='search' method='get' action="{% url 'search_results_order' %}">
-                <input type='text' name='search_order' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
-            </form>
-        </div>
-        {% elif request.path == '/products/all_products/' or request.path == '/products/search_product/' or request.path == '/ru/products/all_products/' or request.path == '/ru/products/search_product/' or request.path == '/en/products/all_products/' or request.path == '/en/products/search_product/' %}
-        <div class='header-search'>
-            <form id='search' method='get' action="{% url 'search_results_product' %}">
-                <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
-            </form>
-        </div>
-        {% else %}
-        <div class='header-search'>
-            <form id='search' method='get' action=''>
-                <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
-            </form>
-        </div>
-        {% endif %}
-        {% else %}
-        {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' or request.path == '/ru/products/all_products/' or request.path == '/ru/products/search_product/' or request.path == '/en/products/all_products/' or request.path == '/en/products/search_product/' %}
-        <div class='header-search'>
-            <form id='search' method='get' action="{% url 'search_results_product' %}">
-                <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
-            </form>
-        </div>
-        {% else %}
-        <div class='header-search'>
-            <form id='search' method='get' action=''>
-                <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
-            </form>
-        </div>
-        {% endif %}
-        {% endif %}
         <!-- language -->
         <div class='header-lang'>
             <div class='lang'>
-                <form id='formLangUA' action="{% url 'set_language' %}" method='post'>
+                <form class='lang-form font' id='formLangUA' action="{% url 'set_language' %}" method='post'>
                     {% csrf_token %}
                     <input type='hidden' name='next' value='{{ redirect_to }}' />
                     <input type='hidden' name='language' value='uk' />
                     <a href='#' onclick="document.getElementById('formLangUA').submit(); return false;"
                         class="{% if LANGUAGE_CODE == 'uk' %}active-page{% endif %}">UA</a>
                 </form>
-                <span>|</span>
-                <form id='formLangRU' action="{% url 'set_language' %}" method='post'>
+                <form class='lang-form font' id='formLangRU' action="{% url 'set_language' %}" method='post'>
                     {% csrf_token %}
                     <input type='hidden' name='next' value='{{ redirect_to }}' />
                     <input type='hidden' name='language' value='ru' />
                     <a href='#' onclick="document.getElementById('formLangRU').submit(); return false;"
                         class="{% if LANGUAGE_CODE == 'ru' %}active-page{% endif %}">RU</a>
                 </form>
-                <span>|</span>
-                <form id='formLangEN' action="{% url 'set_language' %}" method='post'>
+                <form class='lang-form font' id='formLangEN' action="{% url 'set_language' %}" method='post'>
                     {% csrf_token %}
                     <input type='hidden' name='next' value='{{ redirect_to }}' />
                     <input type='hidden' name='language' value='en' />
-            
                     <a href='#' onclick="document.getElementById('formLangEN').submit(); return false;"
                         class="{% if LANGUAGE_CODE == 'en' %}active-page{% endif %}">EN</a>
                 </form>
@@ -75,69 +37,99 @@
         </div>
     </section>
 
-    <!-- image and auth -->
+    <!-- Search -->
     <section class='header-auth'>
-        <!-- <img src="{% static './images/vegetables.png' %}"  alt='овочі'> -->
         <div>
-            <p class='user'>{% trans 'користувач' %}: <span class='user-white'>{{ user.username }}</span></p>
+            {% if request.user.is_authenticated %}
+            {% if request.path == '/orders/all_orders/' or request.path == '/orders/search_order/' or request.path == '/ru/orders/all_orders/' or request.path == '/ru/orders/search_order/' or request.path == '/en/orders/all_orders/' or request.path == '/en/orders/search_order/' %}
+            <div class='header-search'>
+                <form id='search' method='get' action="{% url 'search_results_order' %}">
+                    <input type='text' name='search_order' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                </form>
+            </div>
+            {% elif request.path == '/products/all_products/' or request.path == '/products/search_product/' or request.path == '/ru/products/all_products/' or request.path == '/ru/products/search_product/' or request.path == '/en/products/all_products/' or request.path == '/en/products/search_product/' %}
+            <div class='header-search'>
+                <form id='search' method='get' action="{% url 'search_results_product' %}">
+                    <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                </form>
+            </div>
+            {% else %}
+            <div class='header-search'>
+                <form id='search' method='get' action=''>
+                    <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                </form>
+            </div>
+            {% endif %}
+            {% else %}
+            {% if request.path == '/products/all_products/' or request.path == '/products/search_product/' or request.path == '/ru/products/all_products/' or request.path == '/ru/products/search_product/' or request.path == '/en/products/all_products/' or request.path == '/en/products/search_product/' %}
+            <div class='header-search'>
+                <form id='search' method='get' action="{% url 'search_results_product' %}">
+                    <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                </form>
+            </div>
+            {% else %}
+            <div class='header-search'>
+                <form id='search' method='get' action=''>
+                    <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                </form>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div>
+            <p class='user font'>{% trans 'користувач' %}: <span class='user-white font'>{{ user.username }}</span></p>
         </div>
     </section>
     <section class='header-menu'>
-    <!-- main menu -->
-    <nav aria-label='breadcrumb'>
-        <ul class='menu norm'>
-            <li><a {% if request.path == '/' or request.path == '/ru/' or request.path == '/en/' %} class='active-page' {% endif %} href="{% url 'home' %}">{% trans 'Головна' %}</a>
-            </li>
-            <li><a {% if request.path == '/about/' or request.path == '/ru/about/' or request.path == '/en/about/' %} class='active-page' {% endif %} href="{% url 'about' %}">{% trans 'Прo нас' %}</a>
-            </li>
-            <li><a {% if request.path == '/products/all_products/' or request.path == '/ru/products/all_products/' or request.path == '/en/products/all_products/' %} class='active-page' {% endif %}
-                    href="{% url 'all_products' %}">{% trans 'Продукти' %}</a></li>
-            {% if request.user.is_authenticated %}
-            <li><a {% if request.path == '/orders/all_orders/' or request.path == '/ru/orders/all_orders/' or request.path == '/en/orders/all_orders/' %} class='active-page' {% endif %}
-                    href="{% url 'all_orders' %}">{% trans 'Замовлення' %}</a></li>
-            <li><a {% if request.path == '/users/profile/' or request.path == '/ru/users/profile/' or request.path == '/en/users/profile/' %} class='active-page' {% endif %}
-                    href="{% url 'profile_details' user.pk %}"><span>{% trans 'Профіль' %}</span></a>
+        <!-- min menu -->
+        <nav>
+            <ul class='min font-min-menu'>
+                <li>
+                    <details role='list'>
+                        <summary aria-haspopup='listbox' role='button'>{% trans 'Меню' %}</summary>
+                        <ul class='min-menu font-min-menu' role='listbox'>
+                            <li><a {% if request.path == '/' or request.path == '/ru/' or request.path == '/en/' %} class='active-page' {% endif %} href="{% url 'home' %}">{% trans 'Головна' %}</a>
+                            </li>
+                            <li><a {% if request.path == '/about/' or request.path == '/ru/about/' or request.path == '/en/about/' %} class='active-page' {% endif %} href="{% url 'about' %}">{% trans 'Про нас' %}</a>
+                            </li>
+                            <li><a {% if request.path == '/products/all_products/' or request.path == '/ru/products/all_products/' or request.path == '/en/products/all_products/' %} class='active-page' {% endif %} href="{% url 'all_products' %}">{% trans 'Продукти' %}</a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a {% if request.path == '/orders/all_orders/' or request.path == '/ru/orders/all_orders/' or request.path == '/en/orders/all_orders/' %} class='active-page' {% endif %} href="{% url 'all_orders' %}">{% trans 'Замовлення' %}</a></li>
+                            <li><a {% if request.path == '/users/profile/' or request.path == '/ru/users/profile/' or request.path == '/en/users/profile/' %} class='active-page' {% endif %} href="{% url 'profile_details' user.pk %}"><span>{% trans 'Профіль' %}</span></a>
+                            {% endif %}
+                            <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/' %} class='active-page' {% endif %} href="{% url 'feedback' %}">{% trans 'Контакти' %}</a></li>
+                            <li><a class='back' href='#' class='outline' onclick='history.back()'>{% trans 'Назад'%}</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+        <!-- main menu -->
+        <nav aria-label='breadcrumb'>
+            <ul class='menu norm font-main-menu'>
+                <li><a {% if request.path == '/' or request.path == '/ru/' or request.path == '/en/' %} class='active-page' {%endif %} href="{% url 'home' %}">{% trans 'Головна' %}</a>
+                </li>
+                <li><a {% if request.path == '/about/' or request.path == '/ru/about/' or request.path == '/en/about/' %} class='active-page' {% endif %} href="{% url 'about' %}">{% trans 'Прo нас' %}</a>
+                </li>
+                <li><a {% if request.path == '/products/all_products/' or request.path == '/ru/products/all_products/' or request.path == '/en/products/all_products/' %} class='active-page' {% endif %} href="{% url 'all_products' %}">{% trans 'Продукти' %}</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a {% if request.path == '/orders/all_orders/' or request.path == '/ru/orders/all_orders/' or request.path == '/en/orders/all_orders/' %} class='active-page' {% endif %} href="{% url 'all_orders' %}">{% trans 'Замовлення' %}</a></li>
+                <li><a {% if request.path == '/users/profile/' or request.path == '/ru/users/profile/' or request.path == '/en/users/profile/' %} class='active-page' {% endif %} href="{% url 'profile_details' user.pk %}"><span>{% trans 'Профіль' %}</span></a>
                 {% endif %}
-            <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/' %} class='active-page' {% endif %}
-                    href="{% url 'feedback' %}">{% trans 'Контакти' %}</a></li>
-            <li><a class='back' href='#' class='outline' onclick='history.back()'>{% trans 'Назад' %}</a></li>
-        </ul>
-    </nav>
-
-    <nav>
-        <ul class='min'>
-            <li>
-                <details role='list'>
-                    <summary aria-haspopup='listbox' role='button'>{% trans 'Меню' %}</summary>
-                    <ul class='min-menu' role='listbox'>
-            <li><a {% if request.path == '/' or request.path == '/ru/' or request.path == '/en/' %} class='active-page' {% endif %} href="{% url 'home' %}">{% trans 'Головна' %}</a>
-            </li>
-            <li><a {% if request.path == '/about/' or request.path == '/ru/about/' or request.path == '/en/about/' %} class='active-page' {% endif %} href="{% url 'about' %}">{% trans 'Про нас' %}</a>
-            </li>
-            <li><a {% if request.path == '/products/all_products/' or request.path == '/ru/products/all_products/' or request.path == '/en/products/all_products/' %} class='active-page' {% endif %}
-                    href="{% url 'all_products' %}">{% trans 'Продукти' %}</a></li>
-            {% if request.user.is_authenticated %}
-            <li><a {% if request.path == '/orders/all_orders/' or request.path == '/ru/orders/all_orders/' or request.path == '/en/orders/all_orders/' %} class='active-page' {% endif %}
-                    href="{% url 'all_orders' %}">{% trans 'Замовлення' %}</a></li>
-            <li><a {% if request.path == '/users/profile/' or request.path == '/ru/users/profile/' or request.path == '/en/users/profile/' %} class='active-page' {% endif %}
-                    href="{% url 'profile_details' user.pk %}"><span>{% trans 'Профіль' %}</span></a>
-                {% endif %}
-            <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/'%} class='active-page' {% endif %} href="{% url 'feedback' %}">{% trans 'Контакти' %}</a></li>
-            <li><a class='back' href='#' class='outline' onclick='history.back()'>{% trans 'Назад' %}</a></li>
-                    </ul>
-                </details>
-            </li>
-        </ul>
-    </nav>
+                <li><a {% if request.path == '/users/feedback/' or request.path == '/ru/users/feedback/' or request.path == '/en/users/feedback/' %} class='active-page' {% endif %} href="{% url 'feedback' %}">{% trans 'Контакти' %}</a></li>
+                <li><a class='back' href='#' class='outline' onclick='history.back()'>{% trans 'Назад' %}</a></li>
+            </ul>
+        </nav>
         {% if request.user.is_authenticated %}
         <nav aria-label='breadcrumb'>
-            <ul class='menu'>
+            <ul class='menu font'>
                 <li class='marjin-left'><a class='auth' href="{% url 'logout' %}">{% trans 'Вийти' %}</a></li>
             </ul>
         </nav>
         {% else %}
         <nav aria-label='breadcrumb'>
-            <ul class='menu'>
+            <ul class='menu font'>
                 <li><a {% if request.path == '/users/login/' or request.path == '/ru/users/login/' or request.path == '/en/users/login/' %} class='active-page' {% endif %} class='auth' href="{% url 'login' %}">{% trans 'Вхід' %}</a></li>
                 <li><a {% if request.path == '/users/register/' or request.path == '/ru/users/register/' or request.path == 'ru/users/register/' %} class='active-page' {% endif %} class='auth' href="{% url 'register' %}">{% trans 'Реєстрація' %}</a></li>
             </ul>
@@ -147,29 +139,29 @@
     <hr>
     <!-- print page -->
     {% if request.user.username == 'admin' %}
-    <a class='print' href='#' onclick='window.print();return false;'> 
-    <svg width='30px' height='30px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' version='1.1'>
-        <g style='fill:#888888;stroke:#000000;stroke-width:1px;'>
-            <path style='fill:#EBEBDA' d='M 19,44 19,3 81,3 81,44' />
-            <path style='stroke-width:2px;'
-                d='M 26 10 L 74 10 L 26 10 z M 26 17 L 74 17 L 26 17 z M 26 24 L 74 24 L 26 24 z M 26 31 L 46 31 L 26 31 z M 26 39 L 74 39 L 26 39 z ' />
-    
-            <path style='fill:#444444' d='m 5,89 c 0,4 -1,7 4,7 0,0 79,0 82,0 3,0 4,-1 4,-7' />
-            <path d='m 4,54 5,-10 81,0 6,10' />
-            <path d='m 9,53 c -6,0 -7,1 -7,6 l 0,24 c 0,4 0,6 5,6 l 84,0 c 4,0 7,0 7,-5 l 0,-27 c 0,-2 -1,-4 -6,-4 z' />
-            <path style='fill:#666666'
-                d='m 14,57 c -4,0 -5,1 -5,5 0,2 -1,6 4,6 l 66,0 c 4,0 5,-1 5,-6 0,-4 -1,-5 -5,-5 z' />
-            <ellipse cx='16' cy='62.5' rx='3' ry='3' style='fill:#00BC02;stroke:#111111' />
-        </g>
-    
-        <path style='fill:#35ff35;fill-opacity:0.8;stroke:#007300;stroke-width:2'
-            d='M 38,49 C 41,53 56,82 58,95 63,87 63,73 98,35 86,42 69,57 57,68 54,64 48,56 38,49' />
-    
-    </svg> {% trans 'Друк сторінки' %}</a>
+    <a class='print' href='#' onclick='window.print();return false;'>
+        <svg width='30px' height='30px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' version='1.1'>
+            <g style='fill:#888888;stroke:#000000;stroke-width:1px;'>
+                <path style='fill:#EBEBDA' d='M 19,44 19,3 81,3 81,44' />
+                <path style='stroke-width:2px;'
+                    d='M 26 10 L 74 10 L 26 10 z M 26 17 L 74 17 L 26 17 z M 26 24 L 74 24 L 26 24 z M 26 31 L 46 31 L 26 31 z M 26 39 L 74 39 L 26 39 z ' />
+
+                <path style='fill:#444444' d='m 5,89 c 0,4 -1,7 4,7 0,0 79,0 82,0 3,0 4,-1 4,-7' />
+                <path d='m 4,54 5,-10 81,0 6,10' />
+                <path
+                    d='m 9,53 c -6,0 -7,1 -7,6 l 0,24 c 0,4 0,6 5,6 l 84,0 c 4,0 7,0 7,-5 l 0,-27 c 0,-2 -1,-4 -6,-4 z' />
+                <path style='fill:#666666'
+                    d='m 14,57 c -4,0 -5,1 -5,5 0,2 -1,6 4,6 l 66,0 c 4,0 5,-1 5,-6 0,-4 -1,-5 -5,-5 z' />
+                <ellipse cx='16' cy='62.5' rx='3' ry='3' style='fill:#00BC02;stroke:#111111' />
+            </g>
+
+            <path style='fill:#35ff35;fill-opacity:0.8;stroke:#007300;stroke-width:2'
+                d='M 38,49 C 41,53 56,82 58,95 63,87 63,73 98,35 86,42 69,57 57,68 54,64 48,56 38,49' />
+
+        </svg> {% trans 'Друк сторінки' %}</a>
     {% endif %}
     <!-- title pages -->
     <!-- <h1 class='title-page'><span class='with-line'>{% blocktranslate %}{{ title }}{% endblocktranslate %}</span></h1> -->
 </header>
 
 {% endblock %}
-
