@@ -97,30 +97,27 @@ body {
     font-family: var(--brand-font);
 }
 @media (max-width: 400px) {
-.container {
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow-y: auto;
-}
+    .container {
+        background-image: url('../images/background.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: auto;
+    }
 }
 
 @media (min-width: 400px) {
-.container {
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    /* width: 100vw;
-    height: 100vh; */
+    .container {
+        background-image: url('../images/background.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        /* width: 100vw;
+        height: 100vh; */
+    }
 }
-}
-
-
-
 
 .background-image {
     position: absolute;
@@ -167,7 +164,7 @@ ul, p {
 .content {
     max-width: 500px;
     height: auto;
-    min-height: 1050px;
+    min-height: 550px;
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
