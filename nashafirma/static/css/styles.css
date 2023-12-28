@@ -61,7 +61,8 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-a:hover {
+a:hover, 
+a:focus {
     color: #ffffff;
 }
 
@@ -97,8 +98,9 @@ body {
     font-family: var(--brand-font);
 }
 
-body p {
-    font-weight: 600;
+body p,
+body a {
+    font-weight: 550;
 }
 
 @media (max-width: 769px) { 
@@ -462,7 +464,6 @@ ul li {
     display: block;
     text-align: center;
     color: #fffdfd;
-    font-weight: 500;
 }
 
 section {
@@ -525,7 +526,13 @@ table a {
     text-decoration: underline;
     font-family: inherit;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #146bb8;
+}
+
+.title-page:hover,
+.title-page:focus {
     color: #ffffff;
 }
 
