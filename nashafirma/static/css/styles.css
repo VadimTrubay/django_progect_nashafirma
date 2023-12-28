@@ -532,6 +532,7 @@ table a {
 }
 
 .title-page {
+    text-decoration: underline;
     font-family: inherit;
     text-align: center;
     font-size: 20px;
