@@ -62,7 +62,7 @@ h1, h2, h3 {
 }
 
 a:hover {
-    color: var(--brand-second-color);
+    color: #ffffff;
 }
 
 a {
@@ -88,7 +88,7 @@ a:focus {
 }
 
 .back {
-    color: var(--brand-color);
+    color: #f3fc00;
 }
 
 body {
@@ -232,10 +232,18 @@ ul, p {
 
 .menu li{
     padding: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-right: 15px;
     font-size: 13px;
 }
+
+.menu a {
+    font-size: 15px;
+}
+
+/* .menu a {
+    color: #1e79b1;
+} */
 
 /* .header {
     background-color: var(--brand-background-color);
@@ -316,8 +324,8 @@ ul, p {
 
 .header-auth {
     display: flex;
-    justify-content: right;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-auth img {
@@ -336,7 +344,7 @@ ul, p {
 .header-menu {
     display: flex;
     justify-content: space-between;
-    margin: 0;
+    align-items: center;
 }
 
 .header-auth-login li{
@@ -365,6 +373,25 @@ hr {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.lang-form {
+    margin: 5px;
+}
+
+.font {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.font-main-menu {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+.font-min-menu {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
 .left {
     justify-content: left;
 }
@@ -381,6 +408,10 @@ hr {
 .min li {
     margin: 0;
     padding: 0;
+}
+
+.header-menu{
+    margin-left: 10px;
 }
 
 nav ul li {
@@ -514,13 +545,13 @@ table a {
     color: var(--table-text-color);
 }
 
-.text-edit {
+/* .text-edit {
     color: #4677c1;
 }
 
 .text-delete {
     color: #8e0000;
-}
+} */
 
 .note > .table-footer {
     background-color: #3b3b3b;
