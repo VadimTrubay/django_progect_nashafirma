@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 13:00+0200\n"
+"POT-Creation-Date: 2023-12-28 14:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "створено"
 msgstr "created"
 
-#: .\orders\models.py:15 .\templates\header.html:82
+#: .\orders\models.py:15 .\templates\header.html:80
 #: .\templates\orders\all_orders.html:14
 #: .\templates\orders\search_results_order.html:15
 #: .\templates\orders\sort_by_date.html:15
@@ -69,12 +69,12 @@ msgstr "weight"
 msgid "нотатка"
 msgstr "note"
 
-#: .\orders\views.py:21 .\templates\header.html:89 .\templates\header.html:113
+#: .\orders\views.py:21 .\templates\header.html:92 .\templates\header.html:112
 #: .\templates\orders\index.html:5
 msgid "Головна"
 msgstr "Home"
 
-#: .\orders\views.py:31 .\templates\header.html:115
+#: .\orders\views.py:31 .\templates\header.html:94
 #: .\templates\orders\about.html:5
 msgid "Про нас"
 msgstr "About"
@@ -159,39 +159,51 @@ msgstr "Page not found"
 msgid "Вибачте, сторінку не знайдено."
 msgstr "Sorry, page not found."
 
-#: .\templates\header.html:8
+#: .\templates\footer.html:13
+#, fuzzy
+#| msgid "Наша-Фірма"
+msgid "Наша-Фірмa"
+msgstr "Nasha-Firma"
+
+#: .\templates\footer.html:13
+#, fuzzy
+#| msgid "Всі замовлення"
+msgid "Всі права захищені"
+msgstr "All orders"
+
+#: .\templates\header.html:9
 msgid "Наша-Фірма"
 msgstr "Nasha-Firma"
 
-#: .\templates\header.html:16 .\templates\header.html:22
-#: .\templates\header.html:28 .\templates\header.html:36
-#: .\templates\header.html:42
+#: .\templates\header.html:47 .\templates\header.html:53
+#: .\templates\header.html:59 .\templates\header.html:67
+#: .\templates\header.html:73
 msgid "Пошук ..."
 msgstr "Search ..."
 
-#: .\templates\header.html:91
-msgid "Прo нас"
-msgstr "About"
+#: .\templates\header.html:90
+msgid "Меню"
+msgstr "Menu"
 
-#: .\templates\header.html:94 .\templates\header.html:118
+#: .\templates\header.html:96 .\templates\header.html:116
 msgid "Продукти"
 msgstr "Products"
 
-#: .\templates\header.html:97 .\templates\header.html:121
+#: .\templates\header.html:98 .\templates\header.html:118
 msgid "Замовлення"
 msgstr "Orders"
 
-#: .\templates\header.html:99 .\templates\header.html:123
+#: .\templates\header.html:99 .\templates\header.html:119
 #: .\templates\users\profile_details.html:6 .\users\views.py:60
 msgid "Профіль"
 msgstr "Profile"
 
-#: .\templates\header.html:102 .\templates\header.html:125
+#: .\templates\header.html:101 .\templates\header.html:121
 #: .\templates\users\feedback.html:6 .\users\views.py:147
 msgid "Контакти"
 msgstr "Contacts"
 
-#: .\templates\header.html:103 .\templates\header.html:126
+#: .\templates\header.html:102 .\templates\header.html:122
 #: .\templates\orders\add_item.html:15 .\templates\orders\add_order.html:14
 #: .\templates\orders\edit_item_product.html:16
 #: .\templates\orders\edit_order_done.html:14
@@ -201,36 +213,66 @@ msgstr "Contacts"
 msgid "Назад"
 msgstr "Back"
 
-#: .\templates\header.html:111
-msgid "Меню"
-msgstr "Menu"
+#: .\templates\header.html:114
+msgid "Прo нас"
+msgstr "About"
 
-#: .\templates\header.html:135
+#: .\templates\header.html:128
 msgid "Вийти"
 msgstr "Logout"
 
-#: .\templates\header.html:141 .\templates\users\login.html:5
+#: .\templates\header.html:134 .\templates\users\login.html:5
 #: .\templates\users\login.html:14 .\users\views.py:46
 msgid "Вхід"
 msgstr "Login"
 
-#: .\templates\header.html:142 .\templates\users\register.html:5
+#: .\templates\header.html:135 .\templates\users\register.html:5
 #: .\templates\users\register.html:21 .\users\views.py:28
 msgid "Реєстрація"
 msgstr "Registration"
 
-#: .\templates\header.html:168
+#: .\templates\header.html:162
 msgid "Друк сторінки"
 msgstr "Print page"
 
-#: .\templates\header.html:171
+#: .\templates\header.html:165
 #, python-format
 msgid "%(title)s"
 msgstr ""
 
 #: .\templates\orders\about.html:6
-msgid "Наша команда займається постачанням свіжих овочів до ресторанів!"
-msgstr "Our team delivers fresh vegetables to restaurants!"
+msgid ""
+"Компанія Наша-Фірмa ― комплексний постачальник продуктів харчування для "
+"ресторанів та кафе в Одесі та передмісті."
+msgstr ""
+"The company Nasha-Firma is a comprehensive supplier of food products for "
+"restaurants and cafes in Odesa and its suburbs."
+
+#: .\templates\orders\about.html:7
+msgid ""
+"Нашими клієнтами є більш ніж 100 закладів Одеси. Ми працюємо з ресторанами, "
+"барами, кафе, готелями. Наш транспортний відділ має налагоджену систему "
+"логістики – департамент логістики і власний автопарк дозволяють швидко і "
+"якісно обслуговувати наших клієнтів."
+msgstr ""
+"Our clients are more than 100 institutions of Odesa. We work with "
+"restaurants, bars, cafes, hotels. Our transport department has an "
+"established logistics system - the logistics department and our own fleet "
+"allow us to serve our customers quickly and efficiently."
+
+#: .\templates\orders\about.html:8
+msgid "Ми працюємо з ресторанами, барами, кафе, готелями."
+msgstr "We work with restaurants, bars, cafes, hotels."
+
+#: .\templates\orders\about.html:9
+msgid ""
+"Наш транспортний відділ має налагоджену систему логістики – департамент "
+"логістики і власний автопарк дозволяють швидко і якісно обслуговувати наших "
+"клієнтів."
+msgstr ""
+"Our transport department has an established logistics system - the logistics "
+"department and our own fleet allow us to serve our customers quickly and "
+"efficiently."
 
 #: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
 #: .\templates\orders\edit_item_product.html:15
@@ -310,8 +352,20 @@ msgid "для замовлення"
 msgstr "for order"
 
 #: .\templates\orders\index.html:6
+msgid "ПРОДУКТИ ДЛЯ РЕСТОРАНІВ ТА КАФЕ З ДОСТАВКОЮ"
+msgstr "PRODUCTS FOR RESTAURANTS AND CAFES WITH DELIVERY"
+
+#: .\templates\orders\index.html:7
 msgid "Раді Вітати на сайті компанії Наша-Фірмa!"
 msgstr "Welcome to the website of the company Nasha-Firma!"
+
+#: .\templates\orders\index.html:8
+msgid ""
+"Наша-Фірма – постачальник продуктів харчування для ресторанів та кафе в "
+"Одесі та передмісті."
+msgstr ""
+"Our Company is a supplier of food products for restaurants and cafes in "
+"Odessa and the suburbs."
 
 #: .\templates\orders\search_results_order.html:50
 #: .\templates\orders\sort_by_date.html:54
