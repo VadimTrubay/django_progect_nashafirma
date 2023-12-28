@@ -96,28 +96,18 @@ body {
     padding: 0;
     font-family: var(--brand-font);
 }
-@media (max-width: 400px) {
-    .container {
-        /* background-image: url('../images/background.jpg'); */
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        overflow-y: auto;
+
+body p {
+    font-weight: 600;
+}
+
+@media (max-width: 769px) { 
+    .content p {
+        font-weight: 800;
+        font-size: 120%;
     }
 }
 
-@media (min-width: 400px) {
-    .container {
-        /* background-image: url('../images/background.jpg'); */
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        /* width: 100vw;
-        height: 100vh; */
-    }
-}
 
 .background-image {
     position: absolute;
@@ -203,6 +193,9 @@ ul, p {
 }
 
 .container {
+    background-size: cover;
+    background-position: center;
+    position: relative;
     background-color: var(--brand-background-color);
     padding: 40px;
 }
