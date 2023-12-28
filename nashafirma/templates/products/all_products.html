@@ -4,7 +4,7 @@
 
 <h1 class='title-page'>{% trans 'Всі продукти' %}</h1>
 {% if request.user.username == 'admin' %}
-<p class='center'><a href="{% url 'add_product' %}">{% trans '+ Додати новий продукт' %}</a></p>
+<p class='center font'><a href="{% url 'add_product' %}">{% trans '+ Додати новий продукт' %}</a></p>
 <table class='note' role='grid'>
     <thead>
         <tr style='background-color: #b2b2b2;' class='title-table'>

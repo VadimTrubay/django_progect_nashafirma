@@ -251,10 +251,10 @@ ul, p {
 
 .user {
     color: var(--brand-color);
-    font-size: 13px;
 }
 
 .user-white {
+    margin-right: 10px;
     color: var(--brand-second-color);
 }
 
@@ -369,17 +369,14 @@ hr {
     color: var(--brand-second-color);
 }
 
-.header-auth-user span {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .lang-form {
     margin: 5px;
 }
 
 .font {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
+        font-weight: bold;
 }
 
 .font-main-menu {

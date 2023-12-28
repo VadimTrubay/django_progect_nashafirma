@@ -4,7 +4,7 @@
 
 <h1 class='title-page'>{% trans 'Всі замовлення' %}</h1>
 {% if not request.user.username == 'admin' %}
-<p class='center'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
+<p class='center font'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
 {% endif %}
 <table class='note' role='grid'>
     <thead>
