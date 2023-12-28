@@ -200,6 +200,9 @@ ul, p {
     position: relative;
     background-color: var(--brand-background-color);
     padding: 40px;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .center {
@@ -528,7 +531,7 @@ table a {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    color: #146bb8;
+    color: #cbdcff;
 }
 
 .title-page:hover,
