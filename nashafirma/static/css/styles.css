@@ -219,6 +219,16 @@ ul, p {
     font-size: 20px;
 }
 
+.container input {
+    background-color: rgba(0, 0, 0, 0.134);
+        color: #ffffff;
+}
+
+.container select {
+    background-color: rgba(0, 0, 0, 0.375);
+    color: #ffffff;
+}
+
 .notdone {
     color: #8e0000;
     font-size: 20px;
@@ -485,6 +495,9 @@ td {
 }
 
 @media (max-width: 994px) {
+    .container {
+            background-image: url("../images/background_3.jpg");
+        }
     .norm {
         display: none;
     }
@@ -495,6 +508,14 @@ td {
 }
 
 @media (min-width: 994px) {
+    .container {
+        background-image: url("../images/background_1_1.jpg");
+    }
+
+    .content .note th, 
+    .content .note td {
+        font-size: 15px;
+    }
     .norm {
         display: block;
     }
