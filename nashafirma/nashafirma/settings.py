@@ -158,7 +158,7 @@ EMAIL_STARTTLS = True
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'user0606user@gmail.com'
-EMAIL_HOST_PASSWORD = 'jezyscoekirdwblv'
+EMAIL_HOST_PASSWORD = 'qrjpiwiiuyitctxr'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
