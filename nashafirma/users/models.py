@@ -8,65 +8,66 @@ from users.validators import validate_file_size
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return "user_{0}/{1}".format(instance.username, filename)
+    return 'user_{0}/{1}'.format(instance.username, filename)
 
 
 class SiteUser(AbstractUser):
-    MAX_LEN_USERNAME = 20
+    MAX_LEN_USERNAME = 50
     MIN_LEN_USERNAME = 2
-    MAX_LEN_FIRST_NAME = 25
+    MAX_LEN_FIRST_NAME = 50
     MIN_LEN_FIRST_NAME = 2
-    MAX_LEN_SECOND_NAME = 25
+    MAX_LEN_SECOND_NAME = 50
     MIN_LEN_SECOND_NAME = 2
-    MAX_LEN_TELEPHONE_NUMBER = 15
+    MAX_LEN_TELEPHONE_NUMBER = 20
     MIN_LEN_TELEPHONE_NUMBER = 7
 
     username = models.CharField(
         unique=True,
         max_length=MAX_LEN_USERNAME,
         validators=(validators.MinLengthValidator(MIN_LEN_USERNAME),),
-        default="",
-        verbose_name=_("логін"),
+        default='',
+        verbose_name=_('логін'),
     )
     email = models.EmailField(
         unique=True,
-        default="",
-        verbose_name=_("email"),
+        default='',
+        verbose_name=_('email'),
     )
     first_name = models.CharField(
         max_length=MAX_LEN_FIRST_NAME,
-        default="",
+        default='',
         validators=(validators.MinLengthValidator(MIN_LEN_FIRST_NAME),),
-        verbose_name=_("імя"),
+        verbose_name=_('імя'),
     )
     last_name = models.CharField(
         max_length=MAX_LEN_SECOND_NAME,
-        default="",
+        default='',
         validators=(validators.MinLengthValidator(MIN_LEN_SECOND_NAME),),
-        verbose_name=_("прізвище"),
+        verbose_name=_('прізвище'),
     )
     telephone_number = models.CharField(
         max_length=MAX_LEN_TELEPHONE_NUMBER,
+        default='',
         validators=(validators.MinLengthValidator(MIN_LEN_TELEPHONE_NUMBER),),
-        verbose_name=_("телефон"),
+        verbose_name=_('телефон'),
     )
     profile_picture = models.ImageField(
         upload_to=user_directory_path,
-        default="profile_pictures/profile_picture_default.jpg",
+        default='profile_pictures/profile_picture_default.jpg',
         validators=[
             validate_file_size,
             validators.FileExtensionValidator(
-                allowed_extensions=["jpg", "jpeg", "png"]
+                allowed_extensions=['jpg', 'jpeg', 'png']
             ),
         ],
-        verbose_name=_("фото"),
+        verbose_name=_('фото'),
     )
 
 
 class Feedback(models.Model):
-    subject = models.CharField(max_length=255, verbose_name=_("тема листа"))
+    subject = models.CharField(max_length=255, verbose_name=_('тема листа'))
     email = models.EmailField(
-        max_length=255, verbose_name=_("ваш email"))
+        max_length=255, verbose_name=_('ваш email'))
     content = models.TextField(verbose_name=_('зміст листа'))
     time_create = models.DateTimeField(
         auto_now_add=True, verbose_name=_('дата відправки'))
