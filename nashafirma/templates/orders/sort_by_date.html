@@ -14,8 +14,8 @@
             <th>{% trans 'замовлення' %}</th>
             <th>{% trans 'користувач' %}</th>
             <th>{% trans 'статус' %}</th>
-            <th>{% trans 'перегляд' %}</th>
-            <th>{% trans 'видалити' %}</th>
+            <th class='not-print'>{% trans 'перегляд' %}</th>
+            <th class='not-print'>{% trans 'видалити' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -36,12 +36,12 @@
                     {% else %}<span class='notdone'>&#10008;</span>{% endif %}</a>
                     <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
             </td>
-            <td>
+            <td class='not-print'>
                 <a class='text-edit' href="{% url 'view_order' order.pk %}">
                 {% include 'icon_view.html' %}
                 </a>
             </td>
-            <td>
+            <td class='not-print'>
                 <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
                 {% include 'icon_delete.html' %}
                 </a>
