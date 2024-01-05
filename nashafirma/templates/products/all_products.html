@@ -11,8 +11,8 @@
             <th>№</th>
             <th>{% trans 'продукт' %}</th>
             <th>{% trans 'ціна' %}</th>
-            <th>{% trans 'змінити' %}</th>
-            <th>{% trans 'видалити' %}</th>
+            <th class='not-print'>{% trans 'змінити' %}</th>
+            <th class='not-print'>{% trans 'видалити' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -23,12 +23,12 @@
             </td>
             <td><a>{{ product.price }}</a>
             </td>
-            <td>
+            <td class='not-print'>
                 <a class='text-edit' href="{% url 'edit_product' product.pk %}?next={{ request.get_full_path }}">
                 {% include 'icon_edit.html' %}
                 </a>
             </td>
-            <td>                     
+            <td class='not-print'>                     
                 <a class='text-delete' href="{% url 'delete_product' product.pk %}?next={{ request.get_full_path }}">
                 {% include 'icon_delete.html' %}
                 </a>
