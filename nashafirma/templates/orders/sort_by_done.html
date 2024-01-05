@@ -14,8 +14,8 @@
             <th>{% trans 'замовлення' %}</th>
             <th>{% trans 'користувач' %}</th>
             <th>{% trans 'статус' %}</th>
-            <th>{% trans 'перегляд' %}</th>
-            <th>{% trans 'видалити' %}</th>
+            <th class='not-print'>{% trans 'перегляд' %}</th>
+            <th class='not-print'>{% trans 'видалити' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -35,12 +35,12 @@
                     {% if order.done %}<span class='done'>&#10004;</span>
                     {% else %}<span class='notdone'>&#10008;</span>{% endif %}</a>
             </td>
-            <td>
+            <td class='not-print'>
                 <a class='text-edit' href="{% url 'view_order' order.pk %}">
                 {% include 'icon_view.html' %}
                 </a>
             </td>
-            <td>
+            <td class='not-print'>
                 <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
                 {% include 'icon_delete.html' %}
                 </a>
