@@ -89,7 +89,7 @@ a:focus {
 }
 
 .back {
-    color: #f3fc00;
+    color: #00922e;
 }
 
 body {
@@ -552,20 +552,21 @@ table a {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    color: #cbdcff;
+    color: #97ccfa;
+    margin-bottom: 10px;
 }
 
-.title-page:hover,
+/* .title-page:hover,
 .title-page:focus {
     color: #ffffff;
-}
+} */
 
 .text {
     color: var(--table-text-color);
 }
 
-/* .text-edit {
-    color: #4677c1;
+.text-blue {
+    color: #63b1ff;
 }
 
 .text-delete {
@@ -604,8 +605,8 @@ table a {
     border: 0 none;
     font-size: bold 10px;
     color: #1d1d1d;
-    width: 110px;
-    height: 20px;
+    width: 130px;
+    height: 27px;
     padding: 6px 15px 6px 15px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -621,7 +622,7 @@ table a {
 }
 
 #search input[type="text"]:focus {
-    width: 150px;
+    width: 160px;
 }
 
 .with-line {

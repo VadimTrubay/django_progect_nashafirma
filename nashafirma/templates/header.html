@@ -45,18 +45,21 @@
             <div class='header-search'>
                 <form id='search' method='get' action="{% url 'search_results_order' %}">
                     <input type='text' name='search_order' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                    <span id="search-icon" style="cursor: pointer;">&#128269;</span>
                 </form>
             </div>
             {% elif request.path == '/products/all_products/' or request.path == '/products/search_product/' or request.path == '/ru/products/all_products/' or request.path == '/ru/products/search_product/' or request.path == '/en/products/all_products/' or request.path == '/en/products/search_product/' %}
             <div class='header-search'>
                 <form id='search' method='get' action="{% url 'search_results_product' %}">
                     <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                    <span id="search-icon" style="cursor: pointer;">&#128269;</span>
                 </form>
             </div>
             {% else %}
             <div class='header-search'>
                 <form id='search' method='get' action=''>
                     <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                    <span id="search-icon" style="cursor: pointer;">&#128269;</span>
                 </form>
             </div>
             {% endif %}
@@ -65,12 +68,14 @@
             <div class='header-search'>
                 <form id='search' method='get' action="{% url 'search_results_product' %}">
                     <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                    <span id="search-icon" style="cursor: pointer;">&#128269;</span>
                 </form>
             </div>
             {% else %}
             <div class='header-search'>
                 <form id='search' method='get' action=''>
                     <input type='text' name='search_product' placeholder="{% trans 'Пошук ...' %}" autocomplete='on'>
+                    <span id="search-icon" style="cursor: pointer;">&#128269;</span>
                 </form>
             </div>
             {% endif %}
