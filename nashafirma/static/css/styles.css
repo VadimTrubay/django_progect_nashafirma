@@ -105,11 +105,10 @@ body a {
 
 @media (max-width: 769px) { 
     .content p {
-        font-weight: 800;
+        font-weight: 500;
         font-size: 120%;
     }
 }
-
 
 .background-image {
     position: absolute;
@@ -151,6 +150,11 @@ ul, p {
     background-image: #c5c5c500;
     width: 25px;
     vertical-align: middle;
+}
+
+.content p {
+    font-weight: 550;
+    font-size: 17px;
 }
 
 .content {
@@ -220,12 +224,12 @@ ul, p {
 }
 
 .container input {
-    background-color: rgba(0, 0, 0, 0.134);
+    background-color: rgba(0, 0, 0, 0.5);
         color: #ffffff;
 }
 
 .container select {
-    background-color: rgba(0, 0, 0, 0.375);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
 }
 
@@ -538,6 +542,10 @@ td {
     background-color: #fffdfd;
 }
 
+#search-icon {
+    font-size: 24px;
+}
+
 table a {
     color: #000000;
 }
@@ -550,7 +558,7 @@ table a {
     text-decoration: underline;
     font-family: inherit;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     color: #97ccfa;
     margin-bottom: 10px;
