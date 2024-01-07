@@ -4,8 +4,8 @@
 
 <h1 class='title-page'>{% trans 'Змінити продукт' %}</h1>
 <p class='center'><b>'{{ object.product }}'</b></p>
-<p class='center'>{% trans 'для замовлення' %}</p>
-<p class='center'><b>'{{ object }}'</b></p>
+<!-- <p class='center'>{% trans 'для замовлення' %}</p>
+<p class='center'><b>'{{ order.created_at|date:"d M Y" }}'</b></p> -->
 <div class='form'>
     <form method='post' action=''>
     {% csrf_token %}
