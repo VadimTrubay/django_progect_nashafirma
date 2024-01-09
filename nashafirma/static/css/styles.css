@@ -88,8 +88,9 @@ a:focus {
     font-size: 12px;
 }
 
-.back {
-    color: #00922e;
+.print-back {
+    display: flex;
+    justify-content: space-between;
 }
 
 body {
