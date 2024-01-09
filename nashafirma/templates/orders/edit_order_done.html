@@ -3,7 +3,7 @@
 {% load i18n %}
 
 <h1 class='title-page'>{% trans 'Змінити статус замовлення' %}</h1>
-<p class='center'><b>'{{ order.created_at|date:"d M Y" }}'</b> {% trans 'для користувача' %} <b>'{{ object.user }}'</b></p>
+<p class='center'><b class="text-blue">'{{ order.created_at|date:"d M Y" }}'</b> {% trans 'для користувача' %} <b class="text-blue">'{{ object.user }}'</b></p>
 <div class='form'>
     <form method='post' action=''>
         {% csrf_token %}
