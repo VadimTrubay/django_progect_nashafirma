@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-28 14:45+0200\n"
+"POT-Creation-Date: 2024-01-09 15:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 msgid "створено"
 msgstr "створено"
 
-#: .\orders\models.py:15 .\templates\header.html:80
+#: .\orders\models.py:15 .\templates\header.html:85
 #: .\templates\orders\all_orders.html:14
 #: .\templates\orders\search_results_order.html:15
 #: .\templates\orders\sort_by_date.html:15
 #: .\templates\orders\sort_by_done.html:15
-#: .\templates\orders\sort_by_name.html:15 .\users\models.py:75
+#: .\templates\orders\sort_by_name.html:15 .\users\models.py:76
 msgid "користувач"
 msgstr "користувач"
 
@@ -68,12 +68,12 @@ msgstr "вага"
 msgid "нотатка"
 msgstr "нотатка"
 
-#: .\orders\views.py:21 .\templates\header.html:92 .\templates\header.html:112
+#: .\orders\views.py:21 .\templates\header.html:97 .\templates\header.html:115
 #: .\templates\orders\index.html:5
 msgid "Головна"
 msgstr "Головна"
 
-#: .\orders\views.py:31 .\templates\header.html:94
+#: .\orders\views.py:31 .\templates\header.html:99
 #: .\templates\orders\about.html:5
 msgid "Про нас"
 msgstr "Про нас"
@@ -118,15 +118,15 @@ msgstr "Додати новий продукт до замовлення"
 msgid "Результати пошуку замовлення"
 msgstr "Результати пошуку замовлення"
 
-#: .\orders\views.py:255 .\templates\orders\sort_by_name.html:5
+#: .\orders\views.py:257 .\templates\orders\sort_by_name.html:5
 msgid "Сортування за імям"
 msgstr "Сортування за імям"
 
-#: .\orders\views.py:278 .\templates\orders\sort_by_date.html:5
+#: .\orders\views.py:280 .\templates\orders\sort_by_date.html:5
 msgid "Сортування за датою"
 msgstr "Сортування за датою"
 
-#: .\orders\views.py:308 .\templates\orders\sort_by_done.html:5
+#: .\orders\views.py:310 .\templates\orders\sort_by_done.html:5
 msgid "Сортування за статусом"
 msgstr "Сортування за статусом"
 
@@ -174,90 +174,72 @@ msgstr "Всі замовлення"
 msgid "Наша-Фірма"
 msgstr "Наша-Фірма"
 
-#: .\templates\header.html:47 .\templates\header.html:53
-#: .\templates\header.html:59 .\templates\header.html:67
-#: .\templates\header.html:73
+#: .\templates\header.html:47 .\templates\header.html:54
+#: .\templates\header.html:61 .\templates\header.html:70
+#: .\templates\header.html:77
 msgid "Пошук ..."
 msgstr "Пошук ..."
 
-#: .\templates\header.html:90
+#: .\templates\header.html:95
 msgid "Меню"
 msgstr "Меню"
 
-#: .\templates\header.html:96 .\templates\header.html:116
+#: .\templates\header.html:101 .\templates\header.html:119
 msgid "Продукти"
 msgstr "Продукти"
 
-#: .\templates\header.html:98 .\templates\header.html:118
+#: .\templates\header.html:103 .\templates\header.html:121
 msgid "Замовлення"
 msgstr "Замовлення"
 
-#: .\templates\header.html:99 .\templates\header.html:119
+#: .\templates\header.html:104 .\templates\header.html:122
 #: .\templates\users\profile_details.html:6 .\users\views.py:60
 msgid "Профіль"
 msgstr "Профіль"
 
-#: .\templates\header.html:101 .\templates\header.html:121
+#: .\templates\header.html:106 .\templates\header.html:124
 #: .\templates\users\feedback.html:6 .\users\views.py:147
 msgid "Контакти"
 msgstr "Контакти"
 
-#: .\templates\header.html:102 .\templates\header.html:122
-#: .\templates\orders\add_item.html:15 .\templates\orders\add_order.html:14
-#: .\templates\orders\edit_item_product.html:16
-#: .\templates\orders\edit_order_done.html:14
-#: .\templates\products\add_product.html:15
-#: .\templates\products\edit_product.html:13 .\templates\users\feedback.html:20
-#: .\templates\users\login.html:15 .\templates\users\register.html:22
-msgid "Назад"
-msgstr "Назад"
-
-#: .\templates\header.html:114
+#: .\templates\header.html:117
 msgid "Прo нас"
 msgstr "Прo нас"
 
-#: .\templates\header.html:128
+#: .\templates\header.html:130
 msgid "Вийти"
 msgstr "Вийти"
 
-#: .\templates\header.html:134 .\templates\users\login.html:5
+#: .\templates\header.html:136 .\templates\users\login.html:5
 #: .\templates\users\login.html:14 .\users\views.py:46
 msgid "Вхід"
 msgstr "Вхід"
 
-#: .\templates\header.html:135 .\templates\users\register.html:5
+#: .\templates\header.html:137 .\templates\users\register.html:5
 #: .\templates\users\register.html:21 .\users\views.py:28
 msgid "Реєстрація"
 msgstr "Реєстрація"
 
-#: .\templates\header.html:162
+#: .\templates\header.html:165
 msgid "Друк сторінки"
 msgstr "Друк сторінки"
 
-#: .\templates\header.html:165
+#: .\templates\header.html:181
 #, python-format
 msgid "%(title)s"
 msgstr ""
 
 #: .\templates\orders\about.html:6
 msgid ""
-"Компанія Наша-Фірмa ― комплексний постачальник продуктів харчування для "
+"Компанія Наша-Фірмa ― комплексний постачальник овочів та фруктів для "
 "ресторанів та кафе в Одесі та передмісті."
 msgstr ""
-"Компанія Наша-Фірмa ― комплексний постачальник продуктів харчування для "
+"Компанія Наша-Фірмa ― комплексний постачальник овочів та фруктів для "
 "ресторанів та кафе в Одесі та передмісті."
 
 #: .\templates\orders\about.html:7
-msgid ""
-"Нашими клієнтами є більш ніж 100 закладів Одеси. Ми працюємо з ресторанами, "
-"барами, кафе, готелями. Наш транспортний відділ має налагоджену систему "
-"логістики – департамент логістики і власний автопарк дозволяють швидко і "
-"якісно обслуговувати наших клієнтів."
-msgstr ""
-"Нашими клієнтами є більш ніж 100 закладів Одеси. Ми працюємо з ресторанами,  "
-"барами, кафе, готелями. Наш транспортний відділ має налагоджену систему "
-"логістики – департамент логістики і власний автопарк дозволяють швидко і "
-"якісно обслуговувати наших клієнтів."
+msgid "Нашими клієнтами є більш ніж 100 закладів Одеси."
+msgstr "Нашими клієнтами є більш ніж 100 закладів Одеси."
 
 #: .\templates\orders\about.html:8
 msgid "Ми працюємо з ресторанами, барами, кафе, готелями."
@@ -265,13 +247,11 @@ msgstr "Ми працюємо з ресторанами, барами, кафе,
 
 #: .\templates\orders\about.html:9
 msgid ""
-"Наш транспортний відділ має налагоджену систему логістики – департамент "
-"логістики і власний автопарк дозволяють швидко і якісно обслуговувати наших "
-"клієнтів."
+"Наш транспортний відділ має налагоджену систему доставки і власний автопарк "
+"дозволяють швидко і якісно обслуговувати наших клієнтів."
 msgstr ""
-"Наш транспортний відділ має налагоджену систему логістики – департамент "
-"логістики і власний автопарк дозволяють швидко і якісно обслуговувати наших "
-"клієнтів."
+"Наш транспортний відділ має налагоджену систему доставки і власний автопарк "
+"дозволяють швидко і якісно обслуговувати наших клієнтів."
 
 #: .\templates\orders\add_item.html:14 .\templates\orders\add_order.html:13
 #: .\templates\orders\edit_item_product.html:15
@@ -281,9 +261,20 @@ msgstr ""
 msgid "Зберегти"
 msgstr "Зберегти"
 
-#: .\templates\orders\add_order.html:6
-msgid "для"
-msgstr "для"
+#: .\templates\orders\add_item.html:15 .\templates\orders\add_order.html:14
+#: .\templates\orders\edit_item_product.html:16
+#: .\templates\orders\edit_order_done.html:14
+#: .\templates\products\add_product.html:15
+#: .\templates\products\edit_product.html:13 .\templates\users\feedback.html:20
+#: .\templates\users\login.html:15 .\templates\users\register.html:22
+msgid "Назад"
+msgstr "Назад"
+
+#: .\templates\orders\add_order.html:6 .\templates\orders\delete_order.html:11
+#: .\templates\orders\edit_order_done.html:6
+#: .\templates\orders\view_order.html:6
+msgid "для користувача"
+msgstr "для користувача"
 
 #: .\templates\orders\add_order.html:10
 msgid "Ви дійсно хочете додати нове замовлення?"
@@ -322,16 +313,16 @@ msgstr "видалити"
 msgid "Ви дійсно хочете видалити"
 msgstr "Ви дійсно хочете видалити"
 
-#: .\templates\orders\delete_item_product.html:12
+#: .\templates\orders\delete_item_product.html:11
 #: .\templates\orders\delete_order.html:14
-#: .\templates\products\delete_product.html:12
+#: .\templates\products\delete_product.html:11
 #: .\templates\users\profile_delete.html:12
 msgid "Так"
 msgstr "Так"
 
-#: .\templates\orders\delete_item_product.html:13
+#: .\templates\orders\delete_item_product.html:12
 #: .\templates\orders\delete_order.html:15
-#: .\templates\products\delete_product.html:13
+#: .\templates\products\delete_product.html:12
 #: .\templates\users\profile_delete.html:13
 msgid "Ні"
 msgstr "Ні"
@@ -340,19 +331,13 @@ msgstr "Ні"
 msgid "Ви дійсно хочете видалити?"
 msgstr "Ви дійсно хочете видалити?"
 
-#: .\templates\orders\delete_order.html:11
-#: .\templates\orders\edit_order_done.html:6
-#: .\templates\orders\view_order.html:6
-msgid "для користувача"
-msgstr "для користувача"
-
 #: .\templates\orders\edit_item_product.html:7
 msgid "для замовлення"
 msgstr "для замовлення"
 
 #: .\templates\orders\index.html:6
-msgid "ПРОДУКТИ ДЛЯ РЕСТОРАНІВ ТА КАФЕ З ДОСТАВКОЮ"
-msgstr "ПРОДУКТИ ДЛЯ РЕСТОРАНІВ ТА КАФЕ З ДОСТАВКОЮ"
+msgid "ОВОЧІ ТА ФРУКТИ ДЛЯ РЕСТОРАНІВ ТА КАФЕ З ДОСТАВКОЮ В ОДЕСІ"
+msgstr "ОВОЧІ ТА ФРУКТИ ДЛЯ РЕСТОРАНІВ ТА КАФЕ З ДОСТАВКОЮ В ОДЕСІ"
 
 #: .\templates\orders\index.html:7
 msgid "Раді Вітати на сайті компанії Наша-Фірмa!"
@@ -360,13 +345,13 @@ msgstr "Раді Вітати на сайті компанії Наша-Фірм
 
 #: .\templates\orders\index.html:8
 msgid ""
-"Наша-Фірма – постачальник продуктів харчування для ресторанів та кафе в "
-"Одесі та передмісті."
+"Наша-Фірма – постачальник овочів та фруктів для ресторанів та кафе в Одесі "
+"та передмісті."
 msgstr ""
-"Наша-Фірма – постачальник продуктів харчування для ресторанів та кафе в "
-"Одесі та передмісті."
+"Наша-Фірма – постачальник овочів та фруктів для ресторанів та кафе в Одесі "
+"та передмісті."
 
-#: .\templates\orders\search_results_order.html:50
+#: .\templates\orders\search_results_order.html:54
 #: .\templates\orders\sort_by_date.html:54
 #: .\templates\orders\sort_by_done.html:53
 #: .\templates\orders\sort_by_name.html:50
@@ -466,11 +451,17 @@ msgstr ""
 msgid "Привіт"
 msgstr "Привіт"
 
-#: .\templates\users\password_reset_email.html:13
+#: .\templates\users\password_reset_email.html:6
+msgid ""
+"Ви надіслали запит на скидання пароля для свого облікового запису. Перейдіть "
+"за цим посиланням, щоб встановити новий пароль:"
+msgstr ""
+
+#: .\templates\users\password_reset_email.html:12
 msgid "Ваше імя користувача, якщо ви забули:"
 msgstr ""
 
-#: .\templates\users\password_reset_email.html:14
+#: .\templates\users\password_reset_email.html:13
 msgid ""
 "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний "
 "лист."
@@ -478,11 +469,11 @@ msgstr ""
 "Якщо ви не надсилали запит на скидання пароля, проігноруйте цей електронний "
 "лист."
 
-#: .\templates\users\password_reset_email.html:15
+#: .\templates\users\password_reset_email.html:14
 msgid "Дякую,"
 msgstr "Дякую,"
 
-#: .\templates\users\password_reset_email.html:16
+#: .\templates\users\password_reset_email.html:15
 msgid "Наша команда"
 msgstr "Наша команда"
 
@@ -536,35 +527,35 @@ msgstr "логін"
 msgid "прізвище"
 msgstr "прізвище"
 
-#: .\users\models.py:51
+#: .\users\models.py:52
 msgid "телефон"
 msgstr "телефон"
 
-#: .\users\models.py:62
+#: .\users\models.py:63
 msgid "фото"
 msgstr "фото"
 
-#: .\users\models.py:67
+#: .\users\models.py:68
 msgid "тема листа"
 msgstr "тема листа"
 
-#: .\users\models.py:69
+#: .\users\models.py:70
 msgid "ваш email"
 msgstr "ваш email"
 
-#: .\users\models.py:70
+#: .\users\models.py:71
 msgid "зміст листа"
 msgstr "зміст листа"
 
-#: .\users\models.py:72
+#: .\users\models.py:73
 msgid "дата відправки"
 msgstr "дата відправки"
 
-#: .\users\models.py:74
+#: .\users\models.py:75
 msgid "IP адреса відправника"
 msgstr "IP адреса відправника"
 
-#: .\users\models.py:79 .\users\models.py:80
+#: .\users\models.py:80 .\users\models.py:81
 msgid "зворотній звязок"
 msgstr "зворотній звязок"
 
