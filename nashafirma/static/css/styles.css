@@ -441,22 +441,29 @@ nav ul li {
     vertical-align: middle;
 }
 
-.profile-fields,
 .footer-ul,
 .form {
     display: flex;
     justify-content: center;
 }
 
+.profile {
+    display: flex;
+    justify-content: space-between;
+    max-width: auto;
+}
+
+.profile-fields {
+    text-align: center;
+}
+
 .profile-fields-name {
     text-align: center;
     font-weight: 600;
     text-transform: capitalize;
+    color: #97ccfa;
 }
 
-.profile-fields-p {
-    text-align: center;
-}
 
 .profile-fields-img {
     text-align: center;
@@ -580,7 +587,12 @@ table a {
 
 .text-delete {
     color: #8e0000;
-} */
+    font-size: 15px;
+} 
+
+.text-edit {
+    font-size: 15px;
+}
 
 .note > .table-footer {
     background-color: #3b3b3b;
