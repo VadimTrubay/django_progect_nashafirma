@@ -6,8 +6,7 @@
 <div class='form'>
     <form method='post' action=''>
         {% csrf_token %}
-        <p class='center'>{% trans 'Ви дійсно хочете видалити' %}</p>
-        <p class='center'><b>'{{ object.product }}'</b>?</p>
+        <p class='center'>{% trans 'Ви дійсно хочете видалити' %}<b class="text-blue"> '{{ object.product }}'</b>?</p>
         <div class='btn-container'>
             <button type='submit' class='button button-save'>{% trans 'Так' %}</button>
             <button type='reset'  class='button button-back' onclick='history.back()'>{% trans 'Ні' %}</button>
