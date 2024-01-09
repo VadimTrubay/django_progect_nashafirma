@@ -7,9 +7,9 @@
     <form method='post' action=''>
         {% csrf_token %}
         <p class='center'>{% trans 'Ви дійсно хочете видалити?' %}</p>
-        <p class='center'><b>'{{ order.created_at|date:"d M Y" }}'</b></p>
+        <p class='center text-blue'><b>'{{ order.created_at|date:"d M Y" }}'</b></p>
         <p class='center'><b>{% trans 'для користувача' %}</p>
-        <p class='center'><b>'{{ order.user }}</b>?</p>
+        <p class='center text-blue'><b>'{{ order.user }}</b>?</p>
         <div class='btn-container'>
             <button type='submit' class='button button-save'>{% trans 'Так' %}</button>
             <button type='reset' class='button button-back' onclick='history.back()'>{% trans 'Ні' %}</button>
