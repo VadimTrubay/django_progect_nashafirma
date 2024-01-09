@@ -4,28 +4,26 @@
 {% load i18n %}
 
 <h1 class='title-page'>{% trans 'Профіль' %}</h1>
+<div class='profile'>
 {% if user.profile_picture %}
-<div class='profile-fields'>
-    <img class='profile-fields-img' src='{{ user.profile_picture.url }}' alt='profile_picture'>
-    {% else %}
-    <img class='profile-fields-img' src="{% static 'profile_pictures/profile_picture_default.jpg' %}"
-        alt='profile_picture'>
-    {% endif %}
-</div>
-<br>
-<div class='profile-fields-p'>
-    <p class='profile-fields-name'>{{ user.first_name }} {{ user.last_name }}</p>
-    <br>
-    <p class='profile-fields-p'><strong>{% trans 'імя' %}</strong>: {{ user.username }}</p>
-    <p class='profile-fields-p'><strong>{% trans 'email' %}</strong>: {{ user.email }}</p>
-    <p class='profile-fields-p'><strong>{% trans 'тел' %}</strong>: {{ user.telephone_number }}</p>
-    <ul>
-        {% if is_owner %}
-        <br>
-        <li><a class='text-edit' href="{% url 'profile_edit' pk=object.pk %}">{% trans 'Редагувати профіль' %}</a></li>
-        <li><a class='text-delete' href="{% url 'profile_delete' pk=object.pk %}">{% trans 'Видалити профіль' %}</a></li>
+    <div class='profile-fields'>
+        <img class='profile-fields-img' src='{{ user.profile_picture.url }}' alt='profile_picture'>
+        {% else %}
+        <img class='profile-fields-img' src="{% static 'profile_pictures/profile_picture_default.jpg' %}"
+            alt='profile_picture'>
         {% endif %}
-    </ul>
+        <p class='profile-fields-name'>{{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+    <div class='profile-fields'>
+        <p><strong>{% trans 'імя' %}</strong>: {{ user.username }}</p>
+        <p><strong>{% trans 'email' %}</strong>: {{ user.email }}</p>
+        <p><strong>{% trans 'тел' %}</strong>: {{ user.telephone_number }}</p>
+        {% if is_owner %}
+        <p></p><a class='text-edit' href="{% url 'profile_edit' pk=object.pk %}">{% trans 'Редагувати профіль' %}</a></p>
+        <p></p><a class='text-delete' href="{% url 'profile_delete' pk=object.pk %}">{% trans 'Видалити профіль' %}</a></p>
+        {% endif %}
+    </div>  
 </div>
+
 
 {% endblock %}
