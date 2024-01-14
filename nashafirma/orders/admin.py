@@ -5,7 +5,7 @@ from admin_totals.admin import ModelAdminTotals
 from django.contrib import admin
 from django.db.models import Sum
 from django.db.models.functions import Coalesce
-from django.db.models import FloatField
+from django.db.models import IntegerField
 from django.utils.html import format_html
 
 
@@ -21,7 +21,7 @@ class DateYesterdayFieldListFilter(admin.DateFieldListFilter):
         self.links.insert(
             2,
             (
-                "Yesterday",
+                "Вчора",
                 {
                     self.lookup_kwarg_since: str(yesterday),
                     self.lookup_kwarg_until: str(today),
@@ -33,7 +33,7 @@ class DateYesterdayFieldListFilter(admin.DateFieldListFilter):
         self.links.insert(
             2,
             (
-                "Yesterday and Today",
+                "Вчора та Сьогодні",
                 {
                     self.lookup_kwarg_since: str(yesterday),
                     self.lookup_kwarg_until: str(tomorrow),
@@ -43,11 +43,11 @@ class DateYesterdayFieldListFilter(admin.DateFieldListFilter):
 
 
 class MyModelAdmin(admin.ModelAdmin):
-    list_display = ["created_at", "user", "done", "id"]
-    search_fields = ("created_at", "user", "done", "products", "id")
+    list_display = ["created_at", "user", "done"]
+    search_fields = ("created_at", "user", "done", "products")
     list_display_links = ("created_at", "user")
     # list_editable = ()
-    list_filter = (("created_at", DateYesterdayFieldListFilter), "user", "done", "id")
+    list_filter = (("created_at", DateYesterdayFieldListFilter), "user", "done")
 
 
 class OrderItemAdmin(MyModelAdmin, ModelAdminTotals, admin.ModelAdmin):
@@ -78,8 +78,7 @@ class OrderItemAdmin(MyModelAdmin, ModelAdminTotals, admin.ModelAdmin):
         "note",
         "order_done_icon",
         "order_user",
-        "order",
-        "id",
+        "order"
     ]
     search_fields = (
         "order__done",
@@ -87,12 +86,11 @@ class OrderItemAdmin(MyModelAdmin, ModelAdminTotals, admin.ModelAdmin):
         "order",
         "product",
         "weight",
-        "note",
-        "id",
+        "note"
     )
     list_display_links = ("product", "weight", "note")
     list_totals = [
-        ("weight", lambda field: Coalesce(Sum(field), 0, output_field=FloatField()))
+        ("weight", lambda field: Coalesce(Sum(field), 0, output_field=IntegerField()))
     ]
     # list_editable = ()
     list_filter = (
@@ -100,8 +98,7 @@ class OrderItemAdmin(MyModelAdmin, ModelAdminTotals, admin.ModelAdmin):
         "order__user",
         ("order__created_at", DateYesterdayFieldListFilter),
         "product",
-        "weight",
-        "id",
+        "weight"
     )
 
 
