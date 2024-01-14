@@ -37,7 +37,7 @@ class Order(models.Model):
     class Meta:
         verbose_name = _("замовлення")
         verbose_name_plural = _("замовлення")
-        ordering = ["created_at", "user"]
+        ordering = ["done"]
 
 
 class OrderItem(models.Model):
@@ -67,4 +67,4 @@ class OrderItem(models.Model):
     class Meta:
         verbose_name = _("продукти")
         verbose_name_plural = _("продукти")
-        ordering = ["order", "product", "weight"]
+        ordering = ["order__done", "-order__user"]
