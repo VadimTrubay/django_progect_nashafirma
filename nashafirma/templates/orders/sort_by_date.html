@@ -9,45 +9,50 @@
 {% endif %}
 <table class='note' role='grid'>
     <thead>
-        <tr style='background-color: #b2b2b2;' class='title-table'>
-            <th>№</th>
-            <th>{% trans 'замовлення' %}</th>
-            <th>{% trans 'користувач' %}</th>
-            <th>{% trans 'статус' %}</th>
-            <th class='not-print'>{% trans 'перегляд' %}</th>
-            <th class='not-print'>{% trans 'видалити' %}</th>
-        </tr>
+    <tr style='background-color: #b2b2b2;' class='title-table'>
+        <th>№</th>
+        <th>order</th>
+        <th>user</th>
+        <th>status</th>
+        <!--        <th>{% trans 'замовлення' %}</th>-->
+        <!--        <th>{% trans 'користувач' %}</th>-->
+        <!--        <th>{% trans 'статус' %}</th>-->
+        <th class='not-print'></th>
+        <th class='not-print'></th>
+        <!--        <th class='not-print'>{% trans 'перегляд' %}</th>-->
+        <!--        <th class='not-print'>{% trans 'видалити' %}</th>-->
+    </tr>
     </thead>
     <tbody>
-        {% for order in orders %}
-        <tr>
-            <th>{{ forloop.counter }}</th>
-            <td><a href=''>{{ order.created_at|date:"d M Y" }}</td>
-            {% if request.user.username == 'admin' %}</a>
-                <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
-            {% else %}
-                <td><a href=''>{{ order.user }}</a></td>
-            {% endif %}
-            <td>
-                {% if request.user.username == 'admin' %}
-                <a href="{% url 'edit_order_done' order.pk %}">
-                    {% endif %}
-                    {% if order.done %}<span class='done'>&#10004;</span>
-                    {% else %}<span class='notdone'>&#10008;</span>{% endif %}</a>
-                    <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
-            </td>
-            <td class='not-print'>
-                <a class='text-edit' href="{% url 'view_order' order.pk %}">
+    {% for order in orders %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <td><a href=''>{{ order.created_at|date:"d M Y" }}</td>
+        {% if request.user.username == 'admin' %}</a>
+        <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
+        {% else %}
+        <td><a href=''>{{ order.user }}</a></td>
+        {% endif %}
+        <td class='plr'>
+            {% if request.user.username == 'admin' %}
+            <a href="{% url 'edit_order_done' order.pk %}">
+                {% endif %}
+                {% if order.done %}<span class='done'>&#10004;&nbsp</span>
+                {% else %}<span class='notdone'>&#10008;&nbsp</span>{% endif %}</a>
+            <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
+        </td>
+        <td class='not-print plr'>
+            <a class='text-edit' href="{% url 'view_order' order.pk %}">
                 {% include 'icon_view.html' %}
-                </a>
-            </td>
-            <td class='not-print'>
-                <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
+            </a>
+        </td>
+        <td class='not-print plr'>
+            <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
                 {% include 'icon_delete.html' %}
-                </a>
-            </td>
-            </tr>
-        {% endfor %}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 {% else %}
@@ -69,18 +74,19 @@
         {% for p in paginator.page_range %}
         {% if page_obj.number == p %}
         <li class='page-num page-num-selected'><span>{{ p }}</span></li>
-        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %} <li class='page-num'><a
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+        <li class='page-num'><a
                 href='?page={{ p }}'>{{ p }}</a></li>
-            {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-            <li class='page-item'>
-                <a href='?&page={{ page_obj.next_page_number }}'>&rsaquo;</a>
-            </li>
-            <li class='page-num'>
-                <a href='?page={{ paginator.num_pages }}'>&raquo;</a>
-            </li>
-            {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class='page-item'>
+            <a href='?&page={{ page_obj.next_page_number }}'>&rsaquo;</a>
+        </li>
+        <li class='page-num'>
+            <a href='?page={{ paginator.num_pages }}'>&raquo;</a>
+        </li>
+        {% endif %}
     </ul>
 </nav>
 {% endif %}

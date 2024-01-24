@@ -3,73 +3,76 @@
 {% load i18n %}
 
 <h1 class='title-page'>{% trans 'Переглянути замовлення' %}</h1>
-<p class='center'><b class="text-blue">'{{order.created_at|date:"d M Y"}}'</b> {% trans 'для користувача' %} <b class="text-blue">'{{ order.user }}'</b></p>
+<p class='center'><b class="text-blue">'{{order.created_at|date:"d M Y"}}'</b> {% trans 'для користувача' %} <b
+        class="text-blue">'{{ order.user }}'</b></p>
 <br>
 {% if not request.user.username == 'admin' %}
-    {% if order.done == False %}
-        <p class='center font'><a href="{% url 'add_item' order.pk %}">{% trans '+ Додати новий продукт' %}</a></p>
-        {% else %}
-        <p class='center'><a href="{% url 'all_orders' %}">{% trans 'Замовлення виконане' %}<span class='done'>&#10004;</span></a></p>
-    {% endif %}
+{% if order.done == False %}
+<p class='center font'><a href="{% url 'add_item' order.pk %}">{% trans '+ Додати новий продукт' %}</a></p>
+{% else %}
+<p class='center'><a href="{% url 'all_orders' %}">{% trans 'Замовлення виконане' %}<span
+        class='done'>&#10004;</span></a></p>
 {% endif %}
-    {% if order %}
-    <table class='note' role='grid'>
-        <thead>
-            <tr style='background-color: #b2b2b2;' class='title-table'>
-                <th>№</th>
-                <th>{% trans 'продукт' %}</th>
-                <th>{% trans 'вага' %}</th>
-                <th class='not-print'>{% trans 'ціна' %}</th>
-                <th class='not-print'>{% trans 'сума' %}</th>
-                <th>{% trans 'нотатка' %}</th>
-                <th class='not-print'>{% trans 'змінити' %}</th>
-                <th class='not-print'>{% trans 'видалити' %}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in order.orderitem_set.all %}
-            <tr>
-                <th>{{ forloop.counter }}</th>
-                <th><a href=''>{{ product.product }}</a></th>
-                <th>{{product.weight}}</th>
-                <th class='not-print'>{{product.product.price}}</th>
-                <th class='not-print'>{{ product.calculate_total}}</th>
-                <th>
-                    <a href='' class='product-note'>
-                        <span class='truncated-text'>{{ product.note | truncatechars:20 }}</span>
-                        <span class='full-text' style='display: none;'>{{ product.note }}</span>
-                    </a>
-                    {% if order.done == False %}
-                </th>
-
-                <td class='not-print'>
-                    <a class='text-edit' href="{% url 'edit_item_product' product.pk %}">
-                    {% include 'icon_edit.html' %}
-                    </a>
-                </td>
-                <td class='not-print' scope='row'>
-                    <a class='text-delete' href="{% url 'delete_item_product' product.pk %}">
-                    {% include 'icon_delete.html' %}
-                    </a>
-                </td>
-                </th>
-                {% else %}
-                <th class='not-print'></td>
-                <td class='not-print'></th>
-                {% endif %}
-                {% endfor %}
-            <tr style='background-color: #b2b2b2;'>
-                <th><b>Разом:</b></th>
-                <td></td>
-                <td><b>{{ order.calculate_sum_weight }}</b></td>
-                <td></td>
-                <td class='not-print'><b>{{ order.calculate_sum_total }}</b></td>
-                <td class='not-print'></td>
-                <td class='not-print'></td>
-                <td class='not-print'></td>
-            </tr>
-        </tbody>
-    </table>
+{% endif %}
+{% if order %}
+<table class='note' role='grid'>
+    <thead>
+    <tr style='background-color: #b2b2b2;' class='title-table'>
+        <th>№</th>
+        <th>{% trans 'продукт' %}</th>
+        <th>{% trans 'вага' %}</th>
+        <th class='not-print'>{% trans 'ціна' %}</th>
+        <th class='not-print'>{% trans 'сума' %}</th>
+        <th>{% trans 'нотатка' %}</th>
+        <th class='not-print'></th>
+        <th class='not-print'></th>
+        <!--        <th class='not-print'>{% trans 'змінити' %}</th>-->
+        <!--        <th class='not-print'>{% trans 'видалити' %}</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in order.orderitem_set.all %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <th><a href=''>{{ product.product }}</a></th>
+        <th>{{product.weight}}</th>
+        <th class='not-print'>{{product.product.price}}</th>
+        <th class='not-print'>{{ product.calculate_total}}</th>
+        <th>
+            <a href='' class='product-note'>
+                <span class='truncated-text'>{{ product.note | truncatechars:20 }}</span>
+                <span class='full-text' style='display: none;'>{{ product.note }}</span>
+            </a>
+        </th>
+        {% if order.done == False %}
+        <td class='not-print plr'>
+            <a class='text-edit' href="{% url 'edit_item_product' product.pk %}">
+                {% include 'icon_edit.html' %}
+            </a>
+        </td>
+        <td class='not-print plr' scope='row'>
+            <a class='text-delete' href="{% url 'delete_item_product' product.pk %}">
+                {% include 'icon_delete.html' %}
+            </a>
+        </td>
+        {% else %}
+        <td class='not-print'></td>
+        <td class='not-print'></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    <tr style='background-color: #b2b2b2;'>
+        <th></th>
+        <td><b>Разом:</b></td>
+        <td><b>{{ order.calculate_sum_weight }}</b></td>
+        <td></td>
+        <td class='not-print'><b>{{ order.calculate_sum_total }}</b></td>
+        <td class='not-print'></td>
+        <td class='not-print'></td>
+        <td class='not-print'></td>
+    </tr>
+    </tbody>
+</table>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
