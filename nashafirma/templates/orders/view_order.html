@@ -17,7 +17,7 @@
 {% if order %}
 <table class='note' role='grid'>
     <thead>
-    <tr style='background-color: #b2b2b2;' class='title-table'>
+    <tr class='title-table'>
         <th>№</th>
         <th>{% trans 'продукт' %}</th>
         <th>{% trans 'вага' %}</th>
@@ -61,8 +61,8 @@
     </tr>
     {% endif %}
     {% endfor %}
-    <tr style='background-color: #b2b2b2;'>
-        <th></th>
+    <tr class='footer-table'>
+        <td class='footer-table'></td>
         <td><b>Разом:</b></td>
         <td><b>{{ order.calculate_sum_weight }}</b></td>
         <td></td>
