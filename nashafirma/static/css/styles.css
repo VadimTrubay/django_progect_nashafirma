@@ -383,6 +383,10 @@ hr {
     margin: 5px;
 }
 
+.footer-table td {
+    background-color: #f3f3f3;
+}
+
 .font {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
@@ -569,6 +573,7 @@ table a {
 
 .title-table th {
     font-weight: 900;
+    background-color: #d3d3d3
 }
 
 .title-page {
