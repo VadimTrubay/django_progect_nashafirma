@@ -453,6 +453,11 @@ nav ul li {
     max-width: auto;
 }
 
+.plr {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .profile-fields {
     text-align: center;
 }
