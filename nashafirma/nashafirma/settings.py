@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(BASE_DIR / ".env")
 
-SECRET_KEY = '#iqnq9p2w(47tmqwuh_s+ot$)tov9bh%(=dxfj5as)u&2pts'
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
@@ -63,39 +63,13 @@ WSGI_APPLICATION = "nashafirma.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": str(os.path.join(BASE_DIR, "db.sqlite3")),
     }
 }
-# """Local PostgresSQL"""
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'nashafirma',
-#         'USER': 'nashafirma',
-#         'PASSWORD': 'vad0101vad',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
-
-# """Local MySQL"""
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'nashafirmaod_db',
-#         'USER': 'nashafirmaod_db',
-#         'PASSWORD': 'Q(Zh_HV#Qf5M',
-#         'HOST': 'localhost',   # Set to your database host
-#         'PORT': '3306',        # Set to your database port
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#             'charset': 'utf8mb4'
-#         },
-#     }
-# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -149,18 +123,17 @@ AUTH_USER_MODEL = "users.SiteUser"
 LOGIN_URL = 'users'
 
 """For Gmail"""
-EMAIL_ADMIN = 'user0606user@gmail.com'
-EMAIL_SERVER = 'smtp.gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
+EMAIL_ADMIN = env('GMAIL_ADMIN')
+EMAIL_SERVER = env('GMAIL_SERVER')
+EMAIL_HOST = env('GMAIL_HOST')
+EMAIL_PORT = env('GMAIL_PORT')
+EMAIL_HOST_USER = env('GMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('GMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_STARTTLS = True
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'user0606user@gmail.com'
-EMAIL_HOST_PASSWORD = 'qrjpiwiiuyitctxr'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 
 CAPTCHA_FONT_SIZE = 33
 CAPTCHA_LENGTH = 3
