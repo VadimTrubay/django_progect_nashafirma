@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 
 env = environ.Env()
-environ.Env.read_env(BASE_DIR / ".env")
+environ.Env.read_env(BASE_DIR / "env/.env")
 
 SECRET_KEY = env('SECRET_KEY')
 
