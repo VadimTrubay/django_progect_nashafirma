@@ -45,6 +45,9 @@ class AddOrderView(DataMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        response = super().form_valid(form)
+        new_order_id = self.object.id
+        self.success_url = reverse("view_order", args=[new_order_id])
         return super().form_valid(form)
 
     def get_context_data(self, *, object_list=None, **kwargs):
