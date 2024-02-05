@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-readme.md
+#readme.md
 # Distribution / packaging
 .Python
 build/
