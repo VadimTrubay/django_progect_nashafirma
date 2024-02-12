@@ -530,6 +530,11 @@ td {
     .min {
         display: block;
     }
+
+    .min-menu a {
+        color: var(--brand-color);
+        background-color: #696969;
+    }
 }
 
 @media (min-width: 994px) {
@@ -547,6 +552,11 @@ td {
 
     .min {
         display: none;
+    }
+
+    .min-menu a {
+        color: var(--brand-color);
+        background-color: #696969;
     }
 }
 
