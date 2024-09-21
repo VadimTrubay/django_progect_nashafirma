@@ -75,7 +75,7 @@ class AllOrdersView(GetContextDataMixin, ListView):
         queryset = self.model.objects.all()
         now = timezone.now()
         if time_period == 'day':
-            queryset = queryset.filter(created_at__gte=now - timedelta(days=2))
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=1))
         elif time_period == 'week':
             queryset = queryset.filter(created_at__gte=now - timedelta(weeks=1))
         elif time_period =='month':
