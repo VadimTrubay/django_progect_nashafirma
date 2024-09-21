@@ -10,11 +10,11 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy, reverse
 from django.db.models import Q
-
+from django.utils import timezone
 from utils.utils import DataMixin, GetContextDataMixin
 from .models import Order, OrderItem
 from .forms import OrderForm, OrderItemForm
-from datetime import datetime
+from datetime import timedelta
 
 
 class HomeView(GetContextDataMixin, DataMixin, TemplateView):
@@ -71,13 +71,28 @@ class AllOrdersView(GetContextDataMixin, ListView):
     context_object_name = "orders"
 
     def get_queryset(self):
+        time_period = self.request.GET.get('time', 'day')
+        queryset = self.model.objects.all()
+        now = timezone.now()
+        if time_period == 'day':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=2))
+        elif time_period == 'week':
+            queryset = queryset.filter(created_at__gte=now - timedelta(weeks=1))
+        elif time_period =='month':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=31))
+        elif time_period == 'year':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=365))
         if self.request.user.username == "admin":
-            object_list = self.model.objects.all().reverse()
-
+            object_list = queryset.reverse()
         else:
-            object_list = self.model.objects.filter(
-                user=self.request.user).reverse()
+            object_list = queryset.filter(user=self.request.user).reverse()
         return object_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Добавляем выбранный период в контекст
+        context['selected_period'] = self.request.GET.get('time', 'day')
+        return context
 
 
 class EditOrderDoneView(GetContextDataMixin, UpdateView):

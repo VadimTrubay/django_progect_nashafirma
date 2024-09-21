@@ -1,5 +1,21 @@
 {% load i18n %}
 
+<form method="get" action="{% url 'all_orders' %}" style='display: flex; justify-content: center'>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="day" {% if selected_period == 'day' %}checked{% endif %}> {% trans "День" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="week" {% if selected_period == 'week' %}checked{% endif %}> {% trans "Неділя" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="month" {% if selected_period == 'month' %}checked{% endif %}> {% trans "Місяць" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="year" {% if selected_period == 'year' %}checked{% endif %}> {% trans "Рік" %}
+    </label>
+</form>
+
+
 {% if orders %}
 {% if not request.user.username == 'admin' %}
 <p class='center font'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
