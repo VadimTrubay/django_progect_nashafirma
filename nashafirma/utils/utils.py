@@ -14,3 +14,10 @@ def get_client_ip(request):
     ip = x_forwarded_for.split(
         ',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
     return ip
+
+
+class GetContextDataMixin:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context

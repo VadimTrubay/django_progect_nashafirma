@@ -3,7 +3,6 @@ from django.contrib.auth import views as auth_views, get_user_model, login
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404
 from django.views import generic as view
-from django.shortcuts import render
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -11,7 +10,7 @@ from django.views.generic import TemplateView, CreateView
 
 from .forms import RegistrationForm, LoginForm, EditProfileForm, FeedbackCreateForm
 from .models import SiteUser, Feedback
-from utils.utils import get_client_ip
+from utils.utils import get_client_ip, GetContextDataMixin
 from utils.email import send_contact_email_message
 
 UserModel = get_user_model()
@@ -24,17 +23,12 @@ def get_profile(pk):
         return None
 
 
-class UserRegistrationView(view.CreateView):
+class UserRegistrationView(GetContextDataMixin, view.CreateView):
     title = _("Реєстрація")
     model = UserModel
     template_name = "users/register.html"
     form_class = RegistrationForm
     success_url = reverse_lazy("home")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -42,31 +36,20 @@ class UserRegistrationView(view.CreateView):
         return response
 
 
-class UserLoginView(auth_views.LoginView):
+class UserLoginView(GetContextDataMixin, auth_views.LoginView):
     title = _("Вхід")
     form_class = LoginForm
     template_name = "users/login.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def get_success_url(self):
         return reverse_lazy("home")
 
 
-class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView):
+class ProfileDetailView(GetContextDataMixin, LoginRequiredMixin, UserPassesTestMixin, view.DetailView):
     title = _("Профіль")
     model = SiteUser
     template_name = "users/profile_details.html"
     context_object_name = "users"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["is_owner"] = self.request.user == self.object
-        context["title"] = self.title
-        return context
 
     def get_object(self, queryset=None):
         pk = self.kwargs.get("pk")
@@ -77,7 +60,7 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, view.DetailView
         return self.request.user.pk == self.kwargs.get("pk")
 
 
-class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
+class EditProfileView(GetContextDataMixin, LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
     title = _("Редагувати профіль")
     model = SiteUser
     form_class = EditProfileForm
@@ -89,26 +72,15 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        context["user"] = self.object
-        return context
-
     def test_func(self):
         return self.request.user.pk == self.kwargs.get("pk")
 
 
-class DeleteProfileView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
+class DeleteProfileView(GetContextDataMixin, LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
     title = _("Видалити профіль")
     model = SiteUser
     template_name = "users/profile_delete.html"
     success_url = reverse_lazy("login")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def test_func(self):
         return self.request.user.pk == self.kwargs.get("pk")
@@ -118,7 +90,7 @@ class UserLogOutView(auth_views.LogoutView):
     next_page = reverse_lazy("login")
 
 
-class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+class ResetPasswordView(GetContextDataMixin, SuccessMessageMixin, PasswordResetView):
     title = _("Відновлення паролю")
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"
@@ -127,34 +99,19 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     success_message = "На Ваш %(email)s було відправлено листа для зміни паролю."
     subject_template_name = "users/password_reset_subject.txt"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class TermsView(TemplateView):
+class TermsView(GetContextDataMixin, TemplateView):
     title = _("Умови використання")
     template_name = 'users/terms.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class FeedbackCreateView(SuccessMessageMixin, CreateView):
+class FeedbackCreateView(GetContextDataMixin, SuccessMessageMixin, CreateView):
     title = _("Контакти")
     model = Feedback
     form_class = FeedbackCreateForm
     template_name = "users/feedback.html"
     extra_context = {'title': 'Контактна форма'}
     success_url = reverse_lazy('feedback_success')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def form_valid(self, form):
         if form.is_valid():
@@ -167,11 +124,6 @@ class FeedbackCreateView(SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-class FeedbackSuccessView(TemplateView):
+class FeedbackSuccessView(GetContextDataMixin, TemplateView):
     title = _("Лист надіслано вдало")
     template_name = 'users/feedback_success.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context

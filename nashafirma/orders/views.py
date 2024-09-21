@@ -10,34 +10,24 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy, reverse
 from django.db.models import Q
-
-from utils.utils import DataMixin
+from django.utils import timezone
+from utils.utils import DataMixin, GetContextDataMixin
 from .models import Order, OrderItem
 from .forms import OrderForm, OrderItemForm
-from datetime import datetime
+from datetime import timedelta
 
 
-class HomeView(DataMixin, TemplateView):
+class HomeView(GetContextDataMixin, DataMixin, TemplateView):
     title = _("Головна")
     template_name = "orders/index.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class AboutView(DataMixin, TemplateView):
+class AboutView(GetContextDataMixin, DataMixin, TemplateView):
     title = _("Про нас")
     template_name = "orders/about.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class AddOrderView(DataMixin, CreateView):
+class AddOrderView(GetContextDataMixin, DataMixin, CreateView):
     title = _("Додати нове замовлення")
     form_class = OrderForm
     template_name = "orders/add_order.html"
@@ -57,7 +47,7 @@ class AddOrderView(DataMixin, CreateView):
         return context
 
 
-class ViewOrderView(DetailView):
+class ViewOrderView(GetContextDataMixin, DetailView):
     title = _("Переглянути замовлення")
     model = Order
     template_name = "orders/view_order.html"
@@ -72,13 +62,8 @@ class ViewOrderView(DetailView):
                 user=self.request.user).reverse()
         return object_list
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class AllOrdersView(ListView):
+class AllOrdersView(GetContextDataMixin, ListView):
     title = _("Всі замовлення")
     paginate_by = 40
     model = Order
@@ -86,30 +71,36 @@ class AllOrdersView(ListView):
     context_object_name = "orders"
 
     def get_queryset(self):
+        time_period = self.request.GET.get('time', 'day')
+        queryset = self.model.objects.all()
+        now = timezone.now()
+        if time_period == 'day':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=1))
+        elif time_period == 'week':
+            queryset = queryset.filter(created_at__gte=now - timedelta(weeks=1))
+        elif time_period =='month':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=31))
+        elif time_period == 'year':
+            queryset = queryset.filter(created_at__gte=now - timedelta(days=365))
         if self.request.user.username == "admin":
-            object_list = self.model.objects.all().reverse()
-
+            object_list = queryset.reverse()
         else:
-            object_list = self.model.objects.filter(
-                user=self.request.user).reverse()
+            object_list = queryset.filter(user=self.request.user).reverse()
         return object_list
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.title
+        # Добавляем выбранный период в контекст
+        context['selected_period'] = self.request.GET.get('time', 'day')
         return context
 
 
-class EditOrderDoneView(UpdateView):
+class EditOrderDoneView(GetContextDataMixin, UpdateView):
     title = _("Змінити статус замовлення")
     form_class = OrderForm
     template_name = "orders/edit_order_done.html"
     context_object_name = "order"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def get_success_url(self):
         # Получаем предыдущий URL-адрес из сессии
@@ -128,17 +119,12 @@ class EditOrderDoneView(UpdateView):
         return get_object_or_404(Order, pk=pk)
 
 
-class EditItemProductView(UpdateView):
+class EditItemProductView(GetContextDataMixin, UpdateView):
     title = _("Змінити продукт")
     form_class = OrderItemForm
     template_name = "orders/edit_item_product.html"
     context_object_name = "order"
     success_url = reverse_lazy("all_orders")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
     def get_object(self):
         pk = self.kwargs.get("pk")
@@ -149,7 +135,7 @@ class EditItemProductView(UpdateView):
         return reverse("view_order", kwargs={"pk": order_id})
 
 
-class DeleteOrderView(DeleteView):
+class DeleteOrderView(GetContextDataMixin, DeleteView):
     title = _("Видалити замовлення")
     model = Order
     template_name = "orders/delete_order.html"
@@ -162,13 +148,8 @@ class DeleteOrderView(DeleteView):
         else:
             return reverse_lazy('all_orders')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class DeleteItemProductView(DeleteView):
+class DeleteItemProductView(GetContextDataMixin, DeleteView):
     title = _("Видалити продукт")
     model = OrderItem
     template_name = "orders/delete_item_product.html"
@@ -178,13 +159,8 @@ class DeleteItemProductView(DeleteView):
         order_id = self.object.order.id
         return reverse("view_order", kwargs={"pk": order_id})
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class AddItemView(CreateView):
+class AddItemView(GetContextDataMixin, CreateView):
     title = _("Додати новий продукт до замовлення")
     form_class = OrderItemForm
     template_name = "orders/add_item.html"
@@ -200,13 +176,8 @@ class AddItemView(CreateView):
         order_id = self.object.order.id
         return reverse("view_order", kwargs={"pk": order_id})
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class SearchResultsOrderView(ListView):
+class SearchResultsOrderView(GetContextDataMixin, ListView):
     title = _("Результати пошуку замовлення")
     paginate_by = 40
     model = Order
@@ -250,13 +221,8 @@ class SearchResultsOrderView(ListView):
                 return queryset
             return self.model.objects.none()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class SortOrdersByNameView(ListView):
+class SortOrdersByNameView(GetContextDataMixin, ListView):
     title = _("Сортування за імям")
     paginate_by = 40
     model = Order
@@ -273,13 +239,8 @@ class SortOrdersByNameView(ListView):
                 return queryset
             return self.model.objects.none()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class SortOrdersByDateView(ListView):
+class SortOrdersByDateView(GetContextDataMixin, ListView):
     title = _("Сортування за датою")
     paginate_by = 40
     model = Order
@@ -303,13 +264,8 @@ class SortOrdersByDateView(ListView):
                 return queryset
             return self.model.objects.none()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
-
-class SortOrdersByDoneView(ListView):
+class SortOrdersByDoneView(GetContextDataMixin, ListView):
     title = _("Сортування за статусом")
     paginate_by = 40
     model = Order
@@ -321,7 +277,6 @@ class SortOrdersByDoneView(ListView):
         if self.request.user.username == "admin":
             if done:
                 queryset = self.model.objects.all().filter(done=done)
-                print(queryset)
                 queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
@@ -332,11 +287,6 @@ class SortOrdersByDoneView(ListView):
                 queryset = queryset.reverse()
                 return queryset
             return self.model.objects.none()
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.title
-        return context
 
 
 def pageNotFound(request, exception):

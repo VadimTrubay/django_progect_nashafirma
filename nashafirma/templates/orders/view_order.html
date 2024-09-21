@@ -34,7 +34,7 @@
     {% for product in order.orderitem_set.all %}
     <tr>
         <th>{{ forloop.counter }}</th>
-        <th><a href=''>{{ product.product }}</a></th>
+        <th>{{ product.product }}</th>
         <th>{{product.weight}}</th>
         <th class='not-print'>{{product.product.price}}</th>
         <th class='not-print'>{{ product.calculate_total}}</th>

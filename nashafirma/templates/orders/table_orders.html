@@ -1,0 +1,73 @@
+{% load i18n %}
+
+<form method="get" action="{% url 'all_orders' %}" style='display: flex; justify-content: center'>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="day" {% if selected_period == 'day' %}checked{% endif %}> {% trans "день" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="week" {% if selected_period == 'week' %}checked{% endif %}> {% trans "неділя" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="month" {% if selected_period == 'month' %}checked{% endif %}> {% trans "місяць" %}
+    </label>
+    <label style='margin-right: 15px'>
+        <input type="radio" name="time" value="year" {% if selected_period == 'year' %}checked{% endif %}> {% trans "рік" %}
+    </label>
+</form>
+
+
+{% if not request.user.username == 'admin' %}
+    <p class='center font'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
+{% endif %}
+{% if orders %}
+    <table class='note' role='grid'>
+        <thead>
+        <tr style='background-color: #b2b2b2;' class='title-table'>
+            <th>№</th>
+            <th>order</th>
+            <th>user</th>
+            <th>status</th>
+            <!--        <th>{% trans 'замовлення' %}</th>-->
+            <!--        <th>{% trans 'користувач' %}</th>-->
+            <!--        <th>{% trans 'статус' %}</th>-->
+            <th class='not-print'></th>
+            <th class='not-print'></th>
+            <!--        <th class='not-print'>{% trans 'перегляд' %}</th>-->
+            <!--        <th class='not-print'>{% trans 'видалити' %}</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+        <tr>
+            <th>{{ forloop.counter }}</th>
+            <td><a href="{% url 'sort_by_date' order.created_at %}">{{ order.created_at|date:"d M Y" }}</a></td>
+            {% if request.user.username == 'admin' %}
+            <td><a href="{% url 'sort_by_name' order.user %}">{{ order.user }}</a></td>
+            {% else %}
+            <td><a href=''>{{ order.user }}</a></td>
+            {% endif %}
+            <td class='plr'>
+                {% if request.user.username == 'admin' %}
+                <a href="{% url 'edit_order_done' order.pk %}">
+                    {% endif %}
+                    {% if order.done %}<span class='done'>&#10004;&nbsp</span>
+                    {% else %}<span class='notdone'>&#10008;&nbsp</span>{% endif %}</a>
+                <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
+            </td>
+            <td class='not-print plr'>
+                <a class='text-edit' href="{% url 'view_order' order.pk %}">
+                    {% include 'icon_view.html' %}
+                </a>
+            </td>
+            <td class='not-print plr'>
+                <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
+                    {% include 'icon_delete.html' %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+<p class='center'>{% trans 'Пошук не дав результатів' %}</p>
+{% endif %}
