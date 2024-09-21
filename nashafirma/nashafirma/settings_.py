@@ -17,6 +17,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+# Application definition
 INSTALLED_APPS = [
     "modeltranslation",
     "django.contrib.admin",
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "admin_totals",
     "captcha",
+    # my apps
     "orders.apps.OrdersConfig",
     "products.apps.ProductsConfig",
     "users.apps.UsersConfig",
@@ -137,7 +139,7 @@ AUTH_USER_MODEL = "users.SiteUser"
 
 LOGIN_URL = 'users'
 
-"""For Gmail"""
+# For Gmail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_ADMIN = env('GMAIL_ADMIN')
 EMAIL_SERVER = env('GMAIL_SERVER')
@@ -151,5 +153,5 @@ EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
 
 CAPTCHA_FONT_SIZE = 33
-CAPTCHA_LENGTH = 3
-# CAPTCHA_LETTER_ROTATION = -66, 66
+CAPTCHA_LENGTH = 6
+CAPTCHA_LETTER_ROTATION = -66, 66

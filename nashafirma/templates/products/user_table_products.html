@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<table class='note' role='grid'>
+    <thead class='title-table'>
+    <tr>
+        <th>№</th>
+        <th>{% trans 'продукт' %}</th>
+        <th>{% trans 'ціна' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <td>{{ product.product }}</td>
+        <td>{{ product.price }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

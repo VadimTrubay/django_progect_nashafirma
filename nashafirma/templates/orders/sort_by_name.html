@@ -3,88 +3,9 @@
 {% load i18n %}
 
 <h1 class='title-page'>{% trans 'Сортування за імям' %}</h1>
-{% if orders %}
-{% if not request.user.username == 'admin' %}
-<p class='center font'><a href="{% url 'add_order' %}">{% trans '+ Додати нове замовлення' %}</a></p>
-{% endif %}
-<table class='note' role='grid'>
-    <thead>
-    <tr style='background-color: #b2b2b2;' class='title-table'>
-        <th>№</th>
-        <th>order</th>
-        <th>user</th>
-        <th>status</th>
-        <!--        <th>{% trans 'замовлення' %}</th>-->
-        <!--        <th>{% trans 'користувач' %}</th>-->
-        <!--        <th>{% trans 'статус' %}</th>-->
-        <th class='not-print'></th>
-        <th class='not-print'></th>
-        <!--        <th class='not-print'>{% trans 'перегляд' %}</th>-->
-        <!--        <th class='not-print'>{% trans 'видалити' %}</th>-->
-    </tr>
-    </thead>
-    <tbody>
-    {% for order in orders %}
-    <tr>
-        <th>{{ forloop.counter }}</th>
-        <td><a href="{% url 'sort_by_date' order.created_at %}">{{ order.created_at|date:"d M Y" }}</a></td>
-        <td><a href="">{{ order.user }}</a></td>
-        <td class='plr'>
-            {% if request.user.username == 'admin' %}
-            <a href="{% url 'edit_order_done' order.pk %}">
-                {% endif %}
-                {% if order.done %}<span class='done'>&#10004;&nbsp</span>
-                {% else %}<span class='notdone'>&#10008;&nbsp</span>{% endif %}</a>
-            <a class='sort' href="{% url 'sort_by_done' order.done %}"><span> &#8645;</span></a>
-        </td>
-        <td class='not-print plr'>
-            <a class='text-edit' href="{% url 'view_order' order.pk %}">
-                {% include 'icon_view.html' %}
-            </a>
-        </td>
-        <td class='not-print plr'>
-            <a class='text-delete' href="{% url 'delete_order' order.pk %}?next={{ request.get_full_path }}">
-                {% include 'icon_delete.html' %}
-            </a>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p class='center'>{% trans 'Пошук не дав результатів' %}</p>
-{% endif %}
 
-{% if page_obj.has_other_pages %}
-<nav class='list-pages'>
-    <ul>
-        {% if page_obj.has_previous %}
-        <li class='page-num'>
-            <a href='?page=1'>&laquo;</a>
-        </li>
-        <li class='page-num'>
-            <a href='?page={{ page_obj.previous_page_number }}'>&lsaquo;</a>
-        </li>
-        {% endif %}
+{% include 'orders/table_orders.html' %}
 
-        {% for p in paginator.page_range %}
-        {% if page_obj.number == p %}
-        <li class='page-num page-num-selected'><span>{{ p }}</span></li>
-        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-        <li class='page-num'><a
-                href='?page={{ p }}'>{{ p }}</a></li>
-        {% endif %}
-        {% endfor %}
-        {% if page_obj.has_next %}
-        <li class='page-item'>
-            <a href='?&page={{ page_obj.next_page_number }}'>&rsaquo;</a>
-        </li>
-        <li class='page-num'>
-            <a href='?page={{ paginator.num_pages }}'>&raquo;</a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
+{% include 'orders/paginations_orders.html' %}
 
 {% endblock %}

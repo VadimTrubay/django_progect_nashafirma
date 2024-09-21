@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<table class='note' role='grid'>
+    <thead>
+    <tr style='background-color: #b2b2b2;' class='title-table'>
+        <th>№</th>
+        <th>{% trans 'продукт' %}</th>
+        <th>{% trans 'ціна' %}</th>
+        <th class='not-print'>{% trans 'змінити' %}</th>
+        <th class='not-print'>{% trans 'видалити' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <td><a>{{ product.product }}</a>
+        </td>
+        <td><a>{{ product.price }}</a>
+        </td>
+        <td>
+            <a class='text-edit'
+               href="{% url 'edit_product' product.pk %}?{% if request.GET.all_products %}all_products={{ request.GET.all_products }}&{% endif %}next={{ request.get_full_path }}">
+                {% include 'icon_edit.html' %}
+            </a>
+        </td>
+        <td>
+            <a class='text-delete' href="{% url 'delete_product' product.pk %}?next={{ request.get_full_path }}">
+                {% include 'icon_delete.html' %}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
