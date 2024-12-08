@@ -75,17 +75,19 @@ class AllOrdersView(GetContextDataMixin, ListView):
         queryset = self.model.objects.all()
         now = timezone.now()
         if time_period == 'day':
-            queryset = queryset.filter(created_at__gte=now - timedelta(days=1))
+            result = queryset.filter(created_at__gte=now - timedelta(days=1))
         elif time_period == 'week':
-            queryset = queryset.filter(created_at__gte=now - timedelta(weeks=1))
+            result = queryset.filter(created_at__gte=now - timedelta(weeks=1))
         elif time_period =='month':
-            queryset = queryset.filter(created_at__gte=now - timedelta(days=31))
+            result = queryset.filter(created_at__gte=now - timedelta(days=31))
         elif time_period == 'year':
-            queryset = queryset.filter(created_at__gte=now - timedelta(days=365))
-        if self.request.user.username == "admin":
-            object_list = queryset.reverse()
+            result = queryset.filter(created_at__gte=now - timedelta(days=365))
+        elif time_period == 'all':
+            result = queryset
+        if self.request.user.is_superuser:
+            object_list = result.order_by('-created_at')
         else:
-            object_list = queryset.filter(user=self.request.user).reverse()
+            object_list = result.filter(user=self.request.user).order_by('-created_at')
         return object_list
 
     def get_context_data(self, **kwargs):

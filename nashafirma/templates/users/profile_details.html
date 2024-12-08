@@ -18,11 +18,13 @@
         <p><strong class='profile-fields-field'>{% trans 'імя' %}</strong>: {{ user.username }}</p>
         <p><strong class='profile-fields-field'>{% trans 'email' %}</strong>: {{ user.email }}</p>
         <p><strong class='profile-fields-field'>{% trans 'тел' %}</strong>: {{ user.telephone_number }}</p>
-        {% if is_owner %}
-        <p></p><a class='text-edit' href="{% url 'profile_edit' pk=object.pk %}">{% trans 'Редагувати профіль' %}</a></p>
-        <p></p><a class='text-delete' href="{% url 'profile_delete' pk=object.pk %}">{% trans 'Видалити профіль' %}</a></p>
+        {% if is_owner or user.is_superuser %}
+        <p><a class='text-edit' href="{% url 'profile_edit' pk=object.pk %}">{% trans 'Редагувати профіль' %}</a></p>
         {% endif %}
-    </div>  
+        {% if user.is_superuser %}
+        <p><a class='text-delete' href="{% url 'profile_delete' pk=object.pk %}">{% trans 'Видалити профіль' %}</a></p>
+        {% endif %}
+    </div>
 </div>
 
 

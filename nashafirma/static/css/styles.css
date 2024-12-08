@@ -480,9 +480,10 @@ nav ul li {
 
 .profile-fields-img {
     text-align: center;
-    width: 150px;
+    width: 170px;
+    height: 160px;
     border: var(--brand-second-color) solid 1px;
-    border-radius: 420%;
+    border-radius: 30%;
 }
 
 .print {
@@ -610,13 +611,13 @@ table a {
 }
 
 .text-delete {
-    color: #f7f8bc;
+    color: #0098ff;
     font-size: 15px;
 } 
 
 .text-edit {
     font-size: 15px;
-    color: #63b1ff;
+    color: #97ccfa;
 }
 
 .note > .table-footer {

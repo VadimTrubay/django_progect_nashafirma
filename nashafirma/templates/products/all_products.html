@@ -3,7 +3,7 @@
 {% load i18n %}
 
 <h1 class='title-page'>{% trans 'Всі продукти' %}</h1>
-{% if request.user.username == 'admin' %}
+{% if request.user.is_superuser %}
     <p class='center font'><a href="{% url 'add_product' %}">{% trans '+ Додати новий продукт' %}</a></p>
     {% include 'products/admin_table_products.html' %}
 {% else %}
