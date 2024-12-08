@@ -20,4 +20,7 @@ class GetContextDataMixin:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = self.title
+        context["is_owner"] = False  # По умолчанию пользователь не является владельцем
+        if self.request.user.is_authenticated:
+            context["is_owner"] = True
         return context
